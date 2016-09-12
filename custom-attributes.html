@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Custom attributes</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <meta content='Discover how to push your custom attributes and adapt your Algolia ranking settings.' name='description'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
+    <!-- / Twitter card -->
+    <meta content='summary_large_image' name='twitter:card'>
+    <meta content='@Algolia' name='twitter:site'>
+    <meta content='@Algolia' name='twitter:creator'>
+    <meta content="Custom attributes - Algolia Search plugin for WordPress" name="twitter:title">
+    <meta content="Discover how to push your custom attributes and adapt your Algolia ranking settings." name="twitter:description">
+    <!--meta content="Algolia Product image" name="twitter:image"-->
+    <!-- / OG meta -->
+    <!--meta content='#' property='og:url'-->
+    <meta content='Custom attributes - Algolia Search plugin for WordPress' property='og:title'>
+    <meta content='article' property='og:type'>
+    <meta content='Discover how to push your custom attributes and adapt your Algolia ranking settings.' property='og:description'>
+    <meta content='Algolia Search plugin for WordPress' property='og:site_name'>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <meta name="description" content="Discover how to push your custom attributes and adapt your Algolia ranking settings.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
+    <link rel="stylesheet" href="css/app.css?v=1473677846936">
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <!-- at the end of the BODY -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+</head>
+<body class="">
+    <div class='ac-nav'>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class='ac-nav-container'>
+                    <div class='ac-nav-brand'>
+                        <a class='ac-logo' href='https://community.algolia.com/' title='Algolia Community'>
+                            <img alt='Algolia Community' class='ac-logo__lg' src='https://res.cloudinary.com/hilnmyskv/image/upload/logo-community-inline-dark.svg' width='150'>
+                            <img alt='Algolia Community' class='ac-logo__sm' src='https://res.cloudinary.com/hilnmyskv/image/upload/v1461180081/logo-community-sm.svg'>
+                        </a>
+                        <span class='ac-nav-brand-breadcrumb'></span>
+                        <a class='ac-nav-brand-title' href='./' title='Home'>WordPress plugin</a>
+                    </div>
+                    <div class='ac-nav-menu'>
+                        <div class='ac-nav-searchbox'>
+                            <div class='svg-icons' style='height: 0; width: 0; position: absolute; visibility: hidden'>
+                                <svg xmlns='http://www.w3.org/2000/svg'>
+                                    <symbol id="sbx-icon-clear-3" viewBox="0 0 40 40"><path d="M16.228 20L1.886 5.657 0 3.772 3.772 0l1.885 1.886L20 16.228 34.343 1.886 36.228 0 40 3.772l-1.886 1.885L23.772 20l14.342 14.343L40 36.228 36.228 40l-1.885-1.886L20 23.772 5.657 38.114 3.772 40 0 36.228l1.886-1.885L16.228 20z" fill-rule="evenodd"/></symbol>
+                                    <symbol id="sbx-icon-search-13" viewBox="0 0 12 12"><path d="M12 11.077c0-.245-.1-.483-.267-.65L9.26 7.955c.584-.843.894-1.853.894-2.877C10.154 2.272 7.882 0 5.077 0S0 2.272 0 5.077s2.272 5.077 5.077 5.077c1.024 0 2.034-.31 2.877-.894l2.474 2.466c.166.173.404.274.65.274.504 0 .922-.418.922-.923zm-3.692-6c0 1.78-1.45 3.23-3.23 3.23-1.782 0-3.232-1.45-3.232-3.23s1.45-3.23 3.23-3.23c1.782 0 3.232 1.45 3.232 3.23z" fill="#FFF" fill-rule="evenodd" opacity="0.85"/></symbol>
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class='ac-nav-menu-list'>
+                            <li class="ac-nav-menu-list-item">
+                                <a href="./" data-path="./" title="Home">Home</a>
+                            </li>
+                            <li class="ac-nav-menu-list-item active">
+                                <a href="installation.html" data-path="installation.html" title="Documentation">Documentation</a>
+                            </li>
+                            <li class="ac-nav-menu-list-item">
+                                <a href="frequently-asked-questions.html" data-path="frequently-asked-questions.html" title="FAQ">FAQ</a>
+                            </li>
+                            <li class='ac-nav-menu-list-icon'>
+                                <a class='ac-icon' href='https://github.com/algolia/algoliasearch-wordpress/' data-path="https://github.com/algolia/algoliasearch-wordpress/" title='GitHub repository'>
+                                    <span class='ac-icon ac-icon-github'></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<header id="top-section" class="doc-header">
+    <div class="row row-doc">
+        <div class="large-12 columns">
+            <a href="./">
+                <img class="header-logo" src="https://res.cloudinary.com/hilnmyskv/image/upload/logo-algolia-dark.png">
+            </a>
+            <p class="lead header-lead">
+                Plugin for
+                <span>WordPress</span>
+            </p>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    <div class="medium-9 large-9 medium-push-3 large-push-3 columns">
+
+        <article>
+            <div id="algolia-search">
+                <input type="text" id="algolia-search-input" placeholder="Search anywhere in the documentation...">
+                <svg id="search-icon" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M26.424 31.143a2 2 0 0 1 .004-2.824l1.12-1.12a2 2 0 0 1 2.824-.005l-3.948 3.948zm5.01-2.886l7.02 7.018a2 2 0 0 1 0 2.83l-1.12 1.12a2 2 0 0 1-2.83 0l-7.018-7.02 3.95-3.948zm-16.012 2.587c8.517 0 15.422-6.905 15.422-15.422S23.94 0 15.422 0 0 6.905 0 15.422s6.905 15.422 15.422 15.422zm0-3.856c6.388 0 11.566-5.178 11.566-11.566 0-6.388-5.178-11.567-11.566-11.567-6.388 0-11.567 5.18-11.567 11.567 0 6.388 5.18 11.566 11.567 11.566z" fill-rule="evenodd"/></svg>
+                <svg id="search-clear-icon"width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M16.228 20L1.886 5.657 0 3.772 3.772 0l1.885 1.886L20 16.228 34.343 1.886 36.228 0 40 3.772l-1.886 1.885L23.772 20l14.342 14.343L40 36.228 36.228 40l-1.885-1.886L20 23.772 5.657 38.114 3.772 40 0 36.228l1.886-1.885L16.228 20z" fill-rule="evenodd"/></svg>
+            </div>
+
+            <header>
+                <h1>Custom attributes</h1>
+
+                <p class="lead">Discover how to push your custom attributes and adapt your Algolia ranking settings.</p>
+            </header>
+
+            <hr>
+
+            <div class="row">
+                <div class="large-12 columns" id="content">
+                    <h2 id="introduction"><a class="heading-anchor" href="#introduction"><span></span></a>Introduction</h2>
+<p>By default, the plugin indexes some chosen attributes for each content type. The complete list can be found <a href="index-schema.html">here</a>.</p>
+<p>Sometimes, you may want to push additional attributes, and also adapt your ranking formula accordingly.</p>
+<p>To illustrate the many concepts involved in building a search based on custom data, let us guide you through a concrete example.</p>
+<h2 id="page-visits-matters-"><a class="heading-anchor" href="#page-visits-matters-"><span></span></a>Page Visits Matters!</h2>
+<p>Example: We want to consider the page visits count in the ranking formula for all the post types.</p>
+<p>In this example we will show you:</p>
+<ul>
+<li>How to bootstrap a plugin,</li>
+<li>A very naive way of counting page visits and keep track of a counter per post,</li>
+<li>How to append the post visits count to the data pushed to Algolia,</li>
+<li>How to override the default Ranking Formula to take into account the visits counter,</li>
+<li>How to secure the sensitive data,</li>
+<li>How to queue a re-indexing tasks at a given interval,</li>
+</ul>
+<h2 id="bootstrap-a-new-plugin"><a class="heading-anchor" href="#bootstrap-a-new-plugin"><span></span></a>Bootstrap A New Plugin</h2>
+<p>Let&apos;s say that our plugin is called &quot;Visits Matters&quot;.</p>
+<p>Create your plugin file <code>./wp-content/plugins/visitsmatters.php</code> with the following content:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/*
+Plugin Name: Visits Matters
+*/</span></code></pre>
+
+<p>Head to your WordPress admin panel and go enable your freshly created plugin.</p>
+<h2 id="count-page-visits"><a class="heading-anchor" href="#count-page-visits"><span></span></a>Count Page Visits</h2>
+<p>This is a very trivial way of counting visits, do not use this implementation on a production website which has a lot of traffic.</p>
+<p>Here is our little plugin code to be able to track visits.</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_increment_post_counter</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> ( ! is_singular() ) {
+        <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-variable">$post</span> = get_post();
+    vm_increment_post_visit_count( <span class="hljs-variable">$post</span>-&gt;ID );
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_get_post_visit_count</span><span class="hljs-params">( <span class="hljs-variable">$post_id</span> )</span> </span>{
+    <span class="hljs-keyword">return</span> (int) get_post_meta( <span class="hljs-variable">$post_id</span>, <span class="hljs-string">&apos;vm_visits_counter&apos;</span>, <span class="hljs-keyword">true</span> );
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_increment_post_visit_count</span><span class="hljs-params">( <span class="hljs-variable">$post_id</span> )</span> </span>{
+    <span class="hljs-variable">$visits_count</span> = vm_get_post_visit_count( <span class="hljs-variable">$post_id</span> );
+    update_post_meta( <span class="hljs-variable">$post_id</span>, <span class="hljs-string">&apos;vm_visits_counter&apos;</span>, (string) ++<span class="hljs-variable">$visits_count</span>, (string) --<span class="hljs-variable">$visits_count</span>);
+}
+
+add_filter( <span class="hljs-string">&apos;wp&apos;</span>, <span class="hljs-string">&apos;vm_increment_post_counter&apos;</span> );</code></pre>
+
+<p>We simply store the counter in a meta field attached to the post, and only increment that value when we are on a singular post page.</p>
+<p>We also prepared an easy way to get the current post visits count: <code>vm_get_post_visit_count</code>. This will be very handy when preparing the data for Algolia.</p>
+<h2 id="push-your-visits-count-to-algolia"><a class="heading-anchor" href="#push-your-visits-count-to-algolia"><span></span></a>Push Your Visits Count To Algolia</h2>
+<p>Now that we have a way to retrieve visits count for every post, let&apos;s add it to every Algolia post records.</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_post_shared_attributes</span><span class="hljs-params">( array <span class="hljs-variable">$shared_attributes</span>, WP_Post <span class="hljs-variable">$post</span>)</span> </span>{
+    <span class="hljs-variable">$shared_attributes</span>[<span class="hljs-string">&apos;visits_count&apos;</span>] = vm_get_post_visit_count( <span class="hljs-variable">$post</span>-&gt;ID );
+
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$shared_attributes</span>;
+}
+add_filter( <span class="hljs-string">&apos;algolia_post_shared_attributes&apos;</span>, <span class="hljs-string">&apos;vm_post_shared_attributes&apos;</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span> );</code></pre>
+
+<p>Now every time we prepare a record to be sent to Algolia, we will add the <code>visits_count</code> attribute.</p>
+<h2 id="adjust-ranking-formula"><a class="heading-anchor" href="#adjust-ranking-formula"><span></span></a>Adjust Ranking Formula</h2>
+<p>Now we want to tell Algolia to take into account the <code>visits_count</code> attribute for the relevancy calculation.</p>
+<p>This can be done easily with the <code>algolia_posts_index_settings</code> filter. If you are not familiar with overriding the settings, please read <a href="indexing-settings.html">this documentation page</a>.</p>
+<p>The default custom ranking is configured as follow:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">array</span>(
+    <span class="hljs-string">&apos;desc(is_sticky)&apos;</span>,
+    <span class="hljs-string">&apos;desc(post_date)&apos;</span>,
+);</code></pre>
+
+<p>To understand the best way to customize the custom ranking, please ensure you are familiar with <a href="https://www.algolia.com/doc/relevance/ranking#ranking-formula-a-tie-breaking-algorithm">Algolia&apos;s way of ranking with TIE breaking algorithm</a></p>
+<p>For this example, we&apos;ll keep it simple and simply insert our <code>visits_count</code> at the first position of the custom ranking rules.</p>
+<p>Again, be sure to understand what that means in terms of ranking. In a real case scenario, you might need to consider making different ranges of visit counts like:</p>
+<ul>
+<li>from 0 to 100 visits =&gt;  1</li>
+<li>from 0 to 500 visits =&gt;  2</li>
+<li>above 2000 visits    =&gt;  3</li>
+</ul>
+<p>The objective here is to allow next rules to still be considered by the breaking algorithm.</p>
+<p>Let&apos;s implement the settings adjustment:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_posts_index_settings</span><span class="hljs-params">( array <span class="hljs-variable">$settings</span> )</span> </span>{
+    <span class="hljs-variable">$custom_ranking</span> = <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;customRanking&apos;</span>];
+    array_unshift( <span class="hljs-variable">$custom_ranking</span>, <span class="hljs-string">&apos;desc(visits_count)&apos;</span> );
+    <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;customRanking&apos;</span>] = <span class="hljs-variable">$custom_ranking</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$settings</span>;
+}
+
+add_filter( <span class="hljs-string">&apos;algolia_posts_index_settings&apos;</span>, <span class="hljs-string">&apos;vm_posts_index_settings&apos;</span> );</code></pre>
+
+<h2 id="secure-your-sensitive-data"><a class="heading-anchor" href="#secure-your-sensitive-data"><span></span></a>Secure Your Sensitive Data</h2>
+<p>Everything you push to Algolia is securely stored. However, by default, when you perform your search queries on the frontend, every attribute is returned.</p>
+<p>Even if the data is not displayed on the page, someone could go and see the json payloads and get every data.</p>
+<p>Sometimes you want your ranking algorithm to take some sensitive data into account. We could easily imagine for example pushing product margins so that products that are more profitable will be ranked higher in the results.</p>
+<p>Let&apos;s assume that in our little example the <code>visits_count</code> is sensitive data and that we want to avoid returning it as part of the search query result.</p>
+<p>Here we adjust our settings:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_posts_index_settings</span><span class="hljs-params">( array <span class="hljs-variable">$settings</span> )</span> </span>{
+    <span class="hljs-variable">$custom_ranking</span> = <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;customRanking&apos;</span>];
+    array_unshift( <span class="hljs-variable">$custom_ranking</span>, <span class="hljs-string">&apos;desc(visits_count)&apos;</span> );
+    <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;customRanking&apos;</span>] = <span class="hljs-variable">$custom_ranking</span>;
+
+    <span class="hljs-comment">// Protect our sensitive data.</span>
+    <span class="hljs-variable">$protected_attributes</span> = <span class="hljs-keyword">array</span>();
+    <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">isset</span>( <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;unretrievableAttributes&apos;</span>] ) ) {
+        <span class="hljs-comment">// Ensure we merge our values with the existing ones if available.</span>
+        <span class="hljs-variable">$protected_attributes</span> = <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;unretrievableAttributes&apos;</span>];
+    }
+    <span class="hljs-variable">$protected_attributes</span>[] = <span class="hljs-string">&apos;visits_count&apos;</span>;
+    <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;unretrievableAttributes&apos;</span>] = <span class="hljs-variable">$protected_attributes</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$settings</span>;
+}</code></pre>
+
+<div class="alert alert-warning">After making changes to settings, you need to re-index the indices. To do so, simply click on the <code>Re-index everything</code> button on the <code>Indexing</code> admin page of this plugin:</div>
+
+<p><img src="img/custom-attributes/re-index-everything.png" alt="Re-index everything button"></p>
+<p>Your data is now safely stored in Algolia, used in the ranking formula but un-retrievable from the frontend!</p>
+<h2 id="sync-data-with-algolia"><a class="heading-anchor" href="#sync-data-with-algolia"><span></span></a>Sync data with Algolia</h2>
+<p>We now have everything ready, the only missing part is to sync the posts with Algolia.</p>
+<p>2 possible ways to achive this would be:</p>
+<ol>
+<li>Listen for the WordPress <code>updated_post_meta</code> action hook, and queue a <code>sync_post</code> task every time a new visit has been noticed</li>
+<li>Schedule a re-index task at a given interval</li>
+</ol>
+<p>In this case, we certainly do not want to trigger a sync task every time a visitor accesses a page of your website. So let&apos;s follow the second path.</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-comment">// Queues re-indexation of every post type.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_re_index_posts</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">/** <span class="hljs-doctag">@var</span> Algolia_Plugin $algolia */</span>
+    <span class="hljs-keyword">global</span> <span class="hljs-variable">$algolia</span>;
+
+    <span class="hljs-variable">$task_queue</span> = <span class="hljs-variable">$algolia</span>-&gt;get_task_queue();
+
+    <span class="hljs-variable">$indices</span> = <span class="hljs-variable">$algolia</span>-&gt;get_indices( <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;enabled&apos;</span> =&gt; <span class="hljs-keyword">true</span>,
+        <span class="hljs-string">&apos;contains&apos;</span> =&gt; <span class="hljs-string">&apos;posts&apos;</span>,
+    ) );
+    <span class="hljs-keyword">foreach</span> ( <span class="hljs-variable">$indices</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$index</span> ) {
+        <span class="hljs-variable">$task_queue</span>-&gt;queue( <span class="hljs-string">&apos;re_index_items&apos;</span>, <span class="hljs-keyword">array</span>( <span class="hljs-string">&apos;index_id&apos;</span> =&gt; <span class="hljs-variable">$index</span>-&gt;get_id() ) );
+    }
+}
+<span class="hljs-comment">// This action is required for wp_schedule_event binding.</span>
+add_action( <span class="hljs-string">&apos;vm_re_index_posts&apos;</span>, <span class="hljs-string">&apos;vm_re_index_posts&apos;</span> );
+
+
+<span class="hljs-comment">// Registers the recurring vm_re_index_posts event.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wp_register_re_index_posts</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> ( ! wp_next_scheduled( <span class="hljs-string">&apos;vm_re_index_posts&apos;</span> ) ) {
+        wp_schedule_event( time(), <span class="hljs-string">&apos;daily&apos;</span>, <span class="hljs-string">&apos;vm_re_index_posts&apos;</span> );
+    }
+}
+
+<span class="hljs-comment">// Only register the event on WordPress init.</span>
+add_action( <span class="hljs-string">&apos;init&apos;</span>, <span class="hljs-string">&apos;wp_register_re_index_posts&apos;</span> );</code></pre>
+
+<p>We now have a fully functional plugin that will force a re-indexation of all post types every day.</p>
+<h2 id="complete-plugin-code"><a class="heading-anchor" href="#complete-plugin-code"><span></span></a>Complete Plugin Code</h2>
+<p>Here is the complete plugin source code:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/*
+Plugin Name: Visits Matters
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_increment_post_counter</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> ( ! is_singular() ) {
+        <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-variable">$post</span> = get_post();
+    vm_increment_post_visit_count( <span class="hljs-variable">$post</span>-&gt;ID );
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_get_post_visit_count</span><span class="hljs-params">( <span class="hljs-variable">$post_id</span> )</span> </span>{
+    <span class="hljs-keyword">return</span> (int) get_post_meta( <span class="hljs-variable">$post_id</span>, <span class="hljs-string">&apos;vm_visits_counter&apos;</span>, <span class="hljs-keyword">true</span> );
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_increment_post_visit_count</span><span class="hljs-params">( <span class="hljs-variable">$post_id</span> )</span> </span>{
+    <span class="hljs-variable">$visits_count</span> = vm_get_post_visit_count( <span class="hljs-variable">$post_id</span> );
+    update_post_meta( <span class="hljs-variable">$post_id</span>, <span class="hljs-string">&apos;vm_visits_counter&apos;</span>, (string) ++<span class="hljs-variable">$visits_count</span>, (string) --<span class="hljs-variable">$visits_count</span>);
+}
+
+add_filter( <span class="hljs-string">&apos;wp&apos;</span>, <span class="hljs-string">&apos;vm_increment_post_counter&apos;</span> );
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_post_shared_attributes</span><span class="hljs-params">( array <span class="hljs-variable">$shared_attributes</span>, WP_Post <span class="hljs-variable">$post</span>)</span> </span>{
+    <span class="hljs-variable">$shared_attributes</span>[<span class="hljs-string">&apos;visits_count&apos;</span>] = vm_get_post_visit_count( <span class="hljs-variable">$post</span>-&gt;ID );
+
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$shared_attributes</span>;
+}
+add_filter( <span class="hljs-string">&apos;algolia_post_shared_attributes&apos;</span>, <span class="hljs-string">&apos;vm_post_shared_attributes&apos;</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span> );
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_posts_index_settings</span><span class="hljs-params">( array <span class="hljs-variable">$settings</span> )</span> </span>{
+    <span class="hljs-variable">$custom_ranking</span> = <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;customRanking&apos;</span>];
+    array_unshift( <span class="hljs-variable">$custom_ranking</span>, <span class="hljs-string">&apos;desc(visits_count)&apos;</span> );
+    <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;customRanking&apos;</span>] = <span class="hljs-variable">$custom_ranking</span>;
+
+    <span class="hljs-comment">// Protect our sensitive data.</span>
+    <span class="hljs-variable">$protected_attributes</span> = <span class="hljs-keyword">array</span>();
+    <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">isset</span>( <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;unretrievableAttributes&apos;</span>] ) ) {
+        <span class="hljs-comment">// Ensure we merge our values with the existing ones if available.</span>
+        <span class="hljs-variable">$protected_attributes</span> = <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;unretrievableAttributes&apos;</span>];
+    }
+    <span class="hljs-variable">$protected_attributes</span>[] = <span class="hljs-string">&apos;visits_count&apos;</span>;
+    <span class="hljs-variable">$settings</span>[<span class="hljs-string">&apos;unretrievableAttributes&apos;</span>] = <span class="hljs-variable">$protected_attributes</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$settings</span>;
+}
+
+add_filter( <span class="hljs-string">&apos;algolia_posts_index_settings&apos;</span>, <span class="hljs-string">&apos;vm_posts_index_settings&apos;</span> );
+
+
+<span class="hljs-comment">// Queues re-indexation of every post type.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vm_re_index_posts</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">/** <span class="hljs-doctag">@var</span> Algolia_Plugin $algolia */</span>
+    <span class="hljs-keyword">global</span> <span class="hljs-variable">$algolia</span>;
+
+    <span class="hljs-variable">$task_queue</span> = <span class="hljs-variable">$algolia</span>-&gt;get_task_queue();
+
+    <span class="hljs-variable">$indices</span> = <span class="hljs-variable">$algolia</span>-&gt;get_indices( <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;enabled&apos;</span> =&gt; <span class="hljs-keyword">true</span>,
+        <span class="hljs-string">&apos;contains&apos;</span> =&gt; <span class="hljs-string">&apos;posts&apos;</span>,
+    ) );
+    <span class="hljs-keyword">foreach</span> ( <span class="hljs-variable">$indices</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$index</span> ) {
+        <span class="hljs-variable">$task_queue</span>-&gt;queue( <span class="hljs-string">&apos;re_index_items&apos;</span>, <span class="hljs-keyword">array</span>( <span class="hljs-string">&apos;index_id&apos;</span> =&gt; <span class="hljs-variable">$index</span>-&gt;get_id() ) );
+    }
+}
+<span class="hljs-comment">// This action is required for wp_schedule_event binding.</span>
+add_action( <span class="hljs-string">&apos;vm_re_index_posts&apos;</span>, <span class="hljs-string">&apos;vm_re_index_posts&apos;</span> );
+
+
+<span class="hljs-comment">// Registers the recurring vm_re_index_posts event.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wp_register_re_index_posts</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> ( ! wp_next_scheduled( <span class="hljs-string">&apos;vm_re_index_posts&apos;</span> ) ) {
+        wp_schedule_event( time(), <span class="hljs-string">&apos;daily&apos;</span>, <span class="hljs-string">&apos;vm_re_index_posts&apos;</span> );
+    }
+}
+
+<span class="hljs-comment">// Only register the event on WordPress init.</span>
+add_action( <span class="hljs-string">&apos;init&apos;</span>, <span class="hljs-string">&apos;wp_register_re_index_posts&apos;</span> );</code></pre>
+                </div>
+            </div>
+
+            <ul class="menu simple text-center">
+                <li><a href="https://github.com/algolia/algoliasearch-wordpress/edit/master/docs/src/custom-attributes.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-wordpress/issues/new?title=%5BCustom attributes%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
+                <li><a href="http://stackoverflow.com/questions/tagged/algolia+wordpress" target="_blank"><i class="fi-comment"></i> <span>Get Help</span></a></li>
+            </ul>
+        </article>
+    </div>
+
+    <div class="medium-3 large-3 medium-pull-9 large-pull-9 columns">
+        <ul class="vertical menu" id="main-nav">
+
+            <li class="menu-text">Getting Started</li>
+            <li ><a href="installation.html">Installation</a></li>
+            <li ><a href="configuration.html">Configuration</a></li>
+            <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
+            <li ><a href="customize-search-page.html">Customize Search Page</a></li>
+
+            <li class="menu-text">Indexing</li>
+            <li ><a href="index-schema.html">Schemas</a></li>
+            <li ><a href="indexing-settings.html">Settings</a></li>
+            <li ><a href="indexing-flow.html">Automated Sync.</a></li>
+            <li ><a href="synonyms.html">Synonyms</a></li>
+            <li class="active"><a href="custom-attributes.html">Custom Attributes</a></li>
+            <li ><a href="replicas.html">Index Replicas</a></li>
+
+            <li class="menu-text">Extend</li>
+            <li ><a href="extend-basics.html">Basics</a></li>
+
+            <li class="menu-text">Debugging</li>
+            <li ><a href="logs.html">Logs</a></li>
+
+            <li class="menu-text">Integrations</li>
+            <li ><a href="advanced-custom-fields.html">Advanced Custom Fields</a></li>
+            <li ><a href="wpml.html">WPML</a></li>
+
+            <li class="menu-text">Other</li>
+            <li ><a href="internationalization.html">Internationalization</a></li>
+            <li ><a href="resources.html">Additional Resources</a></li>
+            <li ><a href="contribute.html">Contribute</a></li>
+            <li ><a href="frequently-asked-questions.html">FAQ</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<section class="ac-footer">
+  <div class="ac-footer-container">
+    <p class="ac-footer-links">
+      Code licensed under
+      <a href="#" class="ac-footer-link-item">MIT</a>
+      <br>
+      <a href="#" class="ac-footer-link-item">Github</a>
+      <a href="#" class="ac-footer-link-item">issues</a>
+      <a class="ac-footer-link-item" href="https://www.algolia.com/policies/privacy">Privacy policy</a>
+    </p>
+  </div>
+
+    <div class="ac-footer-container ac-footer-brand">
+        <p>This project is part of</p>
+        <img class="ac-footer-brand-icon" src="https://res.cloudinary.com/hilnmyskv/image/upload/logo-community.svg">
+        <figure>
+            <img class="ac-footer-brand-logo" src="https://res.cloudinary.com/hilnmyskv/image/upload/v1463417234/algolia-community_n6tixd.svg">
+            <figcaption>Algolia Community</figcaption>
+        </figure>
+        <a href="https://community.algolia.com/" class="ac-footer-btn ac-footer-btn-cta">See More</a>
+        <span class="ac-icon ac-icon-love-dark"></span>
+    </div>
+
+    <p class="ac-footer-version">Latest version: 0.6.0</p>
+
+    <div class="ac-footer-actions">
+        <div class="footer-container">
+            <p>Build unique search experiences with Algolia</p>
+            <a href="https://www.algolia.com/why?utm_medium=social-owned&utm_source=wordpress%20website&utm_campaign=homepage&utm_term=why" class="ac-footer-btn ac-footer-btn-ghost-grey">
+                See Why
+                <span class="ac-icon-triangle"></span>
+            </a>
+            <a href="https://www.algolia.com/users/sign_up?utm_medium=social-owned&utm_source=wordpress%20website&utm_campaign=homepage&utm_term=get_started" class="ac-footer-btn ac-footer-btn-ghost-pink">Get Started For Free</a>
+        </div>
+    </div>
+</section>
+
+        <script src="vendor/jquery/jquery.js"></script>
+        <script src="vendor/foundation-sites/foundation.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/responsiveNavigation.js"></script>
+        
+        
+    <!-- GA -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32446386-12', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N8JP8G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8JP8G');</script>
+<!-- Twitter -->
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('ntr1j', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntr1j&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0">
+  <img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntr1j&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0">
+</noscript>
+<!-- Facebook -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1654938174769952');
+  fbq('track', "PageView");</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654938174769952&amp;ev=PageView&amp;noscript=1">
+</noscript>
+<!-- Addroll -->
+<script type="text/javascript">
+  adroll_adv_id = "TGR7R4XSGVGYVPX4LQBDFQ";
+  adroll_pix_id = "YQNWNHGUUBD2JMY7BVOBWM";
+  // adroll_email = "username@example.com"; // OPTIONAL: provide email to improve user identification
+  (function () {
+    var _onload = function(){
+      if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+      if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+      var scr = document.createElement("script");
+      var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+      scr.setAttribute('async', 'true');
+      scr.type = "text/javascript";
+      scr.src = host + "/j/roundtrip.js";
+      ((document.getElementsByTagName('head') || [null])[0] ||
+        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+    };
+    if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+    else {window.attachEvent('onload', _onload)}
+  }());
+</script>
+    
+
+        <script type="text/javascript">
+            var $searchInput = $("#algolia-search-input");
+            if ( $searchInput.length > 0 ) {
+                var $searchIcon = $("#search-icon");
+                var $clearIcon = $("#search-clear-icon");
+
+                var myDocsearch = docsearch({
+                    apiKey: '52641df1ce4919ba42eb84595f4825c7',
+                    indexName: 'wordpress_algolia',
+                    inputSelector: '#algolia-search-input',
+                    debug: false, // Set debug to true if you want to inspect the dropdown
+                    autocompleteOptions: {
+                        openOnFocus: true
+                    }
+
+                });
+
+                $clearIcon.on("click", function() {
+                    $(".aa-input").focus();
+                    $clearIcon.hide();
+                    $searchIcon.fadeIn();
+                    myDocsearch.autocomplete.autocomplete.setVal("");
+                });
+
+                $searchInput.on("keyup", function() {
+                    if ($searchInput.val().length === 0){
+                        $clearIcon.hide();
+                        $searchIcon.fadeIn();
+                    } else {
+                        $searchIcon.hide();
+                        $clearIcon.fadeIn();
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

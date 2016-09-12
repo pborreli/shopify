@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>The basics for extending Algolia Search for WordPress</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <meta content='Discover the best way to extend the plugin to customize the behaviour.' name='description'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
+    <!-- / Twitter card -->
+    <meta content='summary_large_image' name='twitter:card'>
+    <meta content='@Algolia' name='twitter:site'>
+    <meta content='@Algolia' name='twitter:creator'>
+    <meta content="The basics for extending Algolia Search for WordPress - Algolia Search plugin for WordPress" name="twitter:title">
+    <meta content="Discover the best way to extend the plugin to customize the behaviour." name="twitter:description">
+    <!--meta content="Algolia Product image" name="twitter:image"-->
+    <!-- / OG meta -->
+    <!--meta content='#' property='og:url'-->
+    <meta content='The basics for extending Algolia Search for WordPress - Algolia Search plugin for WordPress' property='og:title'>
+    <meta content='article' property='og:type'>
+    <meta content='Discover the best way to extend the plugin to customize the behaviour.' property='og:description'>
+    <meta content='Algolia Search plugin for WordPress' property='og:site_name'>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <meta name="description" content="Discover the best way to extend the plugin to customize the behaviour.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
+    <link rel="stylesheet" href="css/app.css?v=1473677846936">
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <!-- at the end of the BODY -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+</head>
+<body class="">
+    <div class='ac-nav'>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class='ac-nav-container'>
+                    <div class='ac-nav-brand'>
+                        <a class='ac-logo' href='https://community.algolia.com/' title='Algolia Community'>
+                            <img alt='Algolia Community' class='ac-logo__lg' src='https://res.cloudinary.com/hilnmyskv/image/upload/logo-community-inline-dark.svg' width='150'>
+                            <img alt='Algolia Community' class='ac-logo__sm' src='https://res.cloudinary.com/hilnmyskv/image/upload/v1461180081/logo-community-sm.svg'>
+                        </a>
+                        <span class='ac-nav-brand-breadcrumb'></span>
+                        <a class='ac-nav-brand-title' href='./' title='Home'>WordPress plugin</a>
+                    </div>
+                    <div class='ac-nav-menu'>
+                        <div class='ac-nav-searchbox'>
+                            <div class='svg-icons' style='height: 0; width: 0; position: absolute; visibility: hidden'>
+                                <svg xmlns='http://www.w3.org/2000/svg'>
+                                    <symbol id="sbx-icon-clear-3" viewBox="0 0 40 40"><path d="M16.228 20L1.886 5.657 0 3.772 3.772 0l1.885 1.886L20 16.228 34.343 1.886 36.228 0 40 3.772l-1.886 1.885L23.772 20l14.342 14.343L40 36.228 36.228 40l-1.885-1.886L20 23.772 5.657 38.114 3.772 40 0 36.228l1.886-1.885L16.228 20z" fill-rule="evenodd"/></symbol>
+                                    <symbol id="sbx-icon-search-13" viewBox="0 0 12 12"><path d="M12 11.077c0-.245-.1-.483-.267-.65L9.26 7.955c.584-.843.894-1.853.894-2.877C10.154 2.272 7.882 0 5.077 0S0 2.272 0 5.077s2.272 5.077 5.077 5.077c1.024 0 2.034-.31 2.877-.894l2.474 2.466c.166.173.404.274.65.274.504 0 .922-.418.922-.923zm-3.692-6c0 1.78-1.45 3.23-3.23 3.23-1.782 0-3.232-1.45-3.232-3.23s1.45-3.23 3.23-3.23c1.782 0 3.232 1.45 3.232 3.23z" fill="#FFF" fill-rule="evenodd" opacity="0.85"/></symbol>
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class='ac-nav-menu-list'>
+                            <li class="ac-nav-menu-list-item">
+                                <a href="./" data-path="./" title="Home">Home</a>
+                            </li>
+                            <li class="ac-nav-menu-list-item active">
+                                <a href="installation.html" data-path="installation.html" title="Documentation">Documentation</a>
+                            </li>
+                            <li class="ac-nav-menu-list-item">
+                                <a href="frequently-asked-questions.html" data-path="frequently-asked-questions.html" title="FAQ">FAQ</a>
+                            </li>
+                            <li class='ac-nav-menu-list-icon'>
+                                <a class='ac-icon' href='https://github.com/algolia/algoliasearch-wordpress/' data-path="https://github.com/algolia/algoliasearch-wordpress/" title='GitHub repository'>
+                                    <span class='ac-icon ac-icon-github'></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<header id="top-section" class="doc-header">
+    <div class="row row-doc">
+        <div class="large-12 columns">
+            <a href="./">
+                <img class="header-logo" src="https://res.cloudinary.com/hilnmyskv/image/upload/logo-algolia-dark.png">
+            </a>
+            <p class="lead header-lead">
+                Plugin for
+                <span>WordPress</span>
+            </p>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    <div class="medium-9 large-9 medium-push-3 large-push-3 columns">
+
+        <article>
+            <div id="algolia-search">
+                <input type="text" id="algolia-search-input" placeholder="Search anywhere in the documentation...">
+                <svg id="search-icon" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M26.424 31.143a2 2 0 0 1 .004-2.824l1.12-1.12a2 2 0 0 1 2.824-.005l-3.948 3.948zm5.01-2.886l7.02 7.018a2 2 0 0 1 0 2.83l-1.12 1.12a2 2 0 0 1-2.83 0l-7.018-7.02 3.95-3.948zm-16.012 2.587c8.517 0 15.422-6.905 15.422-15.422S23.94 0 15.422 0 0 6.905 0 15.422s6.905 15.422 15.422 15.422zm0-3.856c6.388 0 11.566-5.178 11.566-11.566 0-6.388-5.178-11.567-11.566-11.567-6.388 0-11.567 5.18-11.567 11.567 0 6.388 5.18 11.566 11.567 11.566z" fill-rule="evenodd"/></svg>
+                <svg id="search-clear-icon"width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M16.228 20L1.886 5.657 0 3.772 3.772 0l1.885 1.886L20 16.228 34.343 1.886 36.228 0 40 3.772l-1.886 1.885L23.772 20l14.342 14.343L40 36.228 36.228 40l-1.885-1.886L20 23.772 5.657 38.114 3.772 40 0 36.228l1.886-1.885L16.228 20z" fill-rule="evenodd"/></svg>
+            </div>
+
+            <header>
+                <h1>The basics for extending Algolia Search for WordPress</h1>
+
+                <p class="lead">Discover the best way to extend the plugin to customize the behaviour.</p>
+            </header>
+
+            <hr>
+
+            <div class="row">
+                <div class="large-12 columns" id="content">
+                    <h2 id="how-to-extend"><a class="heading-anchor" href="#how-to-extend"><span></span></a>How To Extend</h2>
+<p>The plugin has been built with extensibility in mind. We have tried to wisely integrate <code>filters</code> and <code>actions</code>.</p>
+<div class="alert alert-warning">You should never modify files inside the <code>wp-content/plugins</code> directory. If you find yourself in a situation where you require to hack the plugin, let us know so that we can improve the plugin.</div>
+
+<h2 id="create-your-custom-plugin"><a class="heading-anchor" href="#create-your-custom-plugin"><span></span></a>Create your Custom Plugin</h2>
+<p>Your first step is to create your own plugin. You can find <a href="https://developer.wordpress.org/plugins/the-basics/">detailed explanation on how to create a WordPress plugin here</a>.</p>
+<p>You can also simply create a file <code>my-blog.php</code> like this:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/*
+Plugin Name: My Blog
+*/</span></code></pre>
+
+<p>Then you should be able to enable that plugin from your WordPress admin panel.</p>
+<p>You can now hook into the Algolia Search for WordPress plugin!</p>
+<h2 id="extend-from-a-theme"><a class="heading-anchor" href="#extend-from-a-theme"><span></span></a>Extend from a theme</h2>
+<p>Every theme contains a <code>functions.php</code> file where you can also extend the Algolia Search plugin.</p>
+<p>If you choose to use your theme files to extend the plugin, please consider creating a child theme so that you can update your theme
+without loosing your changes.</p>
+<p>You can read more about <a href="https://codex.wordpress.org/Child_Themes">child themes in the official documentation</a>.</p>
+<h2 id="filters"><a class="heading-anchor" href="#filters"><span></span></a>Filters</h2>
+<p>Filters are a way to alter data during the lifecycle of a request. The idea is simple: you listen for a filter to be called by using <code>add_filter</code>, you edit your data and return it modified.</p>
+<h2 id="filter-example"><a class="heading-anchor" href="#filter-example"><span></span></a>Filter Example</h2>
+<p>The plugin has a blacklist mechanism to not display certain post types in the admin UI.
+By default, we disabled the following post types to appear:</p>
+<ul>
+<li>nav_menu_item</li>
+<li>revision</li>
+<li>algolia_task</li>
+<li>algolia_log</li>
+<li>kr_request_token</li>
+<li>kr_access_token</li>
+<li>deprecated_log</li>
+<li>async-scan-result</li>
+<li>scanresult</li>
+</ul>
+<p>Let&apos;s say that you have a your plugin introducing some custom content types, but these are meant to be used internally and you don&apos;t want to expose them for indexing.</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mb_blacklist_custom_post_type</span><span class="hljs-params">( array <span class="hljs-variable">$blacklist</span> )</span> </span>{
+    <span class="hljs-variable">$blacklist</span>[] = <span class="hljs-string">&apos;custom_post_type&apos;</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$blacklist</span>;
+}
+
+add_filter( <span class="hljs-string">&apos;algolia_post_types_blacklist&apos;</span>, <span class="hljs-string">&apos;mb_blacklist_custom_post_type&apos;</span> );</code></pre>
+
+<p>Your custom_post_type will no longer appear for indexing in the indexing screen.
+This will also disable tasks being generated for that content type.</p>
+<h2 id="filters-reference"><a class="heading-anchor" href="#filters-reference"><span></span></a>Filters Reference</h2>
+<p>Here is the list of all available Filters.</p>
+<table>
+<thead>
+<tr>
+<th>Filter Name</th>
+<th>Params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>algolia_autocomplete_config</td>
+<td>$config</td>
+</tr>
+<tr>
+<td>algolia_post_types_blacklist</td>
+<td>array $blacklist, defaults to array( &apos;nav_menu_item&apos;, revision&apos; )</td>
+</tr>
+<tr>
+<td>algolia_taxonomies_blacklist</td>
+<td>array $blacklist, defaults to array( &apos;nav_menu&apos;, link_category&apos;, &apos;post_format&apos; )</td>
+</tr>
+<tr>
+<td>algolia_should_index_searchable_post</td>
+<td>bool $should_index, WP_Post $post</td>
+</tr>
+<tr>
+<td>algolia_searchable_post_parser</td>
+<td>Algolia\DOMParser $parser</td>
+</tr>
+<tr>
+<td>algolia_searchable_post_{$post_type}_shared_attributes</td>
+<td>array $shared_attributes, WP_Post $post</td>
+</tr>
+<tr>
+<td>algolia_searchable_posts_index_settings</td>
+<td>array $settings</td>
+</tr>
+<tr>
+<td>algolia_searchable_post_shared_attributes</td>
+<td>array $shared_attributes, WP_Post $post</td>
+</tr>
+<tr>
+<td>algolia_searchable_posts_index_synonyms</td>
+<td>array $synonyms</td>
+</tr>
+<tr>
+<td>algolia_should_index_post</td>
+<td>bool $should_index, WP_Post $post</td>
+</tr>
+<tr>
+<td>algolia_post_parser</td>
+<td>Algolia\DOMParser $parser</td>
+</tr>
+<tr>
+<td>algolia_post_shared_attributes</td>
+<td>array $shared_attributes, WP_Post $post</td>
+</tr>
+<tr>
+<td>algolia_post_{$post_type}_shared_attributes</td>
+<td>array $shared_attributes, WP_Post $post</td>
+</tr>
+<tr>
+<td>algolia_posts_index_settings</td>
+<td>array $settings, string $post_type</td>
+</tr>
+<tr>
+<td>algolia_posts_{$post_type}_index_settings</td>
+<td>array $settings</td>
+</tr>
+<tr>
+<td>algolia_posts_index_synonyms</td>
+<td>array $synonyms, string $post_type</td>
+</tr>
+<tr>
+<td>algolia_posts_{$post_type}_index_synonyms</td>
+<td>array $synonyms</td>
+</tr>
+<tr>
+<td>algolia_should_index_term</td>
+<td>bool $should_index, WP_Term/object $term</td>
+</tr>
+<tr>
+<td>algolia_term_record</td>
+<td>array $record, WP_Term/object$term</td>
+</tr>
+<tr>
+<td>algolia_term_{$taxonomy}_record</td>
+<td>array $record, WP_Term/object $term</td>
+</tr>
+<tr>
+<td>algolia_terms_index_settings</td>
+<td>array $settings</td>
+</tr>
+<tr>
+<td>algolia_terms_{$taxonomy}_index_settings</td>
+<td>array $settings</td>
+</tr>
+<tr>
+<td>algolia_terms_index_synonyms</td>
+<td>array $synonyms, string $taxonomy</td>
+</tr>
+<tr>
+<td>algolia_terms_{$taxonomy}_index_synonyms</td>
+<td>array $synonyms</td>
+</tr>
+<tr>
+<td>algolia_should_index_user</td>
+<td>bool $should_index, WP_User $user</td>
+</tr>
+<tr>
+<td>algolia_user_record</td>
+<td>array $record, WP_User $user</td>
+</tr>
+<tr>
+<td>algolia_users_index_settings</td>
+<td>array $settings</td>
+</tr>
+<tr>
+<td>algolia_users_index_synonyms</td>
+<td>array $synonyms</td>
+</tr>
+<tr>
+<td>algolia_index_replicas</td>
+<td>array $replicas, Algolia_Index $index</td>
+</tr>
+<tr>
+<td>algolia_{$index_id}_index_replicas</td>
+<td>array $replicas, Algolia_Index $index</td>
+</tr>
+<tr>
+<td>algolia_config</td>
+<td>array $config</td>
+</tr>
+<tr>
+<td>algolia_task_queue_lock_ttl</td>
+<td>int $ttl</td>
+</tr>
+<tr>
+<td>algolia_searchable_posts_indexing_batch_size</td>
+<td>int $batch_size</td>
+</tr>
+<tr>
+<td>algolia_posts_indexing_batch_size</td>
+<td>int $batch_size</td>
+</tr>
+<tr>
+<td>algolia_terms_indexing_batch_size</td>
+<td>int $batch_size</td>
+</tr>
+<tr>
+<td>algolia_users_indexing_batch_size</td>
+<td>int $batch_size</td>
+</tr>
+<tr>
+<td>algolia_logs_per_page</td>
+<td>int $logs_per_page</td>
+</tr>
+</tbody>
+</table>
+<h2 id="actions"><a class="heading-anchor" href="#actions"><span></span></a>Actions</h2>
+<p>Actions are a way to execute something at a given point in time or after something happened.</p>
+<h2 id="action-example"><a class="heading-anchor" href="#action-example"><span></span></a>Action Example</h2>
+<p>Let&apos;s say we want to log every post indexing task.</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mb_log_posts_index_updated</span><span class="hljs-params">( <span class="hljs-variable">$post</span> )</span> </span>{
+    <span class="hljs-variable">$log</span> = print_r( <span class="hljs-variable">$post</span>-&gt;to_array(), <span class="hljs-keyword">true</span> );
+    file_put_contents( <span class="hljs-string">&apos;../mb_logs.txt&apos;</span>, <span class="hljs-variable">$log</span>, FILE_APPEND );
+}
+
+add_action( <span class="hljs-string">&apos;algolia_posts_index_post_updated&apos;</span>, <span class="hljs-string">&apos;mb_log_post_index_updated&apos;</span> );</code></pre>
+
+<p>Note that an action does not need to return anything. If it does, it will be ignored anyway.</p>
+<p>In this example, we would simply log an array representation of the post that has been re-indexed.</p>
+<h2 id="actions-reference"><a class="heading-anchor" href="#actions-reference"><span></span></a>Actions Reference</h2>
+<p>Here is the list of all available Actions.</p>
+<table>
+<thead>
+<tr>
+<th>Action Name</th>
+<th>Params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>algolia_re_indexed_items</td>
+<td>string $index_id</td>
+</tr>
+<tr>
+<td>algolia_de_indexed_items</td>
+<td>string $index_id</td>
+</tr>
+<tr>
+<td>algolia_autocomplete_scripts</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td>algolia_instantsearch_scripts</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td>algolia_task_handled</td>
+<td>WP_Post $task</td>
+</tr>
+</tbody>
+</table>
+
+                </div>
+            </div>
+
+            <ul class="menu simple text-center">
+                <li><a href="https://github.com/algolia/algoliasearch-wordpress/edit/master/docs/src/extend-basics.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-wordpress/issues/new?title=%5BThe basics for extending Algolia Search for WordPress%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
+                <li><a href="http://stackoverflow.com/questions/tagged/algolia+wordpress" target="_blank"><i class="fi-comment"></i> <span>Get Help</span></a></li>
+            </ul>
+        </article>
+    </div>
+
+    <div class="medium-3 large-3 medium-pull-9 large-pull-9 columns">
+        <ul class="vertical menu" id="main-nav">
+
+            <li class="menu-text">Getting Started</li>
+            <li ><a href="installation.html">Installation</a></li>
+            <li ><a href="configuration.html">Configuration</a></li>
+            <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
+            <li ><a href="customize-search-page.html">Customize Search Page</a></li>
+
+            <li class="menu-text">Indexing</li>
+            <li ><a href="index-schema.html">Schemas</a></li>
+            <li ><a href="indexing-settings.html">Settings</a></li>
+            <li ><a href="indexing-flow.html">Automated Sync.</a></li>
+            <li ><a href="synonyms.html">Synonyms</a></li>
+            <li ><a href="custom-attributes.html">Custom Attributes</a></li>
+            <li ><a href="replicas.html">Index Replicas</a></li>
+
+            <li class="menu-text">Extend</li>
+            <li class="active"><a href="extend-basics.html">Basics</a></li>
+
+            <li class="menu-text">Debugging</li>
+            <li ><a href="logs.html">Logs</a></li>
+
+            <li class="menu-text">Integrations</li>
+            <li ><a href="advanced-custom-fields.html">Advanced Custom Fields</a></li>
+            <li ><a href="wpml.html">WPML</a></li>
+
+            <li class="menu-text">Other</li>
+            <li ><a href="internationalization.html">Internationalization</a></li>
+            <li ><a href="resources.html">Additional Resources</a></li>
+            <li ><a href="contribute.html">Contribute</a></li>
+            <li ><a href="frequently-asked-questions.html">FAQ</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<section class="ac-footer">
+  <div class="ac-footer-container">
+    <p class="ac-footer-links">
+      Code licensed under
+      <a href="#" class="ac-footer-link-item">MIT</a>
+      <br>
+      <a href="#" class="ac-footer-link-item">Github</a>
+      <a href="#" class="ac-footer-link-item">issues</a>
+      <a class="ac-footer-link-item" href="https://www.algolia.com/policies/privacy">Privacy policy</a>
+    </p>
+  </div>
+
+    <div class="ac-footer-container ac-footer-brand">
+        <p>This project is part of</p>
+        <img class="ac-footer-brand-icon" src="https://res.cloudinary.com/hilnmyskv/image/upload/logo-community.svg">
+        <figure>
+            <img class="ac-footer-brand-logo" src="https://res.cloudinary.com/hilnmyskv/image/upload/v1463417234/algolia-community_n6tixd.svg">
+            <figcaption>Algolia Community</figcaption>
+        </figure>
+        <a href="https://community.algolia.com/" class="ac-footer-btn ac-footer-btn-cta">See More</a>
+        <span class="ac-icon ac-icon-love-dark"></span>
+    </div>
+
+    <p class="ac-footer-version">Latest version: 0.6.0</p>
+
+    <div class="ac-footer-actions">
+        <div class="footer-container">
+            <p>Build unique search experiences with Algolia</p>
+            <a href="https://www.algolia.com/why?utm_medium=social-owned&utm_source=wordpress%20website&utm_campaign=homepage&utm_term=why" class="ac-footer-btn ac-footer-btn-ghost-grey">
+                See Why
+                <span class="ac-icon-triangle"></span>
+            </a>
+            <a href="https://www.algolia.com/users/sign_up?utm_medium=social-owned&utm_source=wordpress%20website&utm_campaign=homepage&utm_term=get_started" class="ac-footer-btn ac-footer-btn-ghost-pink">Get Started For Free</a>
+        </div>
+    </div>
+</section>
+
+        <script src="vendor/jquery/jquery.js"></script>
+        <script src="vendor/foundation-sites/foundation.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/responsiveNavigation.js"></script>
+        
+        
+    <!-- GA -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32446386-12', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N8JP8G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8JP8G');</script>
+<!-- Twitter -->
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('ntr1j', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntr1j&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0">
+  <img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntr1j&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0">
+</noscript>
+<!-- Facebook -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1654938174769952');
+  fbq('track', "PageView");</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654938174769952&amp;ev=PageView&amp;noscript=1">
+</noscript>
+<!-- Addroll -->
+<script type="text/javascript">
+  adroll_adv_id = "TGR7R4XSGVGYVPX4LQBDFQ";
+  adroll_pix_id = "YQNWNHGUUBD2JMY7BVOBWM";
+  // adroll_email = "username@example.com"; // OPTIONAL: provide email to improve user identification
+  (function () {
+    var _onload = function(){
+      if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+      if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+      var scr = document.createElement("script");
+      var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+      scr.setAttribute('async', 'true');
+      scr.type = "text/javascript";
+      scr.src = host + "/j/roundtrip.js";
+      ((document.getElementsByTagName('head') || [null])[0] ||
+        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+    };
+    if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+    else {window.attachEvent('onload', _onload)}
+  }());
+</script>
+    
+
+        <script type="text/javascript">
+            var $searchInput = $("#algolia-search-input");
+            if ( $searchInput.length > 0 ) {
+                var $searchIcon = $("#search-icon");
+                var $clearIcon = $("#search-clear-icon");
+
+                var myDocsearch = docsearch({
+                    apiKey: '52641df1ce4919ba42eb84595f4825c7',
+                    indexName: 'wordpress_algolia',
+                    inputSelector: '#algolia-search-input',
+                    debug: false, // Set debug to true if you want to inspect the dropdown
+                    autocompleteOptions: {
+                        openOnFocus: true
+                    }
+
+                });
+
+                $clearIcon.on("click", function() {
+                    $(".aa-input").focus();
+                    $clearIcon.hide();
+                    $searchIcon.fadeIn();
+                    myDocsearch.autocomplete.autocomplete.setVal("");
+                });
+
+                $searchInput.on("keyup", function() {
+                    if ($searchInput.val().length === 0){
+                        $clearIcon.hide();
+                        $searchIcon.fadeIn();
+                    } else {
+                        $searchIcon.hide();
+                        $clearIcon.fadeIn();
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

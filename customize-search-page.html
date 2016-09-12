@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Customize your search page</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <meta content='Learn how to customize the WordPress search page.' name='description'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
+    <!-- / Twitter card -->
+    <meta content='summary_large_image' name='twitter:card'>
+    <meta content='@Algolia' name='twitter:site'>
+    <meta content='@Algolia' name='twitter:creator'>
+    <meta content="Customize your search page - Algolia Search plugin for WordPress" name="twitter:title">
+    <meta content="Learn how to customize the WordPress search page." name="twitter:description">
+    <!--meta content="Algolia Product image" name="twitter:image"-->
+    <!-- / OG meta -->
+    <!--meta content='#' property='og:url'-->
+    <meta content='Customize your search page - Algolia Search plugin for WordPress' property='og:title'>
+    <meta content='article' property='og:type'>
+    <meta content='Learn how to customize the WordPress search page.' property='og:description'>
+    <meta content='Algolia Search plugin for WordPress' property='og:site_name'>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <meta name="description" content="Learn how to customize the WordPress search page.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
+    <link rel="stylesheet" href="css/app.css?v=1473677846936">
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <!-- at the end of the BODY -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+</head>
+<body class="">
+    <div class='ac-nav'>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class='ac-nav-container'>
+                    <div class='ac-nav-brand'>
+                        <a class='ac-logo' href='https://community.algolia.com/' title='Algolia Community'>
+                            <img alt='Algolia Community' class='ac-logo__lg' src='https://res.cloudinary.com/hilnmyskv/image/upload/logo-community-inline-dark.svg' width='150'>
+                            <img alt='Algolia Community' class='ac-logo__sm' src='https://res.cloudinary.com/hilnmyskv/image/upload/v1461180081/logo-community-sm.svg'>
+                        </a>
+                        <span class='ac-nav-brand-breadcrumb'></span>
+                        <a class='ac-nav-brand-title' href='./' title='Home'>WordPress plugin</a>
+                    </div>
+                    <div class='ac-nav-menu'>
+                        <div class='ac-nav-searchbox'>
+                            <div class='svg-icons' style='height: 0; width: 0; position: absolute; visibility: hidden'>
+                                <svg xmlns='http://www.w3.org/2000/svg'>
+                                    <symbol id="sbx-icon-clear-3" viewBox="0 0 40 40"><path d="M16.228 20L1.886 5.657 0 3.772 3.772 0l1.885 1.886L20 16.228 34.343 1.886 36.228 0 40 3.772l-1.886 1.885L23.772 20l14.342 14.343L40 36.228 36.228 40l-1.885-1.886L20 23.772 5.657 38.114 3.772 40 0 36.228l1.886-1.885L16.228 20z" fill-rule="evenodd"/></symbol>
+                                    <symbol id="sbx-icon-search-13" viewBox="0 0 12 12"><path d="M12 11.077c0-.245-.1-.483-.267-.65L9.26 7.955c.584-.843.894-1.853.894-2.877C10.154 2.272 7.882 0 5.077 0S0 2.272 0 5.077s2.272 5.077 5.077 5.077c1.024 0 2.034-.31 2.877-.894l2.474 2.466c.166.173.404.274.65.274.504 0 .922-.418.922-.923zm-3.692-6c0 1.78-1.45 3.23-3.23 3.23-1.782 0-3.232-1.45-3.232-3.23s1.45-3.23 3.23-3.23c1.782 0 3.232 1.45 3.232 3.23z" fill="#FFF" fill-rule="evenodd" opacity="0.85"/></symbol>
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class='ac-nav-menu-list'>
+                            <li class="ac-nav-menu-list-item">
+                                <a href="./" data-path="./" title="Home">Home</a>
+                            </li>
+                            <li class="ac-nav-menu-list-item active">
+                                <a href="installation.html" data-path="installation.html" title="Documentation">Documentation</a>
+                            </li>
+                            <li class="ac-nav-menu-list-item">
+                                <a href="frequently-asked-questions.html" data-path="frequently-asked-questions.html" title="FAQ">FAQ</a>
+                            </li>
+                            <li class='ac-nav-menu-list-icon'>
+                                <a class='ac-icon' href='https://github.com/algolia/algoliasearch-wordpress/' data-path="https://github.com/algolia/algoliasearch-wordpress/" title='GitHub repository'>
+                                    <span class='ac-icon ac-icon-github'></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<header id="top-section" class="doc-header">
+    <div class="row row-doc">
+        <div class="large-12 columns">
+            <a href="./">
+                <img class="header-logo" src="https://res.cloudinary.com/hilnmyskv/image/upload/logo-algolia-dark.png">
+            </a>
+            <p class="lead header-lead">
+                Plugin for
+                <span>WordPress</span>
+            </p>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    <div class="medium-9 large-9 medium-push-3 large-push-3 columns">
+
+        <article>
+            <div id="algolia-search">
+                <input type="text" id="algolia-search-input" placeholder="Search anywhere in the documentation...">
+                <svg id="search-icon" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M26.424 31.143a2 2 0 0 1 .004-2.824l1.12-1.12a2 2 0 0 1 2.824-.005l-3.948 3.948zm5.01-2.886l7.02 7.018a2 2 0 0 1 0 2.83l-1.12 1.12a2 2 0 0 1-2.83 0l-7.018-7.02 3.95-3.948zm-16.012 2.587c8.517 0 15.422-6.905 15.422-15.422S23.94 0 15.422 0 0 6.905 0 15.422s6.905 15.422 15.422 15.422zm0-3.856c6.388 0 11.566-5.178 11.566-11.566 0-6.388-5.178-11.567-11.566-11.567-6.388 0-11.567 5.18-11.567 11.567 0 6.388 5.18 11.566 11.567 11.566z" fill-rule="evenodd"/></svg>
+                <svg id="search-clear-icon"width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M16.228 20L1.886 5.657 0 3.772 3.772 0l1.885 1.886L20 16.228 34.343 1.886 36.228 0 40 3.772l-1.886 1.885L23.772 20l14.342 14.343L40 36.228 36.228 40l-1.885-1.886L20 23.772 5.657 38.114 3.772 40 0 36.228l1.886-1.885L16.228 20z" fill-rule="evenodd"/></svg>
+            </div>
+
+            <header>
+                <h1>Customize your search page</h1>
+
+                <p class="lead">Learn how to customize the WordPress search page.</p>
+            </header>
+
+            <hr>
+
+            <div class="row">
+                <div class="large-12 columns" id="content">
+                    <div class="alert alert-warning"><strong>Reminder</strong>: You should never directly edit the plugin files because all your changes would be lost at every plugin update.</div>
+
+<h2 id="introduction"><a class="heading-anchor" href="#introduction"><span></span></a>Introduction</h2>
+<p><em>The instant search results experience can be enabled in the <strong>Search page</strong> section of the plugin.</em></p>
+<p>The instant search results page is powered by <strong>instantsearch.js</strong>, a JavaScript library that eases the process of building rich search experiences.</p>
+<p>Please checkout the <a href="https://community.algolia.com/instantsearch.js/">official documentation of the instantsearch.js website</a>. Also take a look at some examples of <a href="https://community.algolia.com/instantsearch.js/examples/">what can be achieved with instantsearch.js</a>.</p>
+<p>The instantsearch feature will do its search on the <strong>Searchable posts</strong> index. If you don&apos;t have that index flagged for indexing you will be invited to index it with a notice on every page of the WordPress admin.</p>
+<div class="alert alert-info">Whatever changes you make, be sure to understand how the <strong>instantsearch.js</strong> library work by checking out their official documentations.</div>
+
+<h2 id="customization"><a class="heading-anchor" href="#customization"><span></span></a>Customization</h2>
+<p>To start customizing your search results page, copy/paste the <code>wp-content/plugins/algolia/templates</code> directory in your own theme, and rename it to <code>algolia</code>. If your theme is named <code>mytheme</code>, then the folder should look like: <code>wp-content/themes/mytheme/algolia</code>.</p>
+<p>You can then edit the <code>algolia/instantsearch.php</code> file to customize the instant search results page (search widgets &amp; page layout).</p>
+<div class="alert alert-info">All instantsearch.js templates are using the underscore templating, learn more about it reading this <a href="http://www.2ality.com/2012/06/underscore-templates.html">complete documentation</a>.</div>
+
+<h2 id="edit-the-page-layout"><a class="heading-anchor" href="#edit-the-page-layout"><span></span></a>Edit the page layout</h2>
+<p>The instant search results page is provided with a default layout. You&apos;ll need to slightly customize it to fit your theme&apos;s look &amp; feel. To configure the layout, edit the <code>algolia/instantsearch.php</code> file and locate the <code>&lt;div id=&quot;ais-wrapper&quot;&gt;...&lt;/div&gt;</code> code:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ais-wrapper&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">main</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ais-main&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-search-box&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-stats&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;search-icon&quot;</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">&quot;25&quot;</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">&quot;25&quot;</span> <span class="hljs-attribute">viewBox</span>=<span class="hljs-value">&quot;0 0 40 40&quot;</span> <span class="hljs-attribute">xmlns</span>=<span class="hljs-value">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">&quot;M24.828 31.657a16.76 16.76 0 0 1-7.992 2.015C7.538 33.672 0 26.134 0 16.836 0 7.538 7.538 0 16.836 0c9.298 0 16.836 7.538 16.836 16.836 0 3.22-.905 6.23-2.475 8.79.288.18.56.395.81.645l5.985 5.986A4.54 4.54 0 0 1 38 38.673a4.535 4.535 0 0 1-6.417-.007l-5.986-5.986a4.545 4.545 0 0 1-.77-1.023zm-7.992-4.046c5.95 0 10.775-4.823 10.775-10.774 0-5.95-4.823-10.775-10.774-10.775-5.95 0-10.775 4.825-10.775 10.776 0 5.95 4.825 10.775 10.776 10.775z&quot;</span> <span class="hljs-attribute">fill-rule</span>=<span class="hljs-value">&quot;evenodd&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-hits&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-pagination&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">aside</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ais-facets&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-post-types&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-categories&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-tags&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-users&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">aside</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></code></pre>
+
+<p>Edit this HTML layout to change the way the overall page is structured.</p>
+<h2 id="edit-the-hit-template"><a class="heading-anchor" href="#edit-the-hit-template"><span></span></a>Edit the hit template</h2>
+<p>Each matching <strong>Searchable Post</strong> will be rendered with a default hit template. To customize it, edit the <code>algolia/instantsearch.php</code> file and locate the <code>tmpl-hit</code> template:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-instantsearch-hit&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-title">article</span> <span class="hljs-attribute">itemtype</span>=<span class="hljs-value">&quot;http://schema.org/Article&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">#</span> <span class="hljs-attribute">if</span> ( <span class="hljs-attribute">data.images.thumbnail</span> ) { #&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-hits--thumbnail&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.permalink</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.images.thumbnail.url</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">itemprop</span>=<span class="hljs-value">&quot;image&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">#</span> } #&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-hits--content&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h2</span> <span class="hljs-attribute">itemprop</span>=<span class="hljs-value">&quot;name headline&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.permalink</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">itemprop</span>=<span class="hljs-value">&quot;url&quot;</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.post</span>_<span class="hljs-variable">title.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-hits--tags&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">#</span> <span class="hljs-attribute">for</span> (<span class="hljs-attribute">var</span> <span class="hljs-attribute">index</span> <span class="hljs-attribute">in</span> <span class="hljs-attribute">data.taxonomies.post_tag</span>) { #&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-hits--tag&quot;</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.taxonomies.post</span>_<span class="hljs-variable">tag</span>[<span class="hljs-variable">index</span>]<span class="hljs-variable">.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">#</span> } #&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;excerpt&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">#</span>
+                    <span class="hljs-attribute">var</span> <span class="hljs-attribute">attributes</span> = [&apos;<span class="hljs-attribute">content</span>&apos;, &apos;<span class="hljs-attribute">title6</span>&apos;, &apos;<span class="hljs-attribute">title5</span>&apos;, &apos;<span class="hljs-attribute">title4</span>&apos;, &apos;<span class="hljs-attribute">title3</span>&apos;, &apos;<span class="hljs-attribute">title2</span>&apos;, &apos;<span class="hljs-attribute">title1</span>&apos;];
+                    <span class="hljs-attribute">var</span> <span class="hljs-attribute">attribute_name</span>;
+                    <span class="hljs-attribute">var</span> <span class="hljs-attribute">relevant_content</span> = &apos;&apos;;
+                    <span class="hljs-attribute">for</span> ( <span class="hljs-attribute">var</span> <span class="hljs-attribute">index</span> <span class="hljs-attribute">in</span> <span class="hljs-attribute">attributes</span> ) {
+                        <span class="hljs-attribute">attribute_name</span> = <span class="hljs-attribute">attributes</span>[ <span class="hljs-attribute">index</span> ];
+                        <span class="hljs-attribute">if</span> ( <span class="hljs-attribute">data._highlightResult</span>[ <span class="hljs-attribute">attribute_name</span> ]<span class="hljs-attribute">.matchedWords.length</span> &gt;</span> 0 ) {
+                            relevant_content = data._snippetResult[ attribute_name ].value;
+                        }
+                    }
+
+                    relevant_content = data._snippetResult[ attributes[ 0 ] ].value;
+                    #&gt;
+                    </span><span class="hljs-expression">{{{ <span class="hljs-variable">relevant</span>_<span class="hljs-variable">content</span> }}</span><span class="xml">}
+                <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-clearfix&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">article</span>&gt;</span>
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+
+<h2 id="adding-an-extra-search-widget"><a class="heading-anchor" href="#adding-an-extra-search-widget"><span></span></a>Adding an extra search widget</h2>
+<p>To add an extra search widget, the best is to follow the <a href="https://community.algolia.com/instantsearch.js/">official documentation of instantsearch.js</a> and instantiate the widget in the <code>algolia/instantsearch.php</code> file, just before the <code>Search.start()</code> call.</p>
+<pre><code class="hljs js"><span class="hljs-comment">// new widget</span>
+search.addWidget(<span class="hljs-comment">/* ... */</span>);
+
+search.start();</code></pre>
+
+
+<h2 id="look-feel"><a class="heading-anchor" href="#look-feel"><span></span></a>Look &amp; feel</h2>
+<p>We provide with some default CSS rules that are located in the <code>algolia/assets/css/algolia-instantsearch.css</code>. You can very easily add your own CSS rules to your theme&apos;s stylesheet.</p>
+<p>If for any reason you don&apos;t want the default stylesheet to be included, you can remove it like this:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-comment">/**
+ * Dequeue default CSS files.
+ *
+ * Hooked to the wp_print_styles action, with a late priority (100),
+ * so that it is after the stylesheets were enqueued.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">my_theme_dequeue_styles</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-comment">// Remove the algolia-instantsearch.css.</span>
+  wp_dequeue_style( <span class="hljs-string">&apos;algolia-instantsearch&apos;</span> );
+}
+add_action( <span class="hljs-string">&apos;wp_print_styles&apos;</span>, <span class="hljs-string">&apos;my_theme_dequeue_styles&apos;</span>, <span class="hljs-number">100</span> );</code></pre>
+
+
+
+
+                </div>
+            </div>
+
+            <ul class="menu simple text-center">
+                <li><a href="https://github.com/algolia/algoliasearch-wordpress/edit/master/docs/src/customize-search-page.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-wordpress/issues/new?title=%5BCustomize your search page%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
+                <li><a href="http://stackoverflow.com/questions/tagged/algolia+wordpress" target="_blank"><i class="fi-comment"></i> <span>Get Help</span></a></li>
+            </ul>
+        </article>
+    </div>
+
+    <div class="medium-3 large-3 medium-pull-9 large-pull-9 columns">
+        <ul class="vertical menu" id="main-nav">
+
+            <li class="menu-text">Getting Started</li>
+            <li ><a href="installation.html">Installation</a></li>
+            <li ><a href="configuration.html">Configuration</a></li>
+            <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
+            <li class="active"><a href="customize-search-page.html">Customize Search Page</a></li>
+
+            <li class="menu-text">Indexing</li>
+            <li ><a href="index-schema.html">Schemas</a></li>
+            <li ><a href="indexing-settings.html">Settings</a></li>
+            <li ><a href="indexing-flow.html">Automated Sync.</a></li>
+            <li ><a href="synonyms.html">Synonyms</a></li>
+            <li ><a href="custom-attributes.html">Custom Attributes</a></li>
+            <li ><a href="replicas.html">Index Replicas</a></li>
+
+            <li class="menu-text">Extend</li>
+            <li ><a href="extend-basics.html">Basics</a></li>
+
+            <li class="menu-text">Debugging</li>
+            <li ><a href="logs.html">Logs</a></li>
+
+            <li class="menu-text">Integrations</li>
+            <li ><a href="advanced-custom-fields.html">Advanced Custom Fields</a></li>
+            <li ><a href="wpml.html">WPML</a></li>
+
+            <li class="menu-text">Other</li>
+            <li ><a href="internationalization.html">Internationalization</a></li>
+            <li ><a href="resources.html">Additional Resources</a></li>
+            <li ><a href="contribute.html">Contribute</a></li>
+            <li ><a href="frequently-asked-questions.html">FAQ</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<section class="ac-footer">
+  <div class="ac-footer-container">
+    <p class="ac-footer-links">
+      Code licensed under
+      <a href="#" class="ac-footer-link-item">MIT</a>
+      <br>
+      <a href="#" class="ac-footer-link-item">Github</a>
+      <a href="#" class="ac-footer-link-item">issues</a>
+      <a class="ac-footer-link-item" href="https://www.algolia.com/policies/privacy">Privacy policy</a>
+    </p>
+  </div>
+
+    <div class="ac-footer-container ac-footer-brand">
+        <p>This project is part of</p>
+        <img class="ac-footer-brand-icon" src="https://res.cloudinary.com/hilnmyskv/image/upload/logo-community.svg">
+        <figure>
+            <img class="ac-footer-brand-logo" src="https://res.cloudinary.com/hilnmyskv/image/upload/v1463417234/algolia-community_n6tixd.svg">
+            <figcaption>Algolia Community</figcaption>
+        </figure>
+        <a href="https://community.algolia.com/" class="ac-footer-btn ac-footer-btn-cta">See More</a>
+        <span class="ac-icon ac-icon-love-dark"></span>
+    </div>
+
+    <p class="ac-footer-version">Latest version: 0.6.0</p>
+
+    <div class="ac-footer-actions">
+        <div class="footer-container">
+            <p>Build unique search experiences with Algolia</p>
+            <a href="https://www.algolia.com/why?utm_medium=social-owned&utm_source=wordpress%20website&utm_campaign=homepage&utm_term=why" class="ac-footer-btn ac-footer-btn-ghost-grey">
+                See Why
+                <span class="ac-icon-triangle"></span>
+            </a>
+            <a href="https://www.algolia.com/users/sign_up?utm_medium=social-owned&utm_source=wordpress%20website&utm_campaign=homepage&utm_term=get_started" class="ac-footer-btn ac-footer-btn-ghost-pink">Get Started For Free</a>
+        </div>
+    </div>
+</section>
+
+        <script src="vendor/jquery/jquery.js"></script>
+        <script src="vendor/foundation-sites/foundation.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/responsiveNavigation.js"></script>
+        
+        
+    <!-- GA -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32446386-12', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N8JP8G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8JP8G');</script>
+<!-- Twitter -->
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('ntr1j', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntr1j&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0">
+  <img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntr1j&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0">
+</noscript>
+<!-- Facebook -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1654938174769952');
+  fbq('track', "PageView");</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654938174769952&amp;ev=PageView&amp;noscript=1">
+</noscript>
+<!-- Addroll -->
+<script type="text/javascript">
+  adroll_adv_id = "TGR7R4XSGVGYVPX4LQBDFQ";
+  adroll_pix_id = "YQNWNHGUUBD2JMY7BVOBWM";
+  // adroll_email = "username@example.com"; // OPTIONAL: provide email to improve user identification
+  (function () {
+    var _onload = function(){
+      if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+      if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+      var scr = document.createElement("script");
+      var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+      scr.setAttribute('async', 'true');
+      scr.type = "text/javascript";
+      scr.src = host + "/j/roundtrip.js";
+      ((document.getElementsByTagName('head') || [null])[0] ||
+        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+    };
+    if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+    else {window.attachEvent('onload', _onload)}
+  }());
+</script>
+    
+
+        <script type="text/javascript">
+            var $searchInput = $("#algolia-search-input");
+            if ( $searchInput.length > 0 ) {
+                var $searchIcon = $("#search-icon");
+                var $clearIcon = $("#search-clear-icon");
+
+                var myDocsearch = docsearch({
+                    apiKey: '52641df1ce4919ba42eb84595f4825c7',
+                    indexName: 'wordpress_algolia',
+                    inputSelector: '#algolia-search-input',
+                    debug: false, // Set debug to true if you want to inspect the dropdown
+                    autocompleteOptions: {
+                        openOnFocus: true
+                    }
+
+                });
+
+                $clearIcon.on("click", function() {
+                    $(".aa-input").focus();
+                    $clearIcon.hide();
+                    $searchIcon.fadeIn();
+                    myDocsearch.autocomplete.autocomplete.setVal("");
+                });
+
+                $searchInput.on("keyup", function() {
+                    if ($searchInput.val().length === 0){
+                        $clearIcon.hide();
+                        $searchIcon.fadeIn();
+                    } else {
+                        $searchIcon.hide();
+                        $clearIcon.fadeIn();
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
