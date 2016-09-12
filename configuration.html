@@ -27,7 +27,7 @@
     <meta name="description" content="Now that your plugin is installed, here is how to configure it.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473687980046">
+    <link rel="stylesheet" href="css/app.css?v=1473693549215">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -116,7 +116,40 @@
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    <p>FIXME</p>
+                    <h2 id="credentials"><a class="heading-anchor" href="#credentials"><span></span></a>Credentials</h2>
+<p>The first information you&apos;ll need to provide are your Algolia credentials to create the link between Algolia and your store.  </p>
+<pre><code class="hljs">FIXME Credentials <span class="hljs-constant">tab</span> Screenshot</code></pre>
+
+<p>They&apos;re available in the <a href="https://www.algolia.com/api-keys">Credentials tab</a> of your Algolia dashboard.</p>
+<p><img src="img/configuration/api-keys.png" alt="API keys"></p>
+<p>From that screen you will be able to copy/paste the following necessary fields from the Algolia dashboard to your application:</p>
+<ul>
+<li>Application ID</li>
+<li>Search-Only API Key</li>
+<li>Admin API Key</li>
+</ul>
+<p>You can use the little buttons on the right of the fields to copy them to your clipboard directly.</p>
+<p>On error, you&apos;ll be prompted with an invalid credentials message. In that case, double-check that you copied the correct fields, you might have copied the Monitoring API key instead of the Admin one.</p>
+<p><img src="img/configuration/invalid_credentials.png" alt="Invalid credentials"></p>
+<p>On success, you&apos;ll be prompted with a success message and you&apos;ll now have access to the other configuration tabs.</p>
+<p><img src="img/configuration/valid_credentials.png" alt="Valid credentials"></p>
+<p>As soon as your credentials have been updated, we&apos;ll start indexing your content.<br>An index is a way of representing your data, in Algolia, that has been optimized to answer to search queries almost instantly.
+You can see those indices in the <a href="https://www.algolia.com/explorer">Indices tab</a> of your Algolia dashboard.</p>
+<div class="alert alert-info">
+<strong>Small note on <em>products</em> indexing</strong>: We&apos;re actually not indexing products, but variants directly, inheriting from most of its related product&apos;s attributes but adding its own image, options, <em>etc</em>.<br>If you&apos;d rather have one entry per product instead of multiple ones in your search results, you should read this <a href="FIXME">FAQ question</a>.
+</div>
+
+<h2 id="installation-in-your-theme"><a class="heading-anchor" href="#installation-in-your-theme"><span></span></a>Installation in your theme</h2>
+<p>FIXME</p>
+<h2 id="metafields"><a class="heading-anchor" href="#metafields"><span></span></a>Metafields</h2>
+<p>Algolia supports metafields out-of-the box.
+You&apos;ll need to specify which one you want to adds to your index in the <em>Metafields</em> tab.</p>
+<div class="alert alert-info">
+<strong>About products metafields</strong>: For a specific variant, we&apos;ll take the metafield if present on the variant, otherwise fallback on the same metafield on the related product.
+</div>
+
+<p>When you&apos;ve added the metafields you want to use, click <code>Save</code> and we&apos;ll automatically start reindexing all the related items.</p>
+<h1 id="fixme"><a class="heading-anchor" href="#fixme"><span></span></a>FIXME</h1>
 <!--
 ## Algolia Credentials
 
@@ -308,11 +341,10 @@ You want to understand more in depth what Algolia is and how you can benefit fro
 
     <div class="medium-3 large-3 medium-pull-9 large-pull-9 columns">
         <ul class="vertical menu" id="main-nav">
-          <li>FIXME</li>
+          <li class="menu-text">Getting Started</li>
+          <li ><a href="installation.html">Installation</a></li>
+          <li class="active"><a href="configuration.html">Configuration</a></li>
           <!-- 
-            <li class="menu-text">Getting Started</li>
-            <li ><a href="installation.html">Installation</a></li>
-            <li class="active"><a href="configuration.html">Configuration</a></li>
             <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
             <li ><a href="customize-search-page.html">Customize Search Page</a></li>
 

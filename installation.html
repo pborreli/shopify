@@ -2,32 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Algolia Search plugin for Shopify Installation</title>
+    <title>Installation</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-    <meta content='Algolia Search for Shopify system requirements and plugin installation.' name='description'>
+    <meta content='Algolia Search for Shopify plugin installation.' name='description'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <!-- / Twitter card -->
     <meta content='summary_large_image' name='twitter:card'>
     <meta content='@Algolia' name='twitter:site'>
     <meta content='@Algolia' name='twitter:creator'>
-    <meta content="Algolia Search plugin for Shopify Installation - Algolia Search plugin for WordPress" name="twitter:title">
-    <meta content="Algolia Search for Shopify system requirements and plugin installation." name="twitter:description">
+    <meta content="Installation - Algolia Search plugin for WordPress" name="twitter:title">
+    <meta content="Algolia Search for Shopify plugin installation." name="twitter:description">
     <!--meta content="Algolia Product image" name="twitter:image"-->
     <!-- / OG meta -->
     <!--meta content='#' property='og:url'-->
-    <meta content='Algolia Search plugin for Shopify Installation - Algolia Search plugin for WordPress' property='og:title'>
+    <meta content='Installation - Algolia Search plugin for WordPress' property='og:title'>
     <meta content='article' property='og:type'>
-    <meta content='Algolia Search for Shopify system requirements and plugin installation.' property='og:description'>
+    <meta content='Algolia Search for Shopify plugin installation.' property='og:description'>
     <meta content='Algolia Search plugin for Shopify' property='og:site_name'>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <meta name="description" content="Algolia Search for Shopify system requirements and plugin installation.">
+    <meta name="description" content="Algolia Search for Shopify plugin installation.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473687980046">
+    <link rel="stylesheet" href="css/app.css?v=1473693549215">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -107,48 +107,30 @@
             </div>
 
             <header>
-                <h1>Algolia Search plugin for Shopify Installation</h1>
+                <h1>Installation</h1>
 
-                <p class="lead">Algolia Search for Shopify system requirements and plugin installation.</p>
+                <p class="lead">Algolia Search for Shopify plugin installation.</p>
             </header>
 
             <hr>
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    <p>FIXME</p>
-<!--
-## Server requirements
-
-Algolia Search plugin for WordPress has a few system requirements to be able to work properly.
-
-You will need to make sure your server meets the following requirements:
-
-- PHP >= 5.3
-- cURL PHP extension
-- mbstring PHP extension
-
-You will also need at least **WordPress in version 3.7.14**.
-
-<div class="alert alert-warning">You will not be able to install the plugin if one of this requirement is not met.</div>
-
-## Plugin Installation
-
-If you are not familiar with the way you install plugins on WordPress, you can read this [excellent blog post](http://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/).
-
-The official name of the plugin is: **Algolia Search for WordPress**.
-
-## Conflicting plugins
-
-Here is a list of known incompatibilities with other plugins. Be sure you go through them as you are installing the plugin:
-
-**W3 Total Cache:**
-- The autocomplete experience will not work if JavaScript is minified with W3 Total Cache
-- It looks like the queue processing does not work with object caching turned on. (We have been unable to reproduce this one yet).
-
-**Post Type Switcher**
-- This plugin will trigger an infinite loop upon updating/creating/saving a post because it will convert 'algolia_task' post types to the one provided on the post form instead.
--->
+                    <h2 id="requirements"><a class="heading-anchor" href="#requirements"><span></span></a>Requirements</h2>
+<p>The only requirement in order to install Algolia in your store is having an Algolia account.<br>If you don&apos;t have one already, <a href="https://www.algolia.com/users/sign_up?hi=shopify">head here to create one</a>.</p>
+<p>Algolia offers both 14-days Free trial and a Free plan.<br>For more information, <a href="https://www.algolia.com/pricing">see the pricing page</a></p>
+<h2 id="authorizing-the-application"><a class="heading-anchor" href="#authorizing-the-application"><span></span></a>Authorizing the application</h2>
+<p>Installing our application in your store is really easy.<br>Head to <a href="https://apps.shopify.com/algolia-search">https://apps.shopify.com/algolia-search</a> and click on <strong>Get</strong>.</p>
+<p>You&apos;ll be prompted with an Authorization screen.</p>
+<p><img src="img/installation/oauth.png" alt="OAuth Screen"></p>
+<p>In order for our application to work properly, we need access to:</p>
+<ul>
+<li>Your <em>collections</em> and <em>products</em> to index them</li>
+<li>Your <em>blog posts</em> to index them (WIP, will be available in a near future)</li>
+<li>Your <em>orders</em>, to keep track of the inventory of products</li>
+<li>Your <em>themes</em>, to install our front-end implementation</li>
+</ul>
+<p>The next step will now be to <a href="./configuration.html">configure the application</a>.</p>
 
                 </div>
             </div>
@@ -157,7 +139,7 @@ Here is a list of known incompatibilities with other plugins. Be sure you go thr
                 <!--
                   FIXME open-source
                 <li><a href="https://github.com/algolia/algoliasearch-shopify/edit/master/docs/src/installation.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
-                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BAlgolia Search plugin for Shopify Installation%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BInstallation%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
                 -->
                 <li><a href="http://stackoverflow.com/questions/tagged/algolia+shopify" target="_blank"><i class="fi-comment"></i> <span>Get Help</span></a></li>
             </ul>
@@ -166,11 +148,10 @@ Here is a list of known incompatibilities with other plugins. Be sure you go thr
 
     <div class="medium-3 large-3 medium-pull-9 large-pull-9 columns">
         <ul class="vertical menu" id="main-nav">
-          <li>FIXME</li>
+          <li class="menu-text">Getting Started</li>
+          <li class="active"><a href="installation.html">Installation</a></li>
+          <li ><a href="configuration.html">Configuration</a></li>
           <!-- 
-            <li class="menu-text">Getting Started</li>
-            <li class="active"><a href="installation.html">Installation</a></li>
-            <li ><a href="configuration.html">Configuration</a></li>
             <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
             <li ><a href="customize-search-page.html">Customize Search Page</a></li>
 
