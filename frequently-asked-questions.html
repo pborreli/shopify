@@ -27,7 +27,7 @@
     <meta name="description" content="Most common issues and how to fix them.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473679529619">
+    <link rel="stylesheet" href="css/app.css?v=1473680633483">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -118,43 +118,55 @@
                 <div class="large-12 columns" id="content">
                     <h2 id="how-it-works"><a class="heading-anchor" href="#how-it-works"><span></span></a>How it works</h2>
 <p>This is a living <code>common questions &amp; answers</code> section.</p>
-<p>Please ask your question on Stack Overflow: <a href="http://stackoverflow.com/questions/tagged/algolia+wordpress">http://stackoverflow.com/questions/tagged/algolia+wordpress</a></p>
-<p>If you are a developer, you can also open an issue on github at: <a href="https://github.com/algolia/algoliasearch-wordpress">https://github.com/algolia/algoliasearch-wordpress</a>. We will regularly add the most frequently asked questions and answers found on Stack Overflow and Github about the Algolia Search plugin for WordPress, and append them to this very page.</p>
-<p>If you are desperate and your deadline was yesterday, send us an email at <a href="mailto:support+wordpress@algolia.com">support+wordpress@algolia.com</a>.</p>
-<p><strong>Please give priority to Stack Overflow and Github when asking for support, that way the whole community can benefit from it and you might get a faster answer. If you are having an issue, the chances are high other users might have the same. Let&apos;s share!</strong></p>
+<p>Please ask your question on Stack Overflow: <a href="http://stackoverflow.com/questions/tagged/algolia+shopify">http://stackoverflow.com/questions/tagged/algolia+shopify</a></p>
+<!--
+FIXME open-source
+If you are a developer, you can also open an issue on github at: https://github.com/algolia/algoliasearch-shopify. We will regularly add the most frequently asked questions and answers found on Stack Overflow and Github about the Algolia Search plugin for Shopify, and append them to this very page.
+-->
+<p>If you are desperate and your deadline was yesterday, send us an email at <a href="mailto:support+shopify@algolia.com">support+shopify@algolia.com</a>.</p>
+<p><strong>Please give priority to Stack Overflow <!-- FIXME open-source and Github --> when asking for support, that way the whole community can benefit from it and you might get a faster answer. If you are having an issue, the chances are high other users might have the same. Let&apos;s share!</strong></p>
 <h2 id="questions-answers"><a class="heading-anchor" href="#questions-answers"><span></span></a>Questions &amp; Answers</h2>
-<h3 id="posts-count-are-wrong-on-facets-when-using-instantsearch-js"><a class="heading-anchor" href="#posts-count-are-wrong-on-facets-when-using-instantsearch-js"><span></span></a>Posts count are wrong on facets when using instantsearch.js</h3>
-<p>Currently we do not support displaying accurate counts in facets. This is due to the fact that we use the DISTINCT feature of Algolia to split posts into several small records.</p>
-<h3 id="i-was-using-the-beta-version-of-your-plugin-what-exactly-has-changed-"><a class="heading-anchor" href="#i-was-using-the-beta-version-of-your-plugin-what-exactly-has-changed-"><span></span></a>I was using the Beta version of your plugin, what exactly has changed?</h3>
-<p>Everything. Indeed we realized that the scope of our previous implementation was to large to be able to offer a good user experience.
-We have since focused on the core features of this new plugin which allows to seamlessly synchronize any kind of content type you have with Algolia.
-We also tried to be more close to the WordPress philosophy, allowing developers to easily extend this plugin so that it can be a good fit for any WordPress project.</p>
-<p>We will definitely add features in the future, so if you are really missing something, feel free to suggest</p>
-<h3 id="the-previous-beta-version-of-the-plugin-had-some-support-for-woocommerce-what-about-this-one-"><a class="heading-anchor" href="#the-previous-beta-version-of-the-plugin-had-some-support-for-woocommerce-what-about-this-one-"><span></span></a>The previous Beta version of the plugin had some support for WooCommerce, what about this one?</h3>
-<p>As stated earlier, we narrowed down the scope of this plugin for now. That being said, we really want to offer a flexible way to use Algolia in your WooComerce website in the future.</p>
-<p>If you are a developer and have built something based on this plugin, maybe we could work something out together fast enough!</p>
 <h3 id="can-i-customize-the-autocomplete-dropdown-look-feel-"><a class="heading-anchor" href="#can-i-customize-the-autocomplete-dropdown-look-feel-"><span></span></a>Can I customize the Autocomplete dropdown look &amp; feel?</h3>
 <p>Yes. You can find some detailed explanations on <a href="customize-autocomplete.html">this page</a>.</p>
-<h3 id="i-have-created-a-custom-api-key-but-it-is-not-accepted-as-search-only-api-key-in-the-plugin-settings-"><a class="heading-anchor" href="#i-have-created-a-custom-api-key-but-it-is-not-accepted-as-search-only-api-key-in-the-plugin-settings-"><span></span></a>I have created a custom API key, but it is not accepted as Search-Only API key in the plugin settings.</h3>
-<p>Creating a dedicated search API key is indeed a good practice. If you want to be able to use that new generated API key as the Search-Only API key, you have to make sure it only has the <code>search</code> ACL privilege.
-For security reasons, we reject every filled Search-Only API key that has additional privileges.</p>
-<p>Secondly, we also require that the provided search API key has the TTL set to 0 (standing for unlimited validity in time). We do not want your users to get search outage.</p>
-<h3 id="will-this-plugin-be-compatible-with-my-wordpress-theme-"><a class="heading-anchor" href="#will-this-plugin-be-compatible-with-my-wordpress-theme-"><span></span></a>Will this plugin be compatible with my WordPress theme?</h3>
-<p>Yes. Actually this plugin introduces 2 main user oriented features:</p>
-<ul>
-<li>Native Search: Which overrides the default WordPress search with Algolia,</li>
-<li>Autocomplete: Which provides the user with an &apos;as you type&apos; instant search experience.</li>
-</ul>
-<p>In the first case, this plugin hooks into the WordPress native search feature. As a result, this will not impact your template because we only act on the backend side of things.</p>
-<p>In the second case, we simply provide a dropdown menu that will be displayed underneath your search bar as you type. We have provided default scoped CSS rules so that the look and feel stays slick across different themes.</p>
-<p>If you have any kind of issue related to default appearance, please send us a link to your website so that we can optimize our stylesheet.</p>
+<!--
+FIXME do this ACL check
+### I have created a custom API key, but it is not accepted as Search-Only API key in the plugin settings.
+
+Creating a dedicated search API key is indeed a good practice. If you want to be able to use that new generated API key as the Search-Only API key, you have to make sure it only has the `search` ACL privilege.
+For security reasons, we reject every filled Search-Only API key that has additional privileges.
+
+Secondly, we also require that the provided search API key has the TTL set to 0 (standing for unlimited validity in time). We do not want your users to get search outage.
+-->
+<h3 id="will-this-plugin-be-compatible-with-my-shopify-theme-"><a class="heading-anchor" href="#will-this-plugin-be-compatible-with-my-shopify-theme-"><span></span></a>Will this plugin be compatible with my Shopify theme?</h3>
+<p>FIXME</p>
+<!--
+Yes. Actually this plugin introduces 2 main user oriented features:
+- Native Search: Which overrides the default WordPress search with Algolia,
+- Autocomplete: Which provides the user with an 'as you type' instant search experience.
+
+In the first case, this plugin hooks into the WordPress native search feature. As a result, this will not impact your template because we only act on the backend side of things.
+
+In the second case, we simply provide a dropdown menu that will be displayed underneath your search bar as you type. We have provided default scoped CSS rules so that the look and feel stays slick across different themes.
+
+If you have any kind of issue related to default appearance, please send us a link to your website so that we can optimize our stylesheet.
+-->
 <h3 id="my-data-is-out-of-sync-with-algolia"><a class="heading-anchor" href="#my-data-is-out-of-sync-with-algolia"><span></span></a>My data is out of sync with Algolia</h3>
-<p>Sometimes your WordPress content gets out of sync with Algolia. For example if you are changing your permalink templates, all your URLs will change and Algolia will not know about it.</p>
-<p>Content also gets inconsistent when you use filters to change settings or attributes to push to Algolia.</p>
-<p>In that case you can simply re-index your content.</p>
-<h3 id="can-i-use-one-algolia-account-for-multiple-wordpress-sites-"><a class="heading-anchor" href="#can-i-use-one-algolia-account-for-multiple-wordpress-sites-"><span></span></a>Can I use one Algolia account for multiple WordPress sites?</h3>
-<p>Definitely! In the same fashion that WordPress lets you prefix all database tables, we allow you to prefix every indices in Algolia.</p>
-<p>This can be configured on the <code>Indexing</code> section of the plugin.</p>
+<p>FIXME</p>
+<!--
+Sometimes your WordPress content gets out of sync with Algolia. For example if you are changing your permalink templates, all your URLs will change and Algolia will not know about it.
+
+Content also gets inconsistent when you use filters to change settings or attributes to push to Algolia.
+
+In that case you can simply re-index your content.
+-->
+<h3 id="can-i-use-one-algolia-account-for-multiple-shopify-stores-"><a class="heading-anchor" href="#can-i-use-one-algolia-account-for-multiple-shopify-stores-"><span></span></a>Can I use one Algolia account for multiple Shopify stores?</h3>
+<p>FIXME</p>
+<!--
+Definitely! In the same fashion that WordPress lets you prefix all database tables, we allow you to prefix every indices in Algolia.
+
+This can be configured on the `Indexing` section of the plugin.
+-->
+<h3 id="fixme-other-questions"><a class="heading-anchor" href="#fixme-other-questions"><span></span></a>FIXME other questions</h3>
 
                 </div>
             </div>

@@ -7,27 +7,27 @@
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-    <meta content='Customize your drop-down menu that appears underneath every search bar of your WordPress website.' name='description'>
+    <meta content='Customize your drop-down menu that appears underneath every search bar of your Shopify website.' name='description'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <!-- / Twitter card -->
     <meta content='summary_large_image' name='twitter:card'>
     <meta content='@Algolia' name='twitter:site'>
     <meta content='@Algolia' name='twitter:creator'>
     <meta content="Customize Autocomplete drop-down - Algolia Search plugin for WordPress" name="twitter:title">
-    <meta content="Customize your drop-down menu that appears underneath every search bar of your WordPress website." name="twitter:description">
+    <meta content="Customize your drop-down menu that appears underneath every search bar of your Shopify website." name="twitter:description">
     <!--meta content="Algolia Product image" name="twitter:image"-->
     <!-- / OG meta -->
     <!--meta content='#' property='og:url'-->
     <meta content='Customize Autocomplete drop-down - Algolia Search plugin for WordPress' property='og:title'>
     <meta content='article' property='og:type'>
-    <meta content='Customize your drop-down menu that appears underneath every search bar of your WordPress website.' property='og:description'>
+    <meta content='Customize your drop-down menu that appears underneath every search bar of your Shopify website.' property='og:description'>
     <meta content='Algolia Search plugin for Shopify' property='og:site_name'>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <meta name="description" content="Customize your drop-down menu that appears underneath every search bar of your WordPress website.">
+    <meta name="description" content="Customize your drop-down menu that appears underneath every search bar of your Shopify website.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473679529619">
+    <link rel="stylesheet" href="css/app.css?v=1473680633483">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -109,112 +109,139 @@
             <header>
                 <h1>Customize Autocomplete drop-down</h1>
 
-                <p class="lead">Customize your drop-down menu that appears underneath every search bar of your WordPress website.</p>
+                <p class="lead">Customize your drop-down menu that appears underneath every search bar of your Shopify website.</p>
             </header>
 
             <hr>
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    <div class="alert alert-warning"><strong>Reminder</strong>: You should never directly edit the plugin files because all your changes would be lost at every plugin update.</div>
+                    <p>FIXME</p>
+<!--
+<div class="alert alert-warning">**Reminder**: You should never directly edit the plugin files because all your changes would be lost at every plugin update.</div>
 
-<h2 id="introduction"><a class="heading-anchor" href="#introduction"><span></span></a>Introduction</h2>
-<p><em>The autocomplete experience can be enabled in the <strong>Autocomplete</strong> section of the plugin.</em></p>
-<p>The autocomplete dropdown menu is powered by <strong>autocomplete.js</strong>, a JavaScript library that eases the process of building rich dropdown menus.</p>
-<p>Please checkout the <a href="https://github.com/algolia/autocomplete.js/">github repository of the autocomplete.js library</a>.</p>
-<div class="alert alert-info">Whatever changes you make, be sure to understand how the <strong>autocomplete.js</strong> library work by checking out their official documentations.</div>
+## Introduction
 
-<h2 id="customization"><a class="heading-anchor" href="#customization"><span></span></a>Customization</h2>
-<p>To start customizing your dropdown menu, copy/paste the <code>wp-content/plugins/algolia/templates</code> directory in your own theme, and rename it to <code>algolia</code>. If your theme is named <code>mytheme</code>, then the folder should look like: <code>wp-content/themes/mytheme/algolia</code>.</p>
-<p>You can then edit the <code>algolia/autocomplete.php</code> file to customize the autocomplete dropdown menu (suggestions, header, footer) templates &amp; associated JavaScript code.</p>
-<div class="alert alert-info">All autocomplete.js templates are using the underscore templating, learn more about it reading this <a href="http://www.2ality.com/2012/06/underscore-templates.html">complete documentation</a>.</div>
+*The autocomplete experience can be enabled in the **Autocomplete** section of the plugin.*
 
-<h2 id="edit-the-suggestion-templates"><a class="heading-anchor" href="#edit-the-suggestion-templates"><span></span></a>Edit the suggestion templates</h2>
-<p>Each autocomplete.js source will display its suggestions with an associated template. To configure them, edit the <code>algolia/autocomplete.php</code> file and locate the <code>tmpl-autocomplete-*-suggestion</code> templates:</p>
-<h2 id="post-template"><a class="heading-anchor" href="#post-template"><span></span></a>Post template</h2>
-<p>This is the template used for all <strong>Post</strong>-based types.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-autocomplete-post-suggestion&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-link&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.permalink</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>&gt;</span>
+The autocomplete dropdown menu is powered by **autocomplete.js**, a JavaScript library that eases the process of building rich dropdown menus.
+
+Please checkout the [github repository of the autocomplete.js library](https://github.com/algolia/autocomplete.js/).
+
+<div class="alert alert-info">Whatever changes you make, be sure to understand how the **autocomplete.js** library work by checking out their official documentations.</div>
+
+## Customization
+
+To start customizing your dropdown menu, copy/paste the `wp-content/plugins/algolia/templates` directory in your own theme, and rename it to `algolia`. If your theme is named `mytheme`, then the folder should look like: `wp-content/themes/mytheme/algolia`.
+
+You can then edit the `algolia/autocomplete.php` file to customize the autocomplete dropdown menu (suggestions, header, footer) templates & associated JavaScript code.
+
+<div class="alert alert-info">All autocomplete.js templates are using the underscore templating, learn more about it reading this [complete documentation](http://www.2ality.com/2012/06/underscore-templates.html).</div>
+
+## Edit the suggestion templates
+
+Each autocomplete.js source will display its suggestions with an associated template. To configure them, edit the `algolia/autocomplete.php` file and locate the `tmpl-autocomplete-*-suggestion` templates:
+
+## Post template
+
+This is the template used for all **Post**-based types.
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"tmpl-autocomplete-post-suggestion"</span>&gt;</span><span class="handlebars"><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-link"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.permalink</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">#</span> <span class="hljs-attribute">if</span> ( <span class="hljs-attribute">data.images.thumbnail</span> ) { #&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-post-thumbnail&quot;</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.images.thumbnail.url</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-post-thumbnail"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.images.thumbnail.url</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.post</span>_<span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">#</span> } #&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-post-attributes&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-post-title&quot;</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.post</span>_<span class="hljs-variable">title.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-post-attributes"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-post-title"</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.post</span>_<span class="hljs-variable">title.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
 
             <span class="hljs-tag">&lt;<span class="hljs-title">#</span>
-            <span class="hljs-attribute">var</span> <span class="hljs-attribute">attributes</span> = [&apos;<span class="hljs-attribute">content</span>&apos;, &apos;<span class="hljs-attribute">title6</span>&apos;, &apos;<span class="hljs-attribute">title5</span>&apos;, &apos;<span class="hljs-attribute">title4</span>&apos;, &apos;<span class="hljs-attribute">title3</span>&apos;, &apos;<span class="hljs-attribute">title2</span>&apos;, &apos;<span class="hljs-attribute">title1</span>&apos;];
+            <span class="hljs-attribute">var</span> <span class="hljs-attribute">attributes</span> = ['<span class="hljs-attribute">content</span>', '<span class="hljs-attribute">title6</span>', '<span class="hljs-attribute">title5</span>', '<span class="hljs-attribute">title4</span>', '<span class="hljs-attribute">title3</span>', '<span class="hljs-attribute">title2</span>', '<span class="hljs-attribute">title1</span>'];
             <span class="hljs-attribute">var</span> <span class="hljs-attribute">attribute_name</span>;
-            <span class="hljs-attribute">var</span> <span class="hljs-attribute">relevant_content</span> = &apos;&apos;;
+            <span class="hljs-attribute">var</span> <span class="hljs-attribute">relevant_content</span> = '';
             <span class="hljs-attribute">for</span> ( <span class="hljs-attribute">var</span> <span class="hljs-attribute">index</span> <span class="hljs-attribute">in</span> <span class="hljs-attribute">attributes</span> ) {
             <span class="hljs-attribute">attribute_name</span> = <span class="hljs-attribute">attributes</span>[ <span class="hljs-attribute">index</span> ];
             <span class="hljs-attribute">if</span> ( <span class="hljs-attribute">data._highlightResult</span>[ <span class="hljs-attribute">attribute_name</span> ]<span class="hljs-attribute">.matchedWords.length</span> &gt;</span> 0 ) {
             relevant_content = data._snippetResult[ attribute_name ].value;
             break;
-            } else if( data._snippetResult[ attribute_name ].value !== &apos;&apos; ) {
+            } else if( data._snippetResult[ attribute_name ].value !== '' ) {
             relevant_content = data._snippetResult[ attribute_name ].value;
             }
             }
             #&gt;
-            <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-post-content&quot;</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">relevant</span>_<span class="hljs-variable">content</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-post-content"</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">relevant</span>_<span class="hljs-variable">content</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 
-<h2 id="term-template"><a class="heading-anchor" href="#term-template"><span></span></a>Term template</h2>
-<p>This is the template used for all <strong>Term</strong>-based types.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-autocomplete-term-suggestion&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-link&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.permalink</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>  <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.name</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">viewBox</span>=<span class="hljs-value">&quot;0 0 21 21&quot;</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">&quot;21&quot;</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">&quot;21&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">&quot;21&quot;</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">&quot;21&quot;</span> <span class="hljs-attribute">viewBox</span>=<span class="hljs-value">&quot;0 0 21 21&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">&quot;M4.662 8.72l-1.23 1.23c-.682.682-.68 1.792.004 2.477l5.135 5.135c.7.693 1.8.688 2.48.005l1.23-1.23 5.35-5.346c.31-.31.54-.92.51-1.36l-.32-4.29c-.09-1.09-1.05-2.06-2.15-2.14l-4.3-.33c-.43-.03-1.05.2-1.36.51l-.79.8-2.27 2.28-2.28 2.27zm9.826-.98c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25z&quot;</span> <span class="hljs-attribute">fill-rule</span>=<span class="hljs-value">&quot;evenodd&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-post-title&quot;</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.name.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+## Term template
+
+This is the template used for all **Term**-based types.
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"tmpl-autocomplete-term-suggestion"</span>&gt;</span><span class="handlebars"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-link"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.permalink</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span>  <span class="hljs-attribute">title</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.name</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">viewBox</span>=<span class="hljs-value">"0 0 21 21"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"21"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"21"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"21"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"21"</span> <span class="hljs-attribute">viewBox</span>=<span class="hljs-value">"0 0 21 21"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M4.662 8.72l-1.23 1.23c-.682.682-.68 1.792.004 2.477l5.135 5.135c.7.693 1.8.688 2.48.005l1.23-1.23 5.35-5.346c.31-.31.54-.92.51-1.36l-.32-4.29c-.09-1.09-1.05-2.06-2.15-2.14l-4.3-.33c-.43-.03-1.05.2-1.36.51l-.79.8-2.27 2.28-2.28 2.27zm9.826-.98c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25z"</span> <span class="hljs-attribute">fill-rule</span>=<span class="hljs-value">"evenodd"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-post-title"</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.name.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 
-<h2 id="user-template"><a class="heading-anchor" href="#user-template"><span></span></a>User template</h2>
-<p>This is the template used for <strong>Users</strong>.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-autocomplete-user-suggestion&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-link user-suggestion-link&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.posts</span>_<span class="hljs-variable">url</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>  <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.display</span>_<span class="hljs-variable">name</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>&gt;</span>
+## User template
+
+This is the template used for **Users**.
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"tmpl-autocomplete-user-suggestion"</span>&gt;</span><span class="handlebars"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-link user-suggestion-link"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.posts</span>_<span class="hljs-variable">url</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span>  <span class="hljs-attribute">title</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.display</span>_<span class="hljs-variable">name</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">#</span> <span class="hljs-attribute">if</span> ( <span class="hljs-attribute">data.avatar_url</span> ) { #&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-user-thumbnail&quot;</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.avatar</span>_<span class="hljs-variable">url</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.display</span>_<span class="hljs-variable">name</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-user-thumbnail"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.avatar</span>_<span class="hljs-variable">url</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"</span></span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.display</span>_<span class="hljs-variable">name</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-value">"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">#</span> } #&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;suggestion-post-title&quot;</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.display</span>_<span class="hljs-variable">name.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"suggestion-post-title"</span>&gt;</span></span><span class="hljs-expression">{{{ <span class="hljs-variable">data.</span>_<span class="hljs-variable">highlightResult.display</span>_<span class="hljs-variable">name.value</span> }}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 
-<h2 id="edit-the-source-headers"><a class="heading-anchor" href="#edit-the-source-headers"><span></span></a>Edit the source headers</h2>
-<p>Each autocomplete.js source will have an associated header displayed before the suggestions. To configure it, edit the <code>algolia/autocomplete.php</code> file and locate the <code>tmpl-autocomplete-header</code> template:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-autocomplete-header&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;autocomplete-header&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;autocomplete-header-title&quot;</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.label</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;clear&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+## Edit the source headers
+
+Each autocomplete.js source will have an associated header displayed before the suggestions. To configure it, edit the `algolia/autocomplete.php` file and locate the `tmpl-autocomplete-header` template:
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"tmpl-autocomplete-header"</span>&gt;</span><span class="handlebars"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"autocomplete-header"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"autocomplete-header-title"</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.label</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"clear"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 
-<h2 id="edit-the-dropdown-menu-footer"><a class="heading-anchor" href="#edit-the-dropdown-menu-footer"><span></span></a>Edit the dropdown menu footer</h2>
-<p>The dropdown menu is provided with a default footer. To configure it, edit the <code>algolia/autocomplete.php</code> file and locate the <code>tmpl-autocomplete-footer</code> template:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-autocomplete-footer&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;autocomplete-footer&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;autocomplete-footer-branding&quot;</span>&gt;</span>
-      <span class="php"><span class="hljs-preprocessor">&lt;?php</span> esc_html_e( <span class="hljs-string">&apos;Powered by&apos;</span>, <span class="hljs-string">&apos;algolia&apos;</span> ); <span class="hljs-preprocessor">?&gt;</span></span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;algolia-powered-by-link&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;Algolia&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;algolia-logo&quot;</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;https://www.algolia.com/assets/algolia128x40.png&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;Algolia&quot;</span> /&gt;</span>
+## Edit the dropdown menu footer
+
+The dropdown menu is provided with a default footer. To configure it, edit the `algolia/autocomplete.php` file and locate the `tmpl-autocomplete-footer` template:
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"tmpl-autocomplete-footer"</span>&gt;</span><span class="handlebars"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"autocomplete-footer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"autocomplete-footer-branding"</span>&gt;</span>
+      <span class="php"><span class="hljs-preprocessor">&lt;?php</span> esc_html_e( <span class="hljs-string">'Powered by'</span>, <span class="hljs-string">'algolia'</span> ); <span class="hljs-preprocessor">?&gt;</span></span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"algolia-powered-by-link"</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">"Algolia"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"algolia-logo"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://www.algolia.com/assets/algolia128x40.png"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Algolia"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 
-<h2 id="edit-the-no-results-message"><a class="heading-anchor" href="#edit-the-no-results-message"><span></span></a>Edit the no results message</h2>
-<p>When no results are found, autocomplete.js will display a specific template.  To configure it, edit the <code>algolia/autocomplete.php</code> file and locate the <code>tmpl-autocomplete-empty</code> template:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-autocomplete-empty&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;autocomplete-empty&quot;</span>&gt;</span>
-    <span class="php"><span class="hljs-preprocessor">&lt;?php</span> esc_html_e( <span class="hljs-string">&apos;No results matched your query &apos;</span>, <span class="hljs-string">&apos;algolia&apos;</span> ); <span class="hljs-preprocessor">?&gt;</span></span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;empty-query&quot;</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.query</span> }}</span><span class="xml">&quot;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+## Edit the no results message
+
+When no results are found, autocomplete.js will display a specific template.  To configure it, edit the `algolia/autocomplete.php` file and locate the `tmpl-autocomplete-empty` template:
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"tmpl-autocomplete-empty"</span>&gt;</span><span class="handlebars"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"autocomplete-empty"</span>&gt;</span>
+    <span class="php"><span class="hljs-preprocessor">&lt;?php</span> esc_html_e( <span class="hljs-string">'No results matched your query '</span>, <span class="hljs-string">'algolia'</span> ); <span class="hljs-preprocessor">?&gt;</span></span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"empty-query"</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">data.query</span> }}</span><span class="xml">"<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 
-<h2 id="adding-an-extra-source"><a class="heading-anchor" href="#adding-an-extra-source"><span></span></a>Adding an extra source</h2>
-<p>In some cases, you may want to add an extra section to your dropdown menu to search in an external index (of another website you own for instance). In order to achieve that, edit the <code>algolia/autocomplete.php</code> file and locate the <code>autocomplete(...)</code> call. As you&apos;ll see, the 3rd parameter of the function is the array of <code>sources</code> you&apos;re using.</p>
-<p>To add an extra source, just append it to the existing <code>sources</code> array, just before the <code>autocomplete(...)</code> call:</p>
+## Adding an extra source
+
+In some cases, you may want to add an extra section to your dropdown menu to search in an external index (of another website you own for instance). In order to achieve that, edit the `algolia/autocomplete.php` file and locate the `autocomplete(...)` call. As you'll see, the 3rd parameter of the function is the array of `sources` you're using.
+
+To add an extra source, just append it to the existing `sources` array, just before the `autocomplete(...)` call:
+
+
 <pre><code class="hljs js"><span class="hljs-comment">// new source appended to the `sources` array</span>
 sources.push({
   source: <span class="hljs-comment">/* .... */</span>,
@@ -226,10 +253,14 @@ sources.push({
 
 autocomplete(<span class="hljs-comment">/* .... */</span>);</code></pre>
 
-<p>You can read more about multi sources/categories autocomplete.js implementation in <a href="https://www.algolia.com/doc/guides/search/auto-complete#multi-category">this tutorial</a>.</p>
-<h2 id="look-feel"><a class="heading-anchor" href="#look-feel"><span></span></a>Look &amp; feel</h2>
-<p>We provide with some default CSS rules that are located in the <code>algolia/assets/css/algolia-autocomplete.css</code>. You can very easily add your own CSS rules to your theme&apos;s stylesheet.</p>
-<p>If for any reason you don&apos;t want the default stylesheet to be included, you can remove it like this:</p>
+You can read more about multi sources/categories autocomplete.js implementation in [this tutorial](https://www.algolia.com/doc/guides/search/auto-complete#multi-category).
+
+## Look & feel
+
+We provide with some default CSS rules that are located in the `algolia/assets/css/algolia-autocomplete.css`. You can very easily add your own CSS rules to your theme's stylesheet.
+
+If for any reason you don't want the default stylesheet to be included, you can remove it like this:
+
 <pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
 
 <span class="hljs-comment">/**
@@ -240,11 +271,11 @@ autocomplete(<span class="hljs-comment">/* .... */</span>);</code></pre>
  */</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">my_theme_dequeue_styles</span><span class="hljs-params">()</span> </span>{
   <span class="hljs-comment">// Remove the algolia-autocomplete.css.</span>
-  wp_dequeue_style( <span class="hljs-string">&apos;algolia-autocomplete&apos;</span> );
+  wp_dequeue_style( <span class="hljs-string">'algolia-autocomplete'</span> );
 }
-add_action( <span class="hljs-string">&apos;wp_print_styles&apos;</span>, <span class="hljs-string">&apos;my_theme_dequeue_styles&apos;</span>, <span class="hljs-number">100</span> );</code></pre>
+add_action( <span class="hljs-string">'wp_print_styles'</span>, <span class="hljs-string">'my_theme_dequeue_styles'</span>, <span class="hljs-number">100</span> );</code></pre>
 
-
+-->
 
                 </div>
             </div>

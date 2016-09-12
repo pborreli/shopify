@@ -7,27 +7,27 @@
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-    <meta content='Learn how to customize the WordPress search page.' name='description'>
+    <meta content='Learn how to customize the Shopify search page.' name='description'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <!-- / Twitter card -->
     <meta content='summary_large_image' name='twitter:card'>
     <meta content='@Algolia' name='twitter:site'>
     <meta content='@Algolia' name='twitter:creator'>
     <meta content="Customize your search page - Algolia Search plugin for WordPress" name="twitter:title">
-    <meta content="Learn how to customize the WordPress search page." name="twitter:description">
+    <meta content="Learn how to customize the Shopify search page." name="twitter:description">
     <!--meta content="Algolia Product image" name="twitter:image"-->
     <!-- / OG meta -->
     <!--meta content='#' property='og:url'-->
     <meta content='Customize your search page - Algolia Search plugin for WordPress' property='og:title'>
     <meta content='article' property='og:type'>
-    <meta content='Learn how to customize the WordPress search page.' property='og:description'>
+    <meta content='Learn how to customize the Shopify search page.' property='og:description'>
     <meta content='Algolia Search plugin for Shopify' property='og:site_name'>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <meta name="description" content="Learn how to customize the WordPress search page.">
+    <meta name="description" content="Learn how to customize the Shopify search page.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473679529619">
+    <link rel="stylesheet" href="css/app.css?v=1473680633483">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -109,49 +109,65 @@
             <header>
                 <h1>Customize your search page</h1>
 
-                <p class="lead">Learn how to customize the WordPress search page.</p>
+                <p class="lead">Learn how to customize the Shopify search page.</p>
             </header>
 
             <hr>
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    <div class="alert alert-warning"><strong>Reminder</strong>: You should never directly edit the plugin files because all your changes would be lost at every plugin update.</div>
+                    <p>FIXME</p>
+<!--
+<div class="alert alert-warning">**Reminder**: You should never directly edit the plugin files because all your changes would be lost at every plugin update.</div>
 
-<h2 id="introduction"><a class="heading-anchor" href="#introduction"><span></span></a>Introduction</h2>
-<p><em>The instant search results experience can be enabled in the <strong>Search page</strong> section of the plugin.</em></p>
-<p>The instant search results page is powered by <strong>instantsearch.js</strong>, a JavaScript library that eases the process of building rich search experiences.</p>
-<p>Please checkout the <a href="https://community.algolia.com/instantsearch.js/">official documentation of the instantsearch.js website</a>. Also take a look at some examples of <a href="https://community.algolia.com/instantsearch.js/examples/">what can be achieved with instantsearch.js</a>.</p>
-<p>The instantsearch feature will do its search on the <strong>Searchable posts</strong> index. If you don&apos;t have that index flagged for indexing you will be invited to index it with a notice on every page of the WordPress admin.</p>
-<div class="alert alert-info">Whatever changes you make, be sure to understand how the <strong>instantsearch.js</strong> library work by checking out their official documentations.</div>
+## Introduction
 
-<h2 id="customization"><a class="heading-anchor" href="#customization"><span></span></a>Customization</h2>
-<p>To start customizing your search results page, copy/paste the <code>wp-content/plugins/algolia/templates</code> directory in your own theme, and rename it to <code>algolia</code>. If your theme is named <code>mytheme</code>, then the folder should look like: <code>wp-content/themes/mytheme/algolia</code>.</p>
-<p>You can then edit the <code>algolia/instantsearch.php</code> file to customize the instant search results page (search widgets &amp; page layout).</p>
-<div class="alert alert-info">All instantsearch.js templates are using the underscore templating, learn more about it reading this <a href="http://www.2ality.com/2012/06/underscore-templates.html">complete documentation</a>.</div>
+*The instant search results experience can be enabled in the **Search page** section of the plugin.*
 
-<h2 id="edit-the-page-layout"><a class="heading-anchor" href="#edit-the-page-layout"><span></span></a>Edit the page layout</h2>
-<p>The instant search results page is provided with a default layout. You&apos;ll need to slightly customize it to fit your theme&apos;s look &amp; feel. To configure the layout, edit the <code>algolia/instantsearch.php</code> file and locate the <code>&lt;div id=&quot;ais-wrapper&quot;&gt;...&lt;/div&gt;</code> code:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ais-wrapper&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">main</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ais-main&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-search-box&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-stats&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;search-icon&quot;</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">&quot;25&quot;</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">&quot;25&quot;</span> <span class="hljs-attribute">viewBox</span>=<span class="hljs-value">&quot;0 0 40 40&quot;</span> <span class="hljs-attribute">xmlns</span>=<span class="hljs-value">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">&quot;M24.828 31.657a16.76 16.76 0 0 1-7.992 2.015C7.538 33.672 0 26.134 0 16.836 0 7.538 7.538 0 16.836 0c9.298 0 16.836 7.538 16.836 16.836 0 3.22-.905 6.23-2.475 8.79.288.18.56.395.81.645l5.985 5.986A4.54 4.54 0 0 1 38 38.673a4.535 4.535 0 0 1-6.417-.007l-5.986-5.986a4.545 4.545 0 0 1-.77-1.023zm-7.992-4.046c5.95 0 10.775-4.823 10.775-10.774 0-5.95-4.823-10.775-10.774-10.775-5.95 0-10.775 4.825-10.775 10.776 0 5.95 4.825 10.775 10.776 10.775z&quot;</span> <span class="hljs-attribute">fill-rule</span>=<span class="hljs-value">&quot;evenodd&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
+The instant search results page is powered by **instantsearch.js**, a JavaScript library that eases the process of building rich search experiences.
+
+Please checkout the [official documentation of the instantsearch.js website](https://community.algolia.com/instantsearch.js/). Also take a look at some examples of [what can be achieved with instantsearch.js](https://community.algolia.com/instantsearch.js/examples/).
+
+The instantsearch feature will do its search on the **Searchable posts** index. If you don't have that index flagged for indexing you will be invited to index it with a notice on every page of the WordPress admin.
+
+<div class="alert alert-info">Whatever changes you make, be sure to understand how the **instantsearch.js** library work by checking out their official documentations.</div>
+
+## Customization
+
+To start customizing your search results page, copy/paste the `wp-content/plugins/algolia/templates` directory in your own theme, and rename it to `algolia`. If your theme is named `mytheme`, then the folder should look like: `wp-content/themes/mytheme/algolia`.
+
+You can then edit the `algolia/instantsearch.php` file to customize the instant search results page (search widgets & page layout).
+
+<div class="alert alert-info">All instantsearch.js templates are using the underscore templating, learn more about it reading this [complete documentation](http://www.2ality.com/2012/06/underscore-templates.html).</div>
+
+## Edit the page layout
+
+The instant search results page is provided with a default layout. You'll need to slightly customize it to fit your theme's look & feel. To configure the layout, edit the `algolia/instantsearch.php` file and locate the `<div id="ais-wrapper">...</div>` code:
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"ais-wrapper"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">main</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"ais-main"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"algolia-search-box"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"algolia-stats"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"search-icon"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"25"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"25"</span> <span class="hljs-attribute">viewBox</span>=<span class="hljs-value">"0 0 40 40"</span> <span class="hljs-attribute">xmlns</span>=<span class="hljs-value">"http://www.w3.org/2000/svg"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M24.828 31.657a16.76 16.76 0 0 1-7.992 2.015C7.538 33.672 0 26.134 0 16.836 0 7.538 7.538 0 16.836 0c9.298 0 16.836 7.538 16.836 16.836 0 3.22-.905 6.23-2.475 8.79.288.18.56.395.81.645l5.985 5.986A4.54 4.54 0 0 1 38 38.673a4.535 4.535 0 0 1-6.417-.007l-5.986-5.986a4.545 4.545 0 0 1-.77-1.023zm-7.992-4.046c5.95 0 10.775-4.823 10.775-10.774 0-5.95-4.823-10.775-10.774-10.775-5.95 0-10.775 4.825-10.775 10.776 0 5.95 4.825 10.775 10.776 10.775z"</span> <span class="hljs-attribute">fill-rule</span>=<span class="hljs-value">"evenodd"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-hits&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;algolia-pagination&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"algolia-hits"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"algolia-pagination"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">main</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">aside</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ais-facets&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-post-types&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-categories&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-tags&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-facets&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;facet-users&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">aside</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"ais-facets"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"ais-facets"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"facet-post-types"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"ais-facets"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"facet-categories"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"ais-facets"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"facet-tags"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"ais-facets"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"facet-users"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">aside</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></code></pre>
 
-<p>Edit this HTML layout to change the way the overall page is structured.</p>
-<h2 id="edit-the-hit-template"><a class="heading-anchor" href="#edit-the-hit-template"><span></span></a>Edit the hit template</h2>
-<p>Each matching <strong>Searchable Post</strong> will be rendered with a default hit template. To customize it, edit the <code>algolia/instantsearch.php</code> file and locate the <code>tmpl-hit</code> template:</p>
+Edit this HTML layout to change the way the overall page is structured.
+
+## Edit the hit template
+
+Each matching **Searchable Post** will be rendered with a default hit template. To customize it, edit the `algolia/instantsearch.php` file and locate the `tmpl-hit` template:
+
+-->
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/html&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;tmpl-instantsearch-hit&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-title">article</span> <span class="hljs-attribute">itemtype</span>=<span class="hljs-value">&quot;http://schema.org/Article&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">#</span> <span class="hljs-attribute">if</span> ( <span class="hljs-attribute">data.images.thumbnail</span> ) { #&gt;</span>
@@ -192,17 +208,24 @@
     <span class="hljs-tag">&lt;/<span class="hljs-title">article</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 
-<h2 id="adding-an-extra-search-widget"><a class="heading-anchor" href="#adding-an-extra-search-widget"><span></span></a>Adding an extra search widget</h2>
-<p>To add an extra search widget, the best is to follow the <a href="https://community.algolia.com/instantsearch.js/">official documentation of instantsearch.js</a> and instantiate the widget in the <code>algolia/instantsearch.php</code> file, just before the <code>Search.start()</code> call.</p>
+<!--
+
+## Adding an extra search widget
+
+To add an extra search widget, the best is to follow the [official documentation of instantsearch.js](https://community.algolia.com/instantsearch.js/) and instantiate the widget in the `algolia/instantsearch.php` file, just before the `Search.start()` call.
+
 <pre><code class="hljs js"><span class="hljs-comment">// new widget</span>
 search.addWidget(<span class="hljs-comment">/* ... */</span>);
 
 search.start();</code></pre>
 
 
-<h2 id="look-feel"><a class="heading-anchor" href="#look-feel"><span></span></a>Look &amp; feel</h2>
-<p>We provide with some default CSS rules that are located in the <code>algolia/assets/css/algolia-instantsearch.css</code>. You can very easily add your own CSS rules to your theme&apos;s stylesheet.</p>
-<p>If for any reason you don&apos;t want the default stylesheet to be included, you can remove it like this:</p>
+## Look & feel
+
+We provide with some default CSS rules that are located in the `algolia/assets/css/algolia-instantsearch.css`. You can very easily add your own CSS rules to your theme's stylesheet.
+
+If for any reason you don't want the default stylesheet to be included, you can remove it like this:
+
 <pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
 
 <span class="hljs-comment">/**
@@ -213,12 +236,11 @@ search.start();</code></pre>
  */</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">my_theme_dequeue_styles</span><span class="hljs-params">()</span> </span>{
   <span class="hljs-comment">// Remove the algolia-instantsearch.css.</span>
-  wp_dequeue_style( <span class="hljs-string">&apos;algolia-instantsearch&apos;</span> );
+  wp_dequeue_style( <span class="hljs-string">'algolia-instantsearch'</span> );
 }
-add_action( <span class="hljs-string">&apos;wp_print_styles&apos;</span>, <span class="hljs-string">&apos;my_theme_dequeue_styles&apos;</span>, <span class="hljs-number">100</span> );</code></pre>
+add_action( <span class="hljs-string">'wp_print_styles'</span>, <span class="hljs-string">'my_theme_dequeue_styles'</span>, <span class="hljs-number">100</span> );</code></pre>
 
-
-
+-->
 
                 </div>
             </div>
