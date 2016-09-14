@@ -27,7 +27,7 @@
     <meta name="description" content="Understand how we format the data pushed to Algolia.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473783991054">
+    <link rel="stylesheet" href="css/app.css?v=1473849423483">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -117,217 +117,124 @@
             <div class="row">
                 <div class="large-12 columns" id="content">
                     <h2 id="introduction"><a class="heading-anchor" href="#introduction"><span></span></a>Introduction</h2>
-<p>This plugins formats your data in an optimal and extensible format so that it can better serve your WordPress search experience.</p>
+<p>This plugins formats your data in an optimal and extensible format so that it can better serve your Shopify search experience.</p>
 <p>You will find on this page some explanations about how we format your data, how we configure your Algolia indices, and how you can customize it.</p>
-<h2 id="posts"><a class="heading-anchor" href="#posts"><span></span></a>Posts</h2>
-<p>WordPress <code>Posts</code> core feature allows developers to easily create custom content types.</p>
-<p>Every third party plugin offering new post types will automatically be available to the Algolia Search plugin.</p>
-<p>By default here are the attributes we push to Algolia for every post:</p>
+<h2 id="products"><a class="heading-anchor" href="#products"><span></span></a>Products</h2>
+<p>Products indexed in Algolia are actually Shopify variants.<br>Some of their attributes are inherited from the associated product, others are specific to this variant.</p>
+<p>The <code>image</code> attribute is filled using the variant&apos;s picture if it exists, otherwise it will use the first picture of the associated product.</p>
+<p><strong>Schema</strong></p>
+<pre><code class="hljs js">{
+  objectID,               <span class="hljs-comment">// Variant id (unique identifier also used by Algolia)</span>
+  sku,
+  barcode,
+  id,                     <span class="hljs-comment">// Product id</span>
+  title,                  <span class="hljs-comment">// Name of the product</span>
+  variant_title,          <span class="hljs-comment">// Name of the variant</span>
+  product_type,
+  vendor,
+  handle,                 <span class="hljs-comment">// URL handle for the product</span>
+  tags,
+  body_html,              <span class="hljs-comment">// Description (with HTML, truncated to 5000 characters)</span>
+  body_html_safe,         <span class="hljs-comment">// Description (without HTML, truncated to 5000 characters)</span>
+  price,                  <span class="hljs-comment">// Initial price</span>
+  compare_at_price,       <span class="hljs-comment">// Discounted price</span>
+  price_ratio,
+  price_range,
+  option1,                <span class="hljs-comment">// Variant option 1</span>
+  option2,                <span class="hljs-comment">// Variant option 2</span>
+  option3,                <span class="hljs-comment">// Variant option 3</span>
+  requires_shipping,
+  taxable,
+  grams,
+  weight,                 <span class="hljs-comment">// Weight with its original unit</span>
+  image,
+  inventory_quantity,     <span class="hljs-comment">// Number of available items in the inventory</span>
+  position,               <span class="hljs-comment">// Position of the variant in the list of products</span>
+  meta: {                 <span class="hljs-comment">// Metafields (See Metafields section)</span>
+    namespace1: {
+      key1,
+      key2
+    },
+  },
+  created_at,
+  updated_at,
+  published_at,
+  recently_ordered_count  <span class="hljs-comment">// How much have recently been ordered : useful for ranking</span>
+}</code></pre>
+
+<p>The attributes we do textual search in are (in order of importance):</p>
 <table>
 <thead>
 <tr>
-<th>Attribute Name</th>
-<th>Description</th>
+<th>Attribute name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>objectID</td>
-<td>The unique identifier for this record.</td>
+<td><code>title</code></td>
 </tr>
 <tr>
-<td>post_id</td>
-<td>The unique identifier for the post.</td>
+<td><code>handle</code></td>
 </tr>
 <tr>
-<td>post_type</td>
-<td>The post type slug.</td>
+<td><code>sku</code></td>
 </tr>
 <tr>
-<td>post_type_label</td>
-<td>The post type nice-name.</td>
+<td><code>barcode</code></td>
 </tr>
 <tr>
-<td>post_title</td>
-<td>The title of the post.</td>
+<td><code>variant_title</code></td>
 </tr>
 <tr>
-<td>post_excerpt</td>
-<td>The excerpt of the post. An empty string if not available.</td>
+<td><code>product_type</code></td>
 </tr>
 <tr>
-<td>post_date</td>
-<td>The first publication date as a unix timestamp.</td>
+<td><code>vendor</code></td>
 </tr>
 <tr>
-<td>post_modified</td>
-<td>The last time the post was updated as a unix timestamp.</td>
+<td><code>tags</code></td>
 </tr>
 <tr>
-<td>comment_count</td>
-<td>The number of comments for the post.</td>
-</tr>
-<tr>
-<td>post_author</td>
-<td>The post author as an array containing the <code>author_ID</code>, the <code>display_name</code> and the <code>user_url</code>.</td>
-</tr>
-<tr>
-<td>thumbnail_url</td>
-<td>The url to the featured image of the post.</td>
-</tr>
-<tr>
-<td>permalink</td>
-<td>The url to the public page of the post.</td>
-</tr>
-<tr>
-<td>post_mime_type</td>
-<td>The Mime Type of the post, available only for Medias (attachments).</td>
-</tr>
-<tr>
-<td>taxonomy_post_tag</td>
-<td>An array of strings representing the post tags.</td>
-</tr>
-<tr>
-<td>taxonomy_category</td>
-<td>An array of strings representing categories the post is attached to.</td>
-</tr>
-<tr>
-<td>is_sticky</td>
-<td>1 if the post is marked as sticky, 0 otherwise.</td>
+<td><code>body_html_safe</code></td>
 </tr>
 </tbody>
 </table>
-<p>The above attributes are what we call <code>shared attributes</code>.</p>
-<p>Algolia is very performing when searching into small chunks of text. As posts can become large pieces of text, we have a mechanism splitting your posts into several Algolia records.</p>
-<p>Each record of a same post would have the same shared attributes and the following <code>content attributes</code>.</p>
+<h2 id="collections"><a class="heading-anchor" href="#collections"><span></span></a>Collections</h2>
+<p>Collections are way simpler objects than the products.</p>
+<p><strong>Schema</strong></p>
+<pre><code class="hljs js">{
+  objectID,           <span class="hljs-comment">// Collection id (in Shopify &amp; Algolia)</span>
+  title,
+  handle,             <span class="hljs-comment">// URL handle</span>
+  body_html,          <span class="hljs-comment">// Description (with HTML, truncated to 5000 characters)</span>
+  body_html_safe,     <span class="hljs-comment">// Description (without HTML, truncated to 5000 characters)</span>
+  image,
+  products_count,     <span class="hljs-comment">// Product count in the collection (not updated in real-time)</span>
+  meta: {             <span class="hljs-comment">// Metafields (See Metafields section)</span>
+    namespace1: {
+      key1,
+      key2
+    },
+  },
+  updated_at
+}</code></pre>
+
+<p>The attributes we do textual search in are (in order of importance):</p>
 <table>
 <thead>
 <tr>
-<th>Attribute Name</th>
-<th>Description</th>
+<th>Attribute name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>title{1-6}</td>
-<td>Content found in hierarchical dom elements of your post.</td>
+<td><code>title</code></td>
 </tr>
 <tr>
-<td>content</td>
-<td>Content found it the bottom most hierarchical level in your post.</td>
-</tr>
-</tbody>
-</table>
-<p>To extract the content of the generated post DOM, we use the following library: <a href="https://github.com/algolia/php-dom-parser">https://github.com/algolia/php-dom-parser</a>.</p>
-<p>By default, the parser will fetch content in your heading tags, from h1 to h6, to respectively fill the title1 to title 6.
-Then it will fetch the content in p, ul, ol, dl, table tags. We excluded the <code>pre</code> tag in this plugin.</p>
-<p>If you want to change the way you data is fetched, you can use an available filter to customize the parser:</p>
-<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">my_custom_parser</span><span class="hljs-params">( Algolia\DOMParser <span class="hljs-variable">$parser</span> )</span> </span>{
-    <span class="hljs-comment">// Custom selectors.</span>
-    <span class="hljs-variable">$parser</span>-&gt;setAttributeSelectors( <span class="hljs-keyword">array</span>(
-       <span class="hljs-string">&apos;title1&apos;</span>  =&gt; <span class="hljs-string">&apos;title&apos;</span>,
-       <span class="hljs-string">&apos;title2&apos;</span>  =&gt; <span class="hljs-string">&apos;div.heading&apos;</span>,
-       <span class="hljs-string">&apos;title3&apos;</span>  =&gt; <span class="hljs-string">&apos;p.sub-header&apos;</span>,
-       <span class="hljs-string">&apos;title4&apos;</span>  =&gt; <span class="hljs-string">&apos;h4&apos;</span>,
-       <span class="hljs-string">&apos;title5&apos;</span>  =&gt; <span class="hljs-string">&apos;h5&apos;</span>,
-       <span class="hljs-string">&apos;title6&apos;</span>  =&gt; <span class="hljs-string">&apos;h6&apos;</span>,
-       <span class="hljs-string">&apos;content&apos;</span> =&gt; <span class="hljs-string">&apos;p, ul, ol, dl, table&apos;</span>,
-   ) );
-
-   <span class="hljs-comment">// Custom exlusion rules.</span>
-   <span class="hljs-variable">$parser</span>-&gt;setExcludeSelectors( <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">&apos;pre&apos;</span>, <span class="hljs-string">&apos;.related-articles&apos;</span>, <span class="hljs-string">&apos;#toc&apos;</span>, <span class="hljs-string">&apos;#social-medias&apos;</span>
-   ) );
-
-   <span class="hljs-keyword">return</span> <span class="hljs-variable">$parser</span>;
-}
-
-add_filter( <span class="hljs-string">&apos;algolia_post_parser&apos;</span>, <span class="hljs-string">&apos;my_custom_parser&apos;</span> );</code></pre>
-
-<h2 id="terms"><a class="heading-anchor" href="#terms"><span></span></a>Terms</h2>
-<p>As there are no huge chunks of text in terms, we have one record per item.</p>
-<p>Here are the default attributes we push:</p>
-<table>
-<thead>
-<tr>
-<th>Attribute Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>objectID</td>
-<td>The unique identifier for this record.</td>
+<td><code>handle</code></td>
 </tr>
 <tr>
-<td>term_id</td>
-<td>The unique identifier for the term.</td>
-</tr>
-<tr>
-<td>taxonomy</td>
-<td>The taxonomy slug.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>The term name.</td>
-</tr>
-<tr>
-<td>description</td>
-<td>The term description.</td>
-</tr>
-<tr>
-<td>slug</td>
-<td>The slug of the term.</td>
-</tr>
-<tr>
-<td>posts_count</td>
-<td>The number of times this term was assigned to a post.</td>
-</tr>
-<tr>
-<td>permalink</td>
-<td>The url to the public page of the term.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="users"><a class="heading-anchor" href="#users"><span></span></a>Users</h2>
-<p>No chunks of text for users, so one record per item:</p>
-<table>
-<thead>
-<tr>
-<th>Attribute Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>objectID</td>
-<td>The unique identifier for this record.</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>The unique identifier for the user.</td>
-</tr>
-<tr>
-<td>display_name</td>
-<td>The display name for the user.</td>
-</tr>
-<tr>
-<td>posts_url</td>
-<td>URL to the page listing all posts of the author.</td>
-</tr>
-<tr>
-<td>description</td>
-<td>The bio of the author.</td>
-</tr>
-<tr>
-<td>posts_count</td>
-<td>The number of posts written by the user.</td>
-</tr>
-<tr>
-<td>avatar_url</td>
-<td>The URL of the user&apos;s avatar picture.</td>
+<td><code>body_html_safe</code></td>
 </tr>
 </tbody>
 </table>
@@ -351,6 +258,16 @@ add_filter( <span class="hljs-string">&apos;algolia_post_parser&apos;</span>, <s
           <li class="menu-text">Getting Started</li>
           <li ><a href="installation.html">Installation</a></li>
           <li ><a href="configuration.html">Configuration</a></li>
+
+          <li class="menu-text">Indexing</li>
+          <li class="active"><a href="index-schema.html">Schemas</a></li>
+          <li ><a href="metafields.html">Metafields</a></li>
+
+
+          <li class="menu-text">Customization with code</li>
+          <li ><a href="customization-introduction.html">Introduction</a></li>
+          <li ><a href="hogan-helpers.html">Helpers</a></li>
+          <li ><a href="autocomplete.html">Autocomplete</a></li>
           <!-- 
             <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
             <li ><a href="customize-search-page.html">Customize Search Page</a></li>
