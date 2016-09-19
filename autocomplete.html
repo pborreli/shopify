@@ -27,7 +27,7 @@
     <meta name="description" content="Customizing the auto-completion menu">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1474262823581">
+    <link rel="stylesheet" href="css/app.css?v=1474278752941">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -116,62 +116,105 @@
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    <p>The autocomplete has a few associated files:</p>
-<pre><code class="hljs no-highlight">- snippets/algolia_autocomplete.css.hogan.liquid
-- assets/algolia_autocomplete.js.liquid
+                    <p>The autocomplete aims to be able to integrate itself in as much themes as possible.<br>If you have an issue with it, please contact us first at support+shopify@algolia.com so that we can check if we wouldn&apos;t be able to fix this on our end.</p>
+<p>However, if everything is working fine but you&apos;re looking to change the default behaviour, you&apos;ll probably have to dig inside the code.<br>The autocomplete has a few associated files:</p>
+<pre><code class="hljs no-highlight">- assets/algolia_autocomplete.js.liquid
+- snippets/algolia_autocomplete.css.hogan.liquid
 - snippets/algolia_autocomplete.hogan.liquid
-- snippets/algolia_autocomplete_collection.hogan.liquid
-- snippets/algolia_autocomplete_collections_empty.hogan.liquid
 - snippets/algolia_autocomplete_products_empty.hogan.liquid
+- snippets/algolia_autocomplete_footer.hogan.liquid
 - snippets/algolia_autocomplete_product.hogan.liquid
-- snippets/algolia_autocomplete_footer.hogan.liquid</code></pre>
+- snippets/algolia_autocomplete_collection.hogan.liquid
+- snippets/algolia_autocomplete_collections_empty.hogan.liquid</code></pre>
 
 <h2 id="main-files"><a class="heading-anchor" href="#main-files"><span></span></a>Main files</h2>
-<h4 id="-snippets-algolia_autocomplete-css-hogan-liquid-"><a class="heading-anchor" href="#-snippets-algolia_autocomplete-css-hogan-liquid-"><span></span></a><code>snippets/algolia_autocomplete.css.hogan.liquid</code></h4>
-<p>This file contains all the auto-complete related styling rules.<br>If you&apos;re looking to modify the auto-completion dropdown, this is the probably the first file you&apos;ll want to open.
-The reason it is also a <code>.hogan</code> template is to be able to pass some configuration options from the JavaScript file to the stylesheet, like colors.</p>
-<p>Passed object:</p>
-<pre><code class="hljs"></code></pre>
-
-<h4 id="-assets-algolia_autocomplete-js-liquid-"><a class="heading-anchor" href="#-assets-algolia_autocomplete-js-liquid-"><span></span></a><code>assets/algolia_autocomplete.js.liquid</code></h4>
+<h4 id="assets-algolia_autocomplete-js-liquid"><a class="heading-anchor" href="#assets-algolia_autocomplete-js-liquid"><span></span></a>assets/algolia_autocomplete.js.liquid</h4>
 <p>This file is the main file of the autocomplete: it contains all the front-end logic.<br>To learn more about the library we&apos;re using, you can check out two important resources:</p>
 <ul>
 <li><a href="https://www.algolia.com/doc/guides/search/auto-complete">Auto-complete creation guide on Algolia</a></li>
 <li><a href="https://github.com/algolia/autocomplete.js"><code>autocomplete.js</code>&apos;s documentation on GitHub</a></li>
 </ul>
-<h4 id="-snippets-algolia_autocomplete-hogan-liquid-"><a class="heading-anchor" href="#-snippets-algolia_autocomplete-hogan-liquid-"><span></span></a><code>snippets/algolia_autocomplete.hogan.liquid</code></h4>
+<h4 id="snippets-algolia_autocomplete-css-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete-css-hogan-liquid"><span></span></a>snippets/algolia_autocomplete.css.hogan.liquid</h4>
+<p>This file contains all the auto-complete related styling rules.<br>If you&apos;re looking to modify the auto-completion dropdown, this is the probably the first file you&apos;ll want to open.
+The reason it is also a <code>.hogan</code> template is to be able to pass some configuration options from the JavaScript file to the stylesheet, like colors.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  colors: {     <span class="hljs-comment">// Theme colors (configurable in the application)</span>
+    main,
+    secondary,
+    highlight
+  },
+  helpers
+}</code></pre>
+
+<h4 id="snippets-algolia_autocomplete-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete-hogan-liquid"><span></span></a>snippets/algolia_autocomplete.hogan.liquid</h4>
 <p>Autocomplete layout template.</p>
-<p>Passed object:</p>
-<pre><code class="hljs">{
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
   helpers,
   storeName,
-  withCollections,  <span class="hljs-comment">// With a collections section ?</span>
-  withPoweredBy,    <span class="hljs-comment">// With the &quot;Search by Algolia&quot; text ? (Required with Algolia&apos;s FREE plan)</span>
-  withProducts      <span class="hljs-comment">//</span>
+  withCollections,  <span class="hljs-comment">// Display the collections section?</span>
+  withPoweredBy,    <span class="hljs-comment">// Display the &quot;Search by Algolia&quot; text? (Required with Algolia&apos;s FREE plan)</span>
+  withProducts      <span class="hljs-comment">// Display the products section?</span>
+}</code></pre>
+
+<h2 id="product-templates"><a class="heading-anchor" href="#product-templates"><span></span></a>Product templates</h2>
+<h4 id="snippets-algolia_autocomplete_product-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete_product-hogan-liquid"><span></span></a>snippets/algolia_autocomplete_product.hogan.liquid</h4>
+<p>Product&apos;s entry template. It receives the Algolia response record. It&apos;s the record with a few extra attributes.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  <span class="hljs-comment">// ... product attributes</span>
+  helpers,
+  <span class="hljs-comment">// Algolia search result attributes</span>
+  <span class="hljs-comment">// See https://www.algolia.com/doc/api-client/php/search#sample</span>
+  _highlightResult,           <span class="hljs-comment">// For all attributes in the attributesToHighlight setting of the index</span>
+  _snippetResult              <span class="hljs-comment">// For all attributes in the attributesToSnippet setting of the index</span>
+}</code></pre>
+
+<h4 id="snippets-algolia_autocomplete_footer-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete_footer-hogan-liquid"><span></span></a>snippets/algolia_autocomplete_footer.hogan.liquid</h4>
+<p>Template used to add information after the list of product results.
+By default, it is used to display a link to redirect to the search page with the same query.</p>
+<p>Not displayed if the number of results is lower than the number of results displayable.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  helpers,
+  isEmpty,              <span class="hljs-comment">// Did the search return 0 results</span>
+  nbHits,               <span class="hljs-comment">// How much results were returned?</span>
+  query
+}</code></pre>
+
+<h4 id="snippets-algolia_autocomplete_products_empty-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete_products_empty-hogan-liquid"><span></span></a>snippets/algolia_autocomplete_products_empty.hogan.liquid</h4>
+<p>Template used in case we have no product results (but other results otherwise)</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  helpers,
+  query
 }</code></pre>
 
 <h2 id="collection-templates"><a class="heading-anchor" href="#collection-templates"><span></span></a>Collection templates</h2>
-<h4 id="-snippets-algolia_autocomplete_collection-hogan-liquid-"><a class="heading-anchor" href="#-snippets-algolia_autocomplete_collection-hogan-liquid-"><span></span></a><code>snippets/algolia_autocomplete_collection.hogan.liquid</code></h4>
-<p>This is a collection entry&apos;s template.</p>
-<p>Passed object:</p>
-<h4 id="-snippets-algolia_autocomplete_collections_empty-hogan-liquid-"><a class="heading-anchor" href="#-snippets-algolia_autocomplete_collections_empty-hogan-liquid-"><span></span></a><code>snippets/algolia_autocomplete_collections_empty.hogan.liquid</code></h4>
-<p>This is the template for empty results.</p>
-<p>Passed object:</p>
-<pre><code class="hljs"></code></pre>
+<h4 id="snippets-algolia_autocomplete_collection-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete_collection-hogan-liquid"><span></span></a>snippets/algolia_autocomplete_collection.hogan.liquid</h4>
+<p>This is a collection entry&apos;s template.
+Collection&apos;s entry template. It receives the Algolia response record. It&apos;s the record with a few extra attributes.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  <span class="hljs-comment">// ... collection attributes</span>
+  helpers,
+  <span class="hljs-comment">// Algolia search result attributes</span>
+  <span class="hljs-comment">// See https://www.algolia.com/doc/api-client/php/search#sample</span>
+  _highlightResult,           <span class="hljs-comment">// For all attributes in the attributesToHighlight setting of the index</span>
+  _snippetResult              <span class="hljs-comment">// For all attributes in the attributesToSnippet setting of the index</span>
+}</code></pre>
+
+<h4 id="snippets-algolia_autocomplete_collections_empty-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete_collections_empty-hogan-liquid"><span></span></a>snippets/algolia_autocomplete_collections_empty.hogan.liquid</h4>
+<p>Template used in case we have no collection results (but other results otherwise)</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  helpers,
+  query
+}</code></pre>
 
 
-<h2 id="product-templates"><a class="heading-anchor" href="#product-templates"><span></span></a>Product templates</h2>
-<h4 id="-snippets-algolia_autocomplete_products_empty-hogan-liquid-"><a class="heading-anchor" href="#-snippets-algolia_autocomplete_products_empty-hogan-liquid-"><span></span></a><code>snippets/algolia_autocomplete_products_empty.hogan.liquid</code></h4>
-<p>Passed object:</p>
-<pre><code class="hljs"></code></pre>
 
-<h4 id="-snippets-algolia_autocomplete_product-hogan-liquid-"><a class="heading-anchor" href="#-snippets-algolia_autocomplete_product-hogan-liquid-"><span></span></a><code>snippets/algolia_autocomplete_product.hogan.liquid</code></h4>
-<p>Passed object:</p>
-<pre><code class="hljs"></code></pre>
-
-<h4 id="-snippets-algolia_autocomplete_footer-hogan-liquid-"><a class="heading-anchor" href="#-snippets-algolia_autocomplete_footer-hogan-liquid-"><span></span></a><code>snippets/algolia_autocomplete_footer.hogan.liquid</code></h4>
-<p>Passed object:</p>
-<pre><code class="hljs"></code></pre>
                 </div>
             </div>
 

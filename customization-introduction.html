@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Customization Introduction</title>
+    <title>Customization - Introduction</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -13,12 +13,12 @@
     <meta content='summary_large_image' name='twitter:card'>
     <meta content='@Algolia' name='twitter:site'>
     <meta content='@Algolia' name='twitter:creator'>
-    <meta content="Customization Introduction - Algolia Search plugin for WordPress" name="twitter:title">
+    <meta content="Customization - Introduction - Algolia Search plugin for WordPress" name="twitter:title">
     <meta content="Introduction to how to change our code to match your search expectations." name="twitter:description">
     <!--meta content="Algolia Product image" name="twitter:image"-->
     <!-- / OG meta -->
     <!--meta content='#' property='og:url'-->
-    <meta content='Customization Introduction - Algolia Search plugin for WordPress' property='og:title'>
+    <meta content='Customization - Introduction - Algolia Search plugin for WordPress' property='og:title'>
     <meta content='article' property='og:type'>
     <meta content='Introduction to how to change our code to match your search expectations.' property='og:description'>
     <meta content='Algolia Search plugin for Shopify' property='og:site_name'>
@@ -27,7 +27,7 @@
     <meta name="description" content="Introduction to how to change our code to match your search expectations.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1474262823581">
+    <link rel="stylesheet" href="css/app.css?v=1474278752941">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -107,7 +107,7 @@
             </div>
 
             <header>
-                <h1>Customization Introduction</h1>
+                <h1>Customization - Introduction</h1>
 
                 <p class="lead">Introduction to how to change our code to match your search expectations.</p>
             </header>
@@ -123,6 +123,53 @@ This requires a certain level of <code>JavaScript</code> and <code>CSS</code>.</
 If you modify files in your theme, you won&apos;t be able to update to the latest version of our front-end anymore because an upgrade would override your files.
 </div>
 
+<h1 id="resources"><a class="heading-anchor" href="#resources"><span></span></a>Resources</h1>
+<p>When installing Algolia in your front-end, we&apos;re loading a few ressources.
+Here is a full explanation of what we&apos;re putting in your theme.</p>
+<p>We&apos;re first loading some <a href="#external-libraries">external libraries</a>, then <a href="#generic-assets">some files that will apply everywhere</a> and finally some specific files <a href="./autocomplete.html">for the autocomplete</a> and <a href="./instant_search.html">for the search page</a>.</p>
+<h2 id="external-libraries"><a class="heading-anchor" href="#external-libraries"><span></span></a>External libraries</h2>
+<p>In terms of front-end logic, we are using a few libraries to build the search experience provided in your front-end:</p>
+<ul>
+<li><a href="https://lodash.com/docs/3.10.1">lodash</a> v3: <code>Lodash</code> is an utility suite that provides helpful methods to manipulate collections, arrays, objects in a cross-browser way</li>
+<li><a href="https://jquery.com/">jQuery</a>: <code>jQuery</code> is a library designed to manipulate the DOM more easily. Its methods also provide a great abstraction over features implemented differently between browsers</li>
+<li><a href="http://twitter.github.io/hogan.js/">Hogan.js</a>: <code>Hogan</code> is a templating engine. It has its <a href="./template-engines.html#hogan"><code>own section in this documentation</code></a></li>
+<li><a href="https://github.com/algolia/algoliasearch-client-js">algoliasearch</a>: JavaScript API client for Algolia &#x2014; needed by <code>autocomplete.js</code></li>
+<li><a href="https://github.com/algolia/autocomplete.js">autocomplete.js</a>: Algolia&apos;s autocompletion library</li>
+<li><a href="https://github.com/algolia/instantsearch.js">instantsearch.js</a>: Algolia&apos;s library of widgets to build an instant search page</li>
+</ul>
+<p>For the design, we&apos;re using an icon pack:</p>
+<ul>
+<li><a href="http://fortawesome.github.io/Font-Awesome/">Font awesome</a>: An open-source icon pack and CSS framework</li>
+</ul>
+<h2 id="generic-assets"><a class="heading-anchor" href="#generic-assets"><span></span></a>Generic assets</h2>
+<p>We&apos;re installing 4 generic assets in your theme:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assets/algolia.scss.liquid</code></td>
+<td>Main styling file</td>
+</tr>
+<tr>
+<td><code>assets/algolia_config.js.liquid</code></td>
+<td>File in which your configuration will be saved. This file is overwritten on every configuration update in your app, that&apos;s the only file you should&apos;t touch</td>
+</tr>
+<tr>
+<td><code>assets/algolia_init.js.liquid</code></td>
+<td>Initialization file. Creates the <code>algoliaShopify</code> object, loads libraries in <code>noConflict</code> mode if available and adds a few generic logic methods</td>
+</tr>
+<tr>
+<td><code>assets/algolia_helpers.js.liquid</code></td>
+<td>Hogan templating logic helpers. See the <a href="./hogan-helpers.html">dedicated section</a></td>
+</tr>
+</tbody>
+</table>
+
                 </div>
             </div>
 
@@ -130,7 +177,7 @@ If you modify files in your theme, you won&apos;t be able to update to the lates
                 <!--
                   FIXME open-source
                 <li><a href="https://github.com/algolia/algoliasearch-shopify/edit/master/docs/src/customization-introduction.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
-                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BCustomization Introduction%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BCustomization - Introduction%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
                 -->
                 <li><a href="http://stackoverflow.com/questions/tagged/algolia+shopify" target="_blank"><i class="fi-comment"></i> <span>Get Help</span></a></li>
             </ul>

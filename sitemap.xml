@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-<url> <loc>https://community.algolia.com/wordpress/advanced-custom-fields.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/autocomplete.html</loc> </url>
+<url> <loc>https://community.algolia.com/wordpress/advanced-custom-fields.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/configuration.html</loc> </url>
-<url> <loc>https://community.algolia.com/wordpress/contribute.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/custom-attributes.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/customization-introduction.html</loc> </url>
+<url> <loc>https://community.algolia.com/wordpress/contribute.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/customize-autocomplete.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/customize-search-page.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/extend-basics.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/frequently-asked-questions.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/hogan-helpers.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/index-schema.html</loc> </url>
-<url> <loc>https://community.algolia.com/wordpress/index.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/indexing-flow.html</loc> </url>
+<url> <loc>https://community.algolia.com/wordpress/index.html</loc> </url>
+<url> <loc>https://community.algolia.com/wordpress/indexing-settings.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/installation.html</loc> </url>
+<url> <loc>https://community.algolia.com/wordpress/instant_search.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/internationalization.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/logs.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/metafields.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/replicas.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/resources.html</loc> </url>
-<url> <loc>https://community.algolia.com/wordpress/indexing-settings.html</loc> </url>
-<url> <loc>https://community.algolia.com/wordpress/synonyms.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/search-page.html</loc> </url>
+<url> <loc>https://community.algolia.com/wordpress/synonyms.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/template-engines.html</loc> </url>
 <url> <loc>https://community.algolia.com/wordpress/wpml.html</loc> </url>
 </urlset>
