@@ -27,7 +27,7 @@
     <meta name="description" content="Introduction to how to change our code to match your search expectations.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473849423483">
+    <link rel="stylesheet" href="css/app.css?v=1474262823581">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -123,132 +123,6 @@ This requires a certain level of <code>JavaScript</code> and <code>CSS</code>.</
 If you modify files in your theme, you won&apos;t be able to update to the latest version of our front-end anymore because an upgrade would override your files.
 </div>
 
-<h3 id="liquid"><a class="heading-anchor" href="#liquid"><span></span></a>Liquid</h3>
-<p>All the files we&apos;re installing inside your theme are also <code>.liquid</code> templates.<br>The main benefit of this is for you to be able to access your settings or your translations.</p>
-<p>To use liquid variables and helpers, just use your usual syntax:</p>
-<pre><code class="hljs"><span class="xml">{% if settings.use_logo %}
-  </span><span class="hljs-expression">{{ &apos;<span class="hljs-variable">logo.png</span>&apos; | <span class="hljs-variable">asset</span>_<span class="hljs-variable">url</span> | <span class="hljs-variable">img</span>_<span class="hljs-variable">tag</span>: <span class="hljs-variable">shop.name</span> }}</span><span class="xml">
-{% else %}
-  <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;no-logo&quot;</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">shop.name</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
-{% endif %}</span></code></pre>
-
-<div class="alert alert-warning">
-Liquid is a back-end templating engine. This means it is only evaluated at <strong>page render time</strong>.<br>This means that for instance, you can&apos;t use <code>{{ product.title }}</code> to change the way a product has been rendered
-by Algolia because we&apos;re dynamically retrieving it without reloading the page.<br>Fortunately, the next section about <a href="#hogan">Hogan templates</a> will solve this issue.
-</div>
-
-<h3 id="hogan"><a class="heading-anchor" href="#hogan"><span></span></a>Hogan</h3>
-<p>To have some templating logic for dynamically rendered elements, we&apos;re using a front-end templating library called <a href="http://twitter.github.io/hogan.js/">Hogan.js</a>.</p>
-<p>This templating engine is using the <code>mustache</code> syntax (<a href="https://mustache.github.io/mustache.5.html">documentation</a>), with a main tweak:
-Both <code>Liquid</code> and <code>Hogan</code> use curly braces (<code>{}</code>) as their templating delimiters by default.<br>To avoid those conflicts, we&apos;ve set hogan to use brackets (<code>[]</code>) instead.</p>
-<h4 id="variables"><a class="heading-anchor" href="#variables"><span></span></a>Variables</h4>
-<p>Use <code>[[ abc ]]</code> to render a string.<br>Use <code>[[&amp; abc ]]</code> to render a string that contains HTML. (For security reasons, you should be sure you trust the value)</p>
-<p>You can access object attributes using those syntax: <code>[[ attr.abc ]]</code> will work as you expect.</p>
-<h4 id="conditions"><a class="heading-anchor" href="#conditions"><span></span></a>Conditions</h4>
-<p>Hogan&apos;s condition are using the same conditionals than in JavaScript:</p>
-<ul>
-<li><code>false</code>, <code>0</code> (zero), <code>&quot;&quot;</code> (empty string), <code>null</code>, <code>undefined</code> and <code>NaN</code> are <em>falsey</em> values</li>
-<li>All the others are <em>truthy</em></li>
-</ul>
-<p>Use <code>[[# abc ]]abc is truthy[[/ abc ]]</code> to check if <code>abc</code> is truthy.<br>Use <code>[[^ abc ]]abc is falsy[[/ abc ]]</code> to check if <code>abc</code> is falsey.</p>
-<h4 id="blocks"><a class="heading-anchor" href="#blocks"><span></span></a>Blocks</h4>
-<p>The block is the same than for truthy conditions: <code>[[# abc ]]content[[/ abc ]]</code>.
-A block can allow you to do two things:</p>
-<h5 id="entering-an-object"><a class="heading-anchor" href="#entering-an-object"><span></span></a>Entering an object</h5>
-<p>When using a variable name, it will now look inside the object first, and go up the object tree if it doesn&apos;t find it:</p>
-<p>Example:</p>
-<table>
-  <tr>
-    <th>Template</th>
-    <th>Object passed</th>
-    <th>Result</th>
-  </tr>
-  <tr>
-    <td>
-
-<pre><code class="hljs"><span class="hljs-string">[[# product ]]</span>
-  <span class="hljs-string">[[ title ]]</span>
-  by
-  <span class="hljs-string">[[ storeName ]]</span>
-<span class="hljs-string">[[/ product ]]</span></code></pre>
-
-    </td>
-    <td>
-
-<pre><code class="hljs">{
-  <span class="hljs-tag">product</span>: {
-    <span class="hljs-attribute">title</span>: <span class="hljs-string">&apos;iPhone&apos;</span>
-  },
-  <span class="hljs-attribute">storeName</span>: <span class="hljs-string">&apos;Apple&apos;</span>
-}</code></pre>
-
-    </td>
-    <td>
-
-<pre><code class="hljs no-highlight">iPhone by Apple</code></pre>
-
-    </td>
-  </tr>
-</table>
-
-<h5 id="iterating-on-a-list"><a class="heading-anchor" href="#iterating-on-a-list"><span></span></a>Iterating on a list</h5>
-<p>You can use blocks to display a list.<br>If the list is composed of objects, it automatically <em>enters</em> each of them.<br>If the list is composed of values, use <code>[[ . ]]</code> to access them.<br>As with conditions, you can also use <code>[[^ abc ]] content [[/ abc ]]</code> to check if the list is empty.</p>
-<p>Example:</p>
-<table>
-  <tr>
-    <th>Template</th>
-    <th>Object passed</th>
-    <th>Result</th>
-  </tr>
-  <tr>
-    <td>
-
-<pre><code class="hljs"><span class="hljs-string">[[# products ]]</span>
-  - <span class="hljs-string">[[ title ]]</span>
-<span class="hljs-string">[[/ product ]]</span>
-<span class="hljs-comment">-----</span>
-<span class="hljs-string">[[# tags ]]</span>
-  * <span class="hljs-string">[[ . ]]</span>
-<span class="hljs-string">[[/ tags ]]</span>
-<span class="hljs-comment">-----</span>
-<span class="hljs-string">[[^ prices ]]</span>
-  No price yet
-<span class="hljs-string">[[/ prices ]]</span></code></pre>
-
-    </td>
-    <td>
-
-<pre><code class="hljs">{
-  <span class="hljs-atom">products</span>: [{
-    <span class="hljs-atom">title</span>: <span class="hljs-string">&apos;iPhone&apos;</span>
-  }, {
-    <span class="hljs-atom">title</span>: <span class="hljs-string">&apos;LG G5&apos;</span>
-  }],
-  <span class="hljs-atom">tags</span>: [
-    <span class="hljs-string">&apos;Electronics&apos;</span>,
-    <span class="hljs-string">&apos;Phones&apos;</span>
-  ],
-  <span class="hljs-atom">prices</span>: []
-}</code></pre>
-
-    </td>
-    <td>
-
-<pre><code class="hljs no-highlight">- iPhone
-- LG G5
------
-* Electronics
-* Phones
------
-No price yet</code></pre>
-
-    </td>
-  </tr>
-</table>
-
-<h4 id="helpers"><a class="heading-anchor" href="#helpers"><span></span></a>Helpers</h4>
-<p>FIXME See the dedicated section</p>
-
                 </div>
             </div>
 
@@ -274,10 +148,14 @@ No price yet</code></pre>
           <li ><a href="metafields.html">Metafields</a></li>
 
 
-          <li class="menu-text">Customization with code</li>
+          <li class="menu-text">Front-end customization</li>
           <li class="active"><a href="customization-introduction.html">Introduction</a></li>
+          <li ><a href="template-engines.html">Template engines</a></li>
           <li ><a href="hogan-helpers.html">Helpers</a></li>
           <li ><a href="autocomplete.html">Autocomplete</a></li>
+
+          <li class="menu-text">Other</li>
+          <li ><a href="frequently-asked-questions.html">FAQ</a></li>
           <!-- 
             <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
             <li ><a href="customize-search-page.html">Customize Search Page</a></li>
@@ -337,7 +215,7 @@ No price yet</code></pre>
         <span class="ac-icon ac-icon-love-dark"></span>
     </div>
 
-    <p class="ac-footer-version">Latest version: 0.6.0</p>
+    <p class="ac-footer-version">Latest version: 1.0.0</p>
 
     <div class="ac-footer-actions">
         <div class="footer-container">

@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Metafields</title>
+    <title>Search page</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-    <meta content='The special case of metafields' name='description'>
+    <meta content='Customizing your Algolia-powered search page' name='description'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <!-- / Twitter card -->
     <meta content='summary_large_image' name='twitter:card'>
     <meta content='@Algolia' name='twitter:site'>
     <meta content='@Algolia' name='twitter:creator'>
-    <meta content="Metafields - Algolia Search plugin for WordPress" name="twitter:title">
-    <meta content="The special case of metafields" name="twitter:description">
+    <meta content="Search page - Algolia Search plugin for WordPress" name="twitter:title">
+    <meta content="Customizing your Algolia-powered search page" name="twitter:description">
     <!--meta content="Algolia Product image" name="twitter:image"-->
     <!-- / OG meta -->
     <!--meta content='#' property='og:url'-->
-    <meta content='Metafields - Algolia Search plugin for WordPress' property='og:title'>
+    <meta content='Search page - Algolia Search plugin for WordPress' property='og:title'>
     <meta content='article' property='og:type'>
-    <meta content='The special case of metafields' property='og:description'>
+    <meta content='Customizing your Algolia-powered search page' property='og:description'>
     <meta content='Algolia Search plugin for Shopify' property='og:site_name'>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <meta name="description" content="The special case of metafields">
+    <meta name="description" content="Customizing your Algolia-powered search page">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
     <link rel="stylesheet" href="css/app.css?v=1474262823581">
@@ -107,67 +107,24 @@
             </div>
 
             <header>
-                <h1>Metafields</h1>
+                <h1>Search page</h1>
 
-                <p class="lead">The special case of metafields</p>
+                <p class="lead">Customizing your Algolia-powered search page</p>
             </header>
 
             <hr>
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    <p>Algolia supports Shopify&apos;s metafields out of the box.
-However, there are a few things to note based on the special case that they represent.</p>
-<h2 id="indexing-slowdown"><a class="heading-anchor" href="#indexing-slowdown"><span></span></a>Indexing slowdown</h2>
-<p>When you start indexing metafields in Algolia, you might notice a slowdown in indexing speed.<br>A full reindex that used to take 1 hour jumping to 4 or 5 hours is to be expected.</p>
-<p>The reason for this is the lack of an option to browse all items with their metafields included using
-Shopify&apos;s API. We need to do an extra request per object and
-<a href="https://help.shopify.com/api/guides/api-call-limit">Shopify&apos;s rate-limiting</a> comes into play.</p>
-<p>There will be no difference between indexing 1 or 20 metafields though.</p>
-<h2 id="indexing-a-metafield"><a class="heading-anchor" href="#indexing-a-metafield"><span></span></a>Indexing a metafield</h2>
-<p>Indexing a metafield is really easy: head to the <em>Indexing</em> tab of the application, click
-<code>Add a product metafield</code> or <code>Add a collection metafield</code>, fill its namespace, key, and the
-name you want to give it, save and we&apos;ll automatically start a full re-indexing to add this
-metafield to every record in the index.</p>
-<p><img src="img/metafields/metafields.png" alt="Metafield form screenshot"></p>
-<h2 id="schema"><a class="heading-anchor" href="#schema"><span></span></a>Schema</h2>
-<p>When you set up a metafield on an index, it will populate the <code>meta</code> attribute of the record.<br>The namespace will become a JSON object inside the record.</p>
-<p>Here is an example with three metafields: <code>colors.main</code>, <code>colors.secondary</code> and <code>contact.partner</code>.</p>
-<pre><code class="hljs javascript">{
-  <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Awesome dress&quot;</span>,
-  <span class="hljs-comment">// ... Other attributes</span>
-  <span class="hljs-string">&quot;meta&quot;</span>: {
-    <span class="hljs-string">&quot;colors&quot;</span>: {
-      <span class="hljs-string">&quot;main&quot;</span>: <span class="hljs-string">&quot;white&quot;</span>,
-      <span class="hljs-string">&quot;secondary&quot;</span>: <span class="hljs-string">&quot;gold&quot;</span>
-    },
-    <span class="hljs-string">&quot;contact&quot;</span>: {
-      <span class="hljs-string">&quot;partner&quot;</span>: <span class="hljs-string">&quot;sellonlineshop.co&quot;</span>
-    }
-  }
-}</code></pre>
-
-<p>You can use each of these in Algolia&apos;s index settings. To target a metafield, just use <code>meta.namespace.key</code>.</p>
-<h2 id="product-metafields"><a class="heading-anchor" href="#product-metafields"><span></span></a>Product metafields</h2>
-<p>Product metafields have a few specificities that we need to cover.</p>
-<h3 id="product-vs-variant"><a class="heading-anchor" href="#product-vs-variant"><span></span></a>Product vs Variant</h3>
-<p>As explained in the <a href="./index-schema.html#products">Product schema description</a>, we&apos;re actually indexing product variants.<br>For a specific variant, we&apos;ll take the metafield if present on the variant, otherwise fallback on the same metafield on the related product.</p>
-<h3 id="extra-usages"><a class="heading-anchor" href="#extra-usages"><span></span></a>Extra usages</h3>
-<p>Product metafields can also be used as <a href="./configuration.html#sorting">sort orders</a> and <a href="./configuration.html#faceting">facets</a>.</p>
-<div class="text-center">
-<img src="img/metafields/metafields-usages.png" alt="Metafield usgaes screenshot">
-</div>
-
-<p>In the <em>Indexing</em> tab, just check the usage that you&apos;re interested in, save and the metafield will now be available in the corresponding tab.</p>
-
+                    
                 </div>
             </div>
 
             <ul class="menu simple text-center">
                 <!--
                   FIXME open-source
-                <li><a href="https://github.com/algolia/algoliasearch-shopify/edit/master/docs/src/metafields.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
-                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BMetafields%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-shopify/edit/master/docs/src/search-page.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BSearch page%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
                 -->
                 <li><a href="http://stackoverflow.com/questions/tagged/algolia+shopify" target="_blank"><i class="fi-comment"></i> <span>Get Help</span></a></li>
             </ul>
@@ -182,7 +139,7 @@ metafield to every record in the index.</p>
 
           <li class="menu-text">Indexing</li>
           <li ><a href="index-schema.html">Schemas</a></li>
-          <li class="active"><a href="metafields.html">Metafields</a></li>
+          <li ><a href="metafields.html">Metafields</a></li>
 
 
           <li class="menu-text">Front-end customization</li>

@@ -27,7 +27,7 @@
     <meta name="description" content="Front-end logic helpers">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473849423483">
+    <link rel="stylesheet" href="css/app.css?v=1474262823581">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -116,8 +116,159 @@
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    <p>FIXME</p>
+                    <p>Helpers are functions to add a bit of logic to your templates.</p>
+<p>They are defined in the <code>assets/algolia_helpers.js.liquid</code> file, and will be available in the <a href="./template-engines.html#hogan">Hogan</a> templates (e.g. <code>snippets/algolia_product_autocomplete.hogan.liquid</code>).  </p>
+<p>These are Mustache lambdas, so you can call them like a block in your templates:</p>
+<pre><code class="hljs">[<span class="hljs-link_label">[# lambda </span>]][[/ lambda]]</code></pre>
 
+<p>You can use only one parameter with your lambda: the text contained in it.</p>
+<p>In a lambda, <code>this</code> is the object passed as a parameter to the Hogan template.<br>In <code>snippets/algolia_product_autocomplete.hogan.liquid</code> for example, <code>this</code> will be the product object returned by Algolia.</p>
+<p>Every Hogan template will be called with acces to those lambdas.</p>
+<h2 id="simple-example"><a class="heading-anchor" href="#simple-example"><span></span></a>Simple example</h2>
+<p>Let&apos;s first define a lambda:</p>
+<pre><code class="hljs javascript">algolia.helpers = {
+  printer: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">text, render</span>) </span>{
+    <span class="hljs-keyword">return</span> render(text);
+  }
+};</code></pre>
+
+<p>Rendering the template</p>
+<pre><code class="hljs no-highlight">[[# helpers.printer ]]
+  2
+[[/ helpers.printer ]]</code></pre>
+
+<p>Called with</p>
+<pre><code class="hljs javascript">{
+  helpers: algolia.helpers
+}</code></pre>
+
+<p>Will just output: <code>2</code>.</p>
+<h2 id="more-complex-example"><a class="heading-anchor" href="#more-complex-example"><span></span></a>More complex example</h2>
+<pre><code class="hljs javascript">algolia.helpers = {
+  image_tag: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">text, render</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&lt;img &apos;</span> +
+        <span class="hljs-string">&apos;src=&quot;&apos;</span> + render(text) + <span class="hljs-string">&apos;&quot; &apos;</span> +
+        <span class="hljs-string">&apos;alt=&quot;&apos;</span> + <span class="hljs-keyword">this</span>.default_alt + <span class="hljs-string">&apos;&quot; &apos;</span> +
+      <span class="hljs-string">&apos;/&gt;&apos;</span>;
+  }
+}</code></pre>
+
+<p>Rendering the template</p>
+<pre><code class="hljs no-highlight">[[# helpers.image_tag ]]
+  [[ image ]]
+[[/ helpers.image_tag ]]</code></pre>
+
+<p>Called with</p>
+<pre><code class="hljs javascript">{
+  image: <span class="hljs-string">&apos;https://www.google.com/images/srpr/logo11w.png&apos;</span>,
+  default_alt: <span class="hljs-string">&apos;Image&apos;</span>,
+  helpers: algolia.helpers
+}</code></pre>
+
+<p>Outputs</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;https://www.google.com/images/srpr/logo11w.png&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">&quot;Image&quot;</span> /&gt;</span></code></pre>
+
+<h2 id="available-helpers"><a class="heading-anchor" href="#available-helpers"><span></span></a>Available helpers</h2>
+<h3 id="formattedprice"><a class="heading-anchor" href="#formattedprice"><span></span></a>formattedPrice</h3>
+<p><em>Takes a number as a parameter and returns it formatted with currency.</em></p>
+<pre><code class="hljs no-highlight">[[# helpers.formattedPrice ]]
+  200
+[[/ helpers.formattedPrice ]]</code></pre>
+
+<p>Outputs (depending on your Shopify&apos;s settings)</p>
+<pre><code class="hljs no-highlight">$200</code></pre>
+
+<h3 id="formattedpricewithoutdecimals"><a class="heading-anchor" href="#formattedpricewithoutdecimals"><span></span></a>formattedPriceWithoutDecimals</h3>
+<p><em>Takes a number as a parameter, applies <code>formattedPrice</code> on it but removes the decimals.</em></p>
+<pre><code class="hljs no-highlight">[[# helpers.formattedPriceWithoutDecimals ]]
+  200.34
+[[/ helpers.formattedPriceWithoutDecimals ]]</code></pre>
+
+<p>Outputs (depending on your Shopify&apos;s settings)</p>
+<pre><code class="hljs no-highlight">$200</code></pre>
+
+<h3 id="formattedpricewithcomparison"><a class="heading-anchor" href="#formattedpricewithcomparison"><span></span></a>formattedPriceWithComparison</h3>
+<p><em>Print the price difference of an Algolia product (<code>this</code>).</em></p>
+<pre><code class="hljs no-highlight">[[# formattedPriceWithComparison ]]
+[[/ formattedPriceWithComparison ]]</code></pre>
+
+<p>Called with</p>
+<pre><code class="hljs javascript">{
+  price: <span class="hljs-number">90</span>,
+  compare_at_price: <span class="hljs-number">100</span>
+}</code></pre>
+
+<p>Outputs</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">b</span>&gt;</span>$90<span class="hljs-tag">&lt;/<span class="hljs-title">b</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;algolia-striked&quot;</span>&gt;</span>$100<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;algolia-discount&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;font-weight: 100;&quot;</span>&gt;</span>-10%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>&apos;;</code></pre>
+
+<div class="alert alert-info">
+Only prints <code>price</code>, formatted, if <code>compare_at_price</code> doesn&apos;t exist or isn&apos;t higher.
+</div>
+
+<h3 id="fulltitle"><a class="heading-anchor" href="#fulltitle"><span></span></a>fullTitle</h3>
+<p><em>Prints the title with the variant information of an Algolia product (<code>this</code>).</em></p>
+<pre><code class="hljs no-highlight">[[# fullTitle ]]
+[[/ fullTitle ]]</code></pre>
+
+<p>Called with</p>
+<pre><code class="hljs javascript">{
+  title: <span class="hljs-string">&apos;iPhone&apos;</span>,
+  variant_title: <span class="hljs-string">&apos;64GB / Gold&apos;</span>
+}</code></pre>
+
+<p>Outputs</p>
+<pre><code class="hljs no-highlight">iPhone (64GB / Gold)</code></pre>
+
+<div class="alert alert-info">
+Doesn&apos;t print the <code>variant_title</code> if it equals <code>&quot;Default title&quot;</code>
+</div>
+
+<h3 id="fullhtmltitle"><a class="heading-anchor" href="#fullhtmltitle"><span></span></a>fullHTMLTitle</h3>
+<p><em>Same than <a href="#fulltitle"><code>fullTitle</code></a>, but with search highlighting tags included.</em></p>
+<h3 id="floor"><a class="heading-anchor" href="#floor"><span></span></a>floor</h3>
+<p><em>Applies <code>Math.floor</code> to the number passed as parameter</em></p>
+<pre><code class="hljs no-highlight">[[# helpers.floor ]]
+  2.43
+[[/helpers.floor ]]</code></pre>
+
+<p>Outputs</p>
+<pre><code class="hljs no-highlight">2</code></pre>
+
+<h3 id="ceil"><a class="heading-anchor" href="#ceil"><span></span></a>ceil</h3>
+<p><em>Applies <code>Math.ceil</code> to the number passed as parameter</em></p>
+<pre><code class="hljs no-highlight">[[# helpers.ceil ]]
+  2.43
+[[/helpers.ceil ]]</code></pre>
+
+<p>Outputs</p>
+<pre><code class="hljs no-highlight">3</code></pre>
+
+<h3 id="image-helpers"><a class="heading-anchor" href="#image-helpers"><span></span></a>Image helpers</h3>
+<p><em>Images URLs helper for an Algolia product (<code>this</code>).</em></p>
+<p>Here is the full list of image helpers:</p>
+<ul>
+<li><code>picoImage</code></li>
+<li><code>iconImage</code></li>
+<li><code>thumbImage</code></li>
+<li><code>smallImage</code></li>
+<li><code>compactImage</code></li>
+<li><code>mediumImage</code></li>
+<li><code>largeImage</code></li>
+<li><code>grandeImage</code></li>
+<li><code>originalImage</code></li>
+</ul>
+<pre><code class="hljs no-highlight">[[# picoImage ]]
+[[/ picoImage ]]</code></pre>
+
+<p>Called with</p>
+<pre><code class="hljs javascript">{
+  image: <span class="hljs-string">&apos;https://i.myshopify.com/abc.png&apos;</span>
+}</code></pre>
+
+<p>Outputs</p>
+<pre><code class="hljs no-highlight">https://i.myshopify.com/abc_pico.png</code></pre>
                 </div>
             </div>
 
@@ -143,10 +294,14 @@
           <li ><a href="metafields.html">Metafields</a></li>
 
 
-          <li class="menu-text">Customization with code</li>
+          <li class="menu-text">Front-end customization</li>
           <li ><a href="customization-introduction.html">Introduction</a></li>
+          <li ><a href="template-engines.html">Template engines</a></li>
           <li class="active"><a href="hogan-helpers.html">Helpers</a></li>
           <li ><a href="autocomplete.html">Autocomplete</a></li>
+
+          <li class="menu-text">Other</li>
+          <li ><a href="frequently-asked-questions.html">FAQ</a></li>
           <!-- 
             <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
             <li ><a href="customize-search-page.html">Customize Search Page</a></li>
@@ -206,7 +361,7 @@
         <span class="ac-icon ac-icon-love-dark"></span>
     </div>
 
-    <p class="ac-footer-version">Latest version: 0.6.0</p>
+    <p class="ac-footer-version">Latest version: 1.0.0</p>
 
     <div class="ac-footer-actions">
         <div class="footer-container">

@@ -27,7 +27,7 @@
     <meta name="description" content="Now that your plugin is installed, here is how to configure it.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1473849423483">
+    <link rel="stylesheet" href="css/app.css?v=1474262823581">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -118,10 +118,15 @@
                 <div class="large-12 columns" id="content">
                     <h2 id="credentials"><a class="heading-anchor" href="#credentials"><span></span></a>Credentials</h2>
 <p>The first information you&apos;ll need to provide are your Algolia credentials to create the link between Algolia and your store.  </p>
-<pre><code class="hljs">FIXME Credentials <span class="hljs-constant">tab</span> Screenshot</code></pre>
+<div class="text-center">
+<img src="img/configuration/credentials.png" alt="Credentials">
+</div>
 
 <p>They&apos;re available in the <a href="https://www.algolia.com/api-keys">Credentials tab</a> of your Algolia dashboard.</p>
-<p><img src="img/configuration/api-keys.png" alt="API keys"></p>
+<div class="text-center">
+<img src="img/configuration/api-keys.png" alt="API keys">
+</div>
+
 <p>From that screen you will be able to copy/paste the following necessary fields from the Algolia dashboard to your application:</p>
 <ul>
 <li>Application ID</li>
@@ -130,41 +135,93 @@
 </ul>
 <p>You can use the little buttons on the right of the fields to copy them to your clipboard directly.</p>
 <p>On error, you&apos;ll be prompted with an invalid credentials message. In that case, double-check that you copied the correct fields, you might have copied the Monitoring API key instead of the Admin one.</p>
-<p><img src="img/configuration/invalid_credentials.png" alt="Invalid credentials"></p>
+<div class="text-center">
+<img src="img/configuration/invalid_credentials.png" alt="Invalid credentials">
+</div>
+
 <p>On success, you&apos;ll be prompted with a success message and you&apos;ll now have access to the other configuration tabs.</p>
-<p><img src="img/configuration/valid_credentials.png" alt="Valid credentials"></p>
+<div class="text-center">
+<img src="img/configuration/valid_credentials.png" alt="Valid credentials">
+</div>
+
+<h2 id="indexing"><a class="heading-anchor" href="#indexing"><span></span></a>Indexing</h2>
 <p>As soon as your credentials have been updated, we&apos;ll start indexing your content.<br>An index is a way of representing your data, in Algolia, that has been optimized to answer to search queries almost instantly.
 You can see those indices in the <a href="https://www.algolia.com/explorer">Indices tab</a> of your Algolia dashboard.</p>
+<p>We currently support indexing of 2 types of data from Shopify:</p>
+<ul>
+<li>Products (variants)</li>
+<li>Collections</li>
+</ul>
+<p>In the <em>Indexing</em> tab, you&apos;ll be able to manage which data you want searchable.<br>Simply toggle the <code>Enable</code> buttons and save to start or stop indexing a type of data.</p>
 <div class="alert alert-info">
-<strong>Small note on <em>products</em> indexing</strong>: We&apos;re actually not indexing products, but variants directly, inheriting from most of its related product&apos;s attributes but adding its own image, options, <em>etc</em>.<br>If you&apos;d rather have one entry per product instead of multiple ones in your search results, you should read this <a href="FIXME">FAQ question</a>.
+To get more info on what data is actually pushed to Algolia, check out the <a href="./index-schema.html">Schemas</a> section of the documentation.
+</div>
+
+<div class="alert alert-info">
+This integration also supports metafields out of the box.
+You&apos;ll need to specify which one you want to add to your indices in the <em>Metafields</em> sections of this page.
+You&apos;ll get more information about this in the <a href="./metafields.html">Metafields</a> section of the documentation.
 </div>
 
 <h2 id="display"><a class="heading-anchor" href="#display"><span></span></a>Display</h2>
-<p>Now that the indexing has started, the next step is to install our front-end logic in your theme and configure it.
-This will be done in the Display tab of the application.</p>
-<p>On the top right corner, you&apos;ll be able to chose which theme you want to use.<br>If you&apos;re on a live store, we recommend you to use a duplicate of this theme.
-To create one, head to <em>Online store</em> &gt; <em>Themes</em> &gt; <em><code>...</code> in the top right of the theme entry</em> &gt; <em>Duplicate</em>.</p>
-<p><img src="img/configuration/duplicate.png" alt="Duplicate theme illustration"></p>
-<p>This will take a bit of time. As soon as it is completed, you can go back to your app, reload the page and chose your new theme.</p>
-<p>FIXME gif installation</p>
-<h2 id="metafields"><a class="heading-anchor" href="#metafields"><span></span></a>Metafields</h2>
-<p>Algolia supports metafields out-of-the box.
-You&apos;ll need to specify which one you want to adds to your index in the <em>Metafields</em> tab.</p>
-<div class="alert alert-info">
-<strong>About products metafields</strong>: For a specific variant, we&apos;ll take the metafield if present on the variant, otherwise fallback on the same metafield on the related product.
+<p>Now that the you&apos;ve set the indexing up, the next step is to install our front-end logic in your theme and configure it.
+This will be done in the <em>Display</em> tab of the application.</p>
+<p>On the top right corner, you can to chose which theme you want to use.</p>
+<h3 id="installing-algolia-in-your-theme"><a class="heading-anchor" href="#installing-algolia-in-your-theme"><span></span></a>Installing Algolia in your theme</h3>
+<h4 id="duplicating-your-theme"><a class="heading-anchor" href="#duplicating-your-theme"><span></span></a>Duplicating your theme</h4>
+<p>If you&apos;re on a live store, we recommend you to use a duplicate of this theme.
+This will allow you to preview the changes, check if everything is working fine and tweak the CSS if needed before putting it live.</p>
+<p>To create one, head to <em>Online store</em> &gt; <em>Themes</em> &gt; <em><code>...</code> in the top right of the theme entry</em> &gt; <em>Duplicate</em>.</p>
+<div class="text-center">
+<img src="img/configuration/duplicate.png" alt="Duplicate theme illustration">
 </div>
 
-<p>When you&apos;ve added the metafields you want to use, click <code>Save</code> and we&apos;ll automatically start reindexing all the related items.</p>
-<p>Metafields can also be used as <a href="#sorting">sort orders</a> and <a href="#faceting">facets</a>.</p>
+<p>This will take a bit of time, just wait for the loading wheel to stop spinning.</p>
+<div class="text-center">
+<img src="img/configuration/duplicate_waiting.png" alt="Duplicate theme waiting illustration">
+</div>
+
+<p>As soon as it is completed, you can go back to your app, reload the page and chose your new theme.</p>
+<p>Once you&apos;re happy with every change you&apos;ve done, you can simply head back to the <em>Themes</em> tab of your Store and click <em>Publish theme</em>.</p>
+<div class="text-center">
+<img src="img/configuration/duplicate_finished.png" alt="Duplicate theme finished illustration">
+</div>
+
+<h4 id="installation-process"><a class="heading-anchor" href="#installation-process"><span></span></a>Installation process</h4>
+<p>Depending on the theme you&apos;re installing Algolia in and on whether Algolia is already installed or not, you might get a few confirmation steps. Please read them carefully.</p>
+<p>You&apos;ll need to help us on the layouts step. We&apos;re installing some assets in your theme, but in order to use them, we&apos;ll need to add a bit of code inside the <code>&lt;head&gt;</code> tags of your layout files.
+Simply select all the layouts in which you want Algolia to be installed.</p>
+<div class="text-center">
+<img src="img/configuration/layouts_installation.png" alt="Layouts installation illustration">
+</div>
+
+<p>A blue arrow means that we&apos;ll automatically add our snippet of code inside a layout.</p>
+<p>A yellow double arrow indicates that we&apos;ll replace an already existing Algolia snippet.</p>
+<p>In case of error, you&apos;ll see a red cross next to the layout name and won&apos;t be able to continue to the next step.
+This indicated a scenario where we haven&apos;t been able to automatically insert our code snippet.<br>The solution in that case will be easy : we&apos;ll provide you with a small snippet of code and links to open the editor for each of the failing files.
+Just copy this snippet and paste it inside the <code>&lt;head&gt;</code> tags of those layout files.<br>Then, uncheck them to see the error disappear and be able to continue the installation.</p>
+<h4 id="front-end-configuration"><a class="heading-anchor" href="#front-end-configuration"><span></span></a>Front-end configuration</h4>
+<p>Once you&apos;ve installed Algolia in your theme, you&apos;ll have access to a few configuration options to change the default behaviour.</p>
+<p>You&apos;ll also be able to chose if you want to use the autocompletion menu and the search results page (disabled by default &#x2014; more info in <a href="./search-page.html">Search page</a>).</p>
+<div class="text-center">
+<img src="img/configuration/configuration-options.png" alt="Configuration options screenshot">
+</div>
+
+<div class="alert alert-info">
+If those configuration options aren&apos;t enough to fit your needs, you can still dive in our front-end code, as desribed in the <a href="./customization-introduction.html">Front-end Customization</a> part of this documentation.
+</div>
+
 <h2 id="sorting"><a class="heading-anchor" href="#sorting"><span></span></a>Sorting</h2>
 <div class="alert alert-info">
 This tab is only useful if you&apos;ve decided to replace the search page of your store with Algolia.
 </div>
 
 <p>There are plenty of attributes on which you might want your users to be able to sort on.<br>In the <em>Sorting</em> tab, you can chose which sort orders you want to activate, how you want them to be named and which ones to display first.</p>
-<pre><code class="hljs">FIXME Sort <span class="hljs-keyword">order</span> <span class="hljs-title">screenshot</span></code></pre>
+<p><img src="img/configuration/sort-orders.png" alt="Sort orders list screenshot"></p>
+<div class="alert alert-info">
+You can also sort on a metafield. Just check the product metafield as a sort order in the <em>Indexing</em> tab, save and it will be available in the <em>Sorting</em> tab.
+</div>
 
-<p>You can also sort on a metafield. Just check the metafield as a sort order in the <em>Metafields</em> tab, save and it will be available in the <em>Sorting</em> tab.</p>
 <div class="alert alert-warning">
 In order to deliver our speed, our ranking is done at indexing time. Which means that for each sort order, we create a new index which contains the same amount of records as the main one.<br>You should double-check that an increase in amount of records wouldn&apos;t exceed your plan quota.
 </div>
@@ -179,17 +236,21 @@ This tab is only useful if you&apos;ve decided to replace the search page of you
 This is mostly useful for refining a search, but can also a be a way to browse using search.</p>
 <p>If you want more information about faceting, you should check the <a href="https://www.algolia.com/doc/guides/search/filtering-faceting">full guide in Algolia&apos;s documentation</a>.</p>
 <p>For instance, with this integration, you can filter by type, brand or price.</p>
-<pre><code class="hljs"><span class="hljs-title">FIXME</span> faceting screenshot</code></pre>
+<div class="text-center">
+<img src="img/configuration/facets.png" alt="Facets list screenshot">
+</div>
 
-<p>For each facet, you can chose its position in the list, its displayed name and what type of facet it is.
-We currently have 4 available types:</p>
+<p>For each facet, you can chose its position in the list, its displayed name and what type of facet it is.<br>We currently have 4 available types:</p>
 <ul>
 <li><strong>slider</strong>: A simple slider for numeric values</li>
 <li><strong>conjunctive</strong>: Filters using AND between its refinements</li>
 <li><strong>disjunctive</strong>: Filters using OR between its refinements</li>
 <li><strong>menu</strong>: Allows for only one selected refinement but lists other possible values</li>
 </ul>
-<p>You can also use a metafield as a facet. Just check the metafield as a facet in the <em>Metafields</em> tab, save and it will be available in the <em>Faceting</em> tab.</p>
+<div class="alert alert-info">
+You can also use a metafield as a facet. Just check the product metafield as a facet in the <em>Indexing</em> tab, save and it will be available in the <em>Faceting</em> tab.
+</div>
+
 <div class="alert alert-warning" style="margin-top: 100px;">
 Struggling with something? Check out the <a href="frequently-asked-questions.html">Q&amp;A section</a>.
 </div>
@@ -219,10 +280,14 @@ Struggling with something? Check out the <a href="frequently-asked-questions.htm
           <li ><a href="metafields.html">Metafields</a></li>
 
 
-          <li class="menu-text">Customization with code</li>
+          <li class="menu-text">Front-end customization</li>
           <li ><a href="customization-introduction.html">Introduction</a></li>
+          <li ><a href="template-engines.html">Template engines</a></li>
           <li ><a href="hogan-helpers.html">Helpers</a></li>
           <li ><a href="autocomplete.html">Autocomplete</a></li>
+
+          <li class="menu-text">Other</li>
+          <li ><a href="frequently-asked-questions.html">FAQ</a></li>
           <!-- 
             <li ><a href="customize-autocomplete.html">Customize Autocomplete</a></li>
             <li ><a href="customize-search-page.html">Customize Search Page</a></li>
@@ -282,7 +347,7 @@ Struggling with something? Check out the <a href="frequently-asked-questions.htm
         <span class="ac-icon ac-icon-love-dark"></span>
     </div>
 
-    <p class="ac-footer-version">Latest version: 0.6.0</p>
+    <p class="ac-footer-version">Latest version: 1.0.0</p>
 
     <div class="ac-footer-actions">
         <div class="footer-container">
