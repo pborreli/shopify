@@ -27,7 +27,7 @@
     <meta name="description" content="Most common issues and how to fix them.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1474278752941">
+    <link rel="stylesheet" href="css/app.css?v=1474296031172">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -118,16 +118,14 @@
                 <div class="large-12 columns" id="content">
                     <h2 id="how-it-works"><a class="heading-anchor" href="#how-it-works"><span></span></a>How it works</h2>
 <p>This is a living <code>common questions &amp; answers</code> section.</p>
-<p>Please ask your question on Stack Overflow: <a href="http://stackoverflow.com/questions/tagged/algolia+shopify">http://stackoverflow.com/questions/tagged/algolia+shopify</a></p>
+<p>Please ask your question on Stack Overflow: <a href="http://stackoverflow.com/questions/tagged/algolia+shopify">http://stackoverflow.com/questions/tagged/algolia+shopify</a> .</p>
 <!--
 FIXME open-source
 If you are a developer, you can also open an issue on github at: https://github.com/algolia/algoliasearch-shopify. We will regularly add the most frequently asked questions and answers found on Stack Overflow and Github about the Algolia Search plugin for Shopify, and append them to this very page.
 -->
-<p>If you are desperate and your deadline was yesterday, send us an email at <a href="mailto:support+shopify@algolia.com">support+shopify@algolia.com</a>.</p>
+<p>If you are desperate and your deadline was yesterday, send us an email at <a href="mailto:support+shopify@algolia.com">support+shopify@algolia.com</a> with a preview link of your theme with Algolia if possible.</p>
 <p><strong>Please give priority to Stack Overflow <!-- FIXME open-source and Github --> when asking for support, that way the whole community can benefit from it and you might get a faster answer. If you are having an issue, the chances are high other users might have the same. Let&apos;s share!</strong></p>
 <h2 id="questions-answers"><a class="heading-anchor" href="#questions-answers"><span></span></a>Questions &amp; Answers</h2>
-<h3 id="can-i-customize-the-autocomplete-dropdown-look-feel-"><a class="heading-anchor" href="#can-i-customize-the-autocomplete-dropdown-look-feel-"><span></span></a>Can I customize the Autocomplete dropdown look &amp; feel?</h3>
-<p>Yes. You can find some detailed explanations on <a href="customize-autocomplete.html">this page</a>.</p>
 <!--
 FIXME do this ACL check
 ### I have created a custom API key, but it is not accepted as Search-Only API key in the plugin settings.
@@ -138,35 +136,25 @@ For security reasons, we reject every filled Search-Only API key that has additi
 Secondly, we also require that the provided search API key has the TTL set to 0 (standing for unlimited validity in time). We do not want your users to get search outage.
 -->
 <h3 id="will-this-plugin-be-compatible-with-my-shopify-theme-"><a class="heading-anchor" href="#will-this-plugin-be-compatible-with-my-shopify-theme-"><span></span></a>Will this plugin be compatible with my Shopify theme?</h3>
-<p>FIXME</p>
-<!--
-Yes. Actually this plugin introduces 2 main user oriented features:
-- Native Search: Which overrides the default WordPress search with Algolia,
-- Autocomplete: Which provides the user with an 'as you type' instant search experience.
-
-In the first case, this plugin hooks into the WordPress native search feature. As a result, this will not impact your template because we only act on the backend side of things.
-
-In the second case, we simply provide a dropdown menu that will be displayed underneath your search bar as you type. We have provided default scoped CSS rules so that the look and feel stays slick across different themes.
-
-If you have any kind of issue related to default appearance, please send us a link to your website so that we can optimize our stylesheet.
--->
+<p>Our aim is to make our integration work with as much themes as possible.<br>However, we can&apos;t guarantee that this will be the case.</p>
+<p>If you&apos;re having CSS issues with the autocomplete, please reach out to us directly by email so that we can try to improve the autocomplete to be fully theme-independent.</p>
+<p>However, if you want to use as a replacement for your search page, there are too many factors that we won&apos;t be able to fully cover.<br>You should expect having some CSS to do in order to have it fully integrated in your theme.</p>
+<h3 id="do-i-have-to-use-the-bundled-front-end-"><a class="heading-anchor" href="#do-i-have-to-use-the-bundled-front-end-"><span></span></a>Do I have to use the bundled front-end?</h3>
+<p>No! The application is really split in two tasks: data indexing and front-end implementation. You can definitely only use the app to index data.</p>
+<p>This can be useful in multiple cases:</p>
+<ul>
+<li>You want to use those indices elsewhere than Shopify</li>
+<li>The implementation you want to do is too far from ours to use it as a base</li>
+</ul>
+<h3 id="can-i-customize-the-autocomplete-dropdown-look-feel-"><a class="heading-anchor" href="#can-i-customize-the-autocomplete-dropdown-look-feel-"><span></span></a>Can I customize the Autocomplete dropdown look &amp; feel?</h3>
+<p>Yes. You can find some detailed explanations on <a href="autocomplete.html">this page</a>.</p>
 <h3 id="my-data-is-out-of-sync-with-algolia"><a class="heading-anchor" href="#my-data-is-out-of-sync-with-algolia"><span></span></a>My data is out of sync with Algolia</h3>
-<p>FIXME</p>
-<!--
-Sometimes your WordPress content gets out of sync with Algolia. For example if you are changing your permalink templates, all your URLs will change and Algolia will not know about it.
-
-Content also gets inconsistent when you use filters to change settings or attributes to push to Algolia.
-
-In that case you can simply re-index your content.
--->
+<p>This is expected to happen from time to time. There are multiple points in the data duplication chain that could explain some records being out of sync.</p>
+<p>In that case, head to the <em>Debug</em> tab of the application and click the <code>Reindex</code> button of the faulty data type. This will trigger a full reindex (which can take up to 24 hours), after which your data should be updated as expected.</p>
+<p>If your data keeps getting out of sync, this might be a sign of an indexing error on our side. Please report it to us so that we can investigate what could be the cause.</p>
 <h3 id="can-i-use-one-algolia-account-for-multiple-shopify-stores-"><a class="heading-anchor" href="#can-i-use-one-algolia-account-for-multiple-shopify-stores-"><span></span></a>Can I use one Algolia account for multiple Shopify stores?</h3>
-<p>FIXME</p>
-<!--
-Definitely! In the same fashion that WordPress lets you prefix all database tables, we allow you to prefix every indices in Algolia.
-
-This can be configured on the `Indexing` section of the plugin.
--->
-<h3 id="fixme-other-questions"><a class="heading-anchor" href="#fixme-other-questions"><span></span></a>FIXME other questions</h3>
+<p>Definitely! You&apos;ll find at the bottom of the <em>Credentials</em> tab a field to change the index prefix used in Algolia.</p>
+<p>Just set up each of your stores with a different prefix, and you&apos;re good to go!</p>
 
                 </div>
             </div>
