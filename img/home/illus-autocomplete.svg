@@ -1,25 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="350px" height="350px" viewBox="0 0 350 350" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
-    <title>illus-autocomplete</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="illus-autocomplete" transform="translate(2.938951, 2.823350)">
-            <g id="feature-icons/illus-feat-autocomplete">
-                <g id="Page-1">
-                    <g id="features-icons">
-                        <g id="feature-icons/illus-feat-autocomplete">
-                            <path d="M344.768901,172.507239 C344.768901,267.78142 267.587681,345.014478 172.384451,345.014478 C77.18122,345.014478 0,267.78142 0,172.507239 C0,77.2361956 77.18122,0 172.384451,0 C267.587681,0 344.768901,77.2361956 344.768901,172.507239" id="Fill-311" stroke-opacity="0.333305027" stroke="#2897C5" stroke-width="4" fill="#FFFFFF"></path>
-                            <path d="M120.669115,239.149728 C120.669115,239.149728 132.51036,206.561542 113.034052,184.571574 C111.971536,183.373433 111.984073,181.560538 113.065394,180.378079 C119.788388,173.022998 131.726794,173.179823 148.87748,204.64828 C153.356341,212.862761 162.696444,212.423652 170.817319,207.784775 C186.262966,198.961814 208.553843,170.85568 231.935442,177.699513 C232.997957,178.010026 233.819135,178.860016 234.091816,179.932697 C234.364496,181.005379 234.05107,182.143927 233.267504,182.92805 L152.011743,264.24169 L120.669115,239.149728 L120.669115,239.149728 Z" id="Fill-6500" stroke="#2897C5" fill="#FFFFFF"></path>
-                            <path d="M277.382252,173.283327 C277.382252,175.014673 275.978103,176.419822 274.24799,176.419822 L79.9236996,176.419822 C78.1935866,176.419822 76.7894372,175.014673 76.7894372,173.283327 L76.7894372,167.010337 C76.7894372,165.278991 78.1935866,163.873841 79.9236996,163.873841 L274.24799,163.873841 C275.978103,163.873841 277.382252,165.278991 277.382252,167.010337 L277.382252,173.283327 L277.382252,173.283327 Z" id="Fill-6501" stroke="#2897C5" stroke-width="3" fill="#FCFCFD"></path>
-                            <path d="M177.085845,66.4052747 C180.351746,66.4052747 183.460935,66.5495532 186.488633,66.7659716 L186.488633,56.9957888 C186.488633,55.2644435 185.084483,53.8592937 183.35437,53.8592937 L170.817319,53.8592937 C169.087206,53.8592937 167.683056,55.2644435 167.683056,56.9957888 L167.683056,66.7659716 C170.710754,66.5495532 173.819943,66.4052747 177.085845,66.4052747" id="Fill-6502" stroke="#FE336F" stroke-width="3" fill="#FFFFFF"></path>
-                            <path d="M89.3264878,154.227142 C89.3264878,154.227142 86.1922254,66.4052747 177.085845,66.4052747 C267.979464,66.4052747 264.845201,154.227142 264.845201,154.227142" id="Fill-6503" stroke="#FE336F" stroke-width="3" fill="#FFFFFF"></path>
-                            <path d="M138.017919,253.038656 L153.838484,267.378184 L78.2515083,267.378185 L118.387844,235.246245 L121.131695,237.733231 C123.121061,231.243168 130.099144,203.839129 113.034052,184.571574 C111.971536,183.373433 111.984073,181.560538 113.065394,180.378079 C119.788388,173.022998 131.726794,173.179823 148.87748,204.64828 C153.356341,212.862761 162.696444,212.423652 170.817319,207.784775 C186.262966,198.961814 208.553843,170.85568 231.935442,177.699513 C232.997957,178.010026 233.819135,178.860016 234.091816,179.932697 C234.364496,181.005379 234.05107,182.143927 233.267504,182.92805 L152.011743,264.24169 L138.017919,253.038656 L138.017919,253.038656 Z" id="Fill-6504" stroke="#2897C5" stroke-width="3" fill="#F2F9FB"></path>
-                        </g>
-                    </g>
-                </g>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="204.90454"
+   height="216.51889"
+   viewBox="0 0 204.90454 216.51889"
+   version="1.1"
+   id="svg2"
+   shape-rendering="geometricPrecision"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="illus-autocomplete.svg">
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>illus-autocomplete</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1916"
+     inkscape:window-height="821"
+     id="namedview22"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.67428571"
+     inkscape:cx="98.083336"
+     inkscape:cy="96.701535"
+     inkscape:window-x="0"
+     inkscape:window-y="46"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4">illus-autocomplete</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <defs
+     id="defs8" />
+  <g
+     id="Page-1"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(-76.916664,-55.182644)">
+    <g
+       id="illus-autocomplete"
+       transform="translate(2.938951,2.82335)">
+      <g
+         id="feature-icons/illus-feat-autocomplete">
+        <g
+           id="g13">
+          <g
+             id="features-icons">
+            <g
+               id="g16">
+              <path
+                 d="m 277.38225,173.28333 c 0,1.73134 -1.40415,3.13649 -3.13426,3.13649 l -194.32429,0 c -1.730113,0 -3.134263,-1.40515 -3.134263,-3.13649 l 0,-6.27299 c 0,-1.73135 1.40415,-3.1365 3.134263,-3.1365 l 194.32429,0 c 1.73011,0 3.13426,1.40515 3.13426,3.1365 l 0,6.27299 0,0 z"
+                 id="Fill-6501"
+                 fill="transparent"
+                 inkscape:connector-curvature="0"
+                 style="stroke:#ffffff;stroke-width:3" />
+              <path
+                 d="m 177.08584,66.405275 c 3.26591,0 6.37509,0.144278 9.40279,0.360697 l 0,-9.770183 c 0,-1.731346 -1.40415,-3.136495 -3.13426,-3.136495 l -12.53705,0 c -1.73011,0 -3.13426,1.405149 -3.13426,3.136495 l 0,9.770183 c 3.02769,-0.216419 6.13688,-0.360697 9.40278,-0.360697"
+                 id="Fill-6502"
+                 fill="transparent"
+                 inkscape:connector-curvature="0"
+                 style="stroke:#ffffff;stroke-width:3" />
+              <path
+                 d="m 89.326488,154.22714 c 0,0 -3.134263,-87.821865 87.759352,-87.821865 90.89362,0 87.75936,87.821865 87.75936,87.821865"
+                 id="Fill-6503"
+                 fill="transparent"
+                 inkscape:connector-curvature="0"
+                 style="stroke:#ffffff;stroke-width:3" />
+              <path
+                 d="m 138.01792,253.03866 15.82056,14.33952 -75.586972,0 40.136332,-32.13194 2.74385,2.48699 c 1.98937,-6.49006 8.96745,-33.8941 -8.09764,-53.16166 -1.06251,-1.19814 -1.04998,-3.01103 0.0313,-4.19349 6.723,-7.35508 18.6614,-7.19826 35.81209,24.2702 4.47886,8.21448 13.81896,7.77537 21.93984,3.13649 15.44565,-8.82296 37.73652,-36.92909 61.11812,-30.08526 1.06252,0.31052 1.88369,1.16051 2.15638,2.23319 0.27268,1.07268 -0.0408,2.21123 -0.82432,2.99535 l -81.25576,81.31364 -13.99382,-11.20303 0,0 z"
+                 id="Fill-6504"
+                 fill="transparent"
+                 inkscape:connector-curvature="0"
+                 style="stroke:#ffffff;stroke-width:3" />
             </g>
+          </g>
         </g>
+      </g>
     </g>
+  </g>
 </svg>
