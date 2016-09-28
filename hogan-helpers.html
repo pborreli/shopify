@@ -27,7 +27,7 @@
     <meta name="description" content="Front-end logic helpers">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1474650517269">
+    <link rel="stylesheet" href="css/app.css?v=1475056314479">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -188,7 +188,7 @@
 <pre><code class="hljs no-highlight">$200</code></pre>
 
 <h3 id="formattedpricewithcomparison"><a class="heading-anchor" href="#formattedpricewithcomparison"><span></span></a>formattedPriceWithComparison</h3>
-<p><em>Print the price difference of an Algolia product (<code>this</code>).</em></p>
+<p><em>Prints the price difference of an Algolia product (<code>this</code>).</em></p>
 <pre><code class="hljs no-highlight">[[# formattedPriceWithComparison ]]
 [[/ formattedPriceWithComparison ]]</code></pre>
 
@@ -200,8 +200,8 @@
 
 <p>Outputs</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">b</span>&gt;</span>$90<span class="hljs-tag">&lt;/<span class="hljs-title">b</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;algolia-striked&quot;</span>&gt;</span>$100<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;algolia-discount&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;font-weight: 100;&quot;</span>&gt;</span>-10%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>&apos;;</code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-hit--price-striked&quot;</span>&gt;</span>$100<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ais-hit--price-discount&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;font-weight: 100;&quot;</span>&gt;</span>-10%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>&apos;;</code></pre>
 
 <div class="alert alert-info">
 Only prints <code>price</code>, formatted, if <code>compare_at_price</code> doesn&apos;t exist or isn&apos;t higher.
@@ -320,6 +320,7 @@ https://i.myshopify.com/abc_pico.png</code></pre>
           <li ><a href="template-engines.html">Template engines</a></li>
           <li class="active"><a href="hogan-helpers.html">Helpers</a></li>
           <li ><a href="autocomplete.html">Autocomplete</a></li>
+          <li ><a href="instant_search.html">Instant search page</a></li>
 
           <li class="menu-text">Other</li>
           <li ><a href="frequently-asked-questions.html">FAQ</a></li>

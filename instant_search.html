@@ -2,32 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Search page</title>
+    <title>Instant search page</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-    <meta content='Customizing Algolia&#x27;s search page' name='description'>
+    <meta content='Customizing Algolia&#x27;s instant search page' name='description'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <!-- / Twitter card -->
     <meta content='summary_large_image' name='twitter:card'>
     <meta content='@Algolia' name='twitter:site'>
     <meta content='@Algolia' name='twitter:creator'>
-    <meta content="Search page - Algolia Search plugin for WordPress" name="twitter:title">
-    <meta content="Customizing Algolia&#x27;s search page" name="twitter:description">
+    <meta content="Instant search page - Algolia Search plugin for WordPress" name="twitter:title">
+    <meta content="Customizing Algolia&#x27;s instant search page" name="twitter:description">
     <!--meta content="Algolia Product image" name="twitter:image"-->
     <!-- / OG meta -->
     <!--meta content='#' property='og:url'-->
-    <meta content='Search page - Algolia Search plugin for WordPress' property='og:title'>
+    <meta content='Instant search page - Algolia Search plugin for WordPress' property='og:title'>
     <meta content='article' property='og:type'>
-    <meta content='Customizing Algolia&#x27;s search page' property='og:description'>
+    <meta content='Customizing Algolia&#x27;s instant search page' property='og:description'>
     <meta content='Algolia Search plugin for Shopify' property='og:site_name'>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <meta name="description" content="Customizing Algolia&#x27;s search page">
+    <meta name="description" content="Customizing Algolia&#x27;s instant search page">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1474650517269">
+    <link rel="stylesheet" href="css/app.css?v=1475056314479">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -107,16 +107,151 @@
             </div>
 
             <header>
-                <h1>Search page</h1>
+                <h1>Instant search page</h1>
 
-                <p class="lead">Customizing Algolia&#x27;s search page</p>
+                <p class="lead">Customizing Algolia&#x27;s instant search page</p>
             </header>
 
             <hr>
 
             <div class="row">
                 <div class="large-12 columns" id="content">
-                    
+                    <p>Algolia also ships with the possibility of enhancing your current search page with realtime search capabilities.  </p>
+<div class="alert alert-warning">
+The instant search page is much more style and logic-intensive than the autocomplete, which is why you should expect the need to have a front-end developer available to work on integrating it.
+</div>
+
+<h2 id="configuration"><a class="heading-anchor" href="#configuration"><span></span></a>Configuration</h2>
+<p>You have a few configuration options specific to the instant search page in the <em>Configuration</em> tab of the app.</p>
+<p><img src="img/customize-instantsearch/configuration.png" alt="Configuration options"></p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors"><strong>CSS selector</strong></a> is the selector used to target the current search block on the search page.
+The default value will most likely <strong>NOT</strong> match your theme.<br>Another option is to add the <code>algolia-shopify-instantsearch</code> class to the DOM element you want us to replace.</p>
+<h2 id="files"><a class="heading-anchor" href="#files"><span></span></a>Files</h2>
+<p>If you&apos;re looking to change the behaviour of the search page, it&apos;s highly likely that the configuration options didn&apos;t match your needs.<br>You&apos;ll have to dive in the code instead.</p>
+<p>The instant search page requires more logic than the autocomplete menu, here is the full list of files:</p>
+<pre><code class="hljs no-highlight">- assets/algolia_instant_search.js.liquid
+- snippet/algolia_instant_search.css.hogan.liquid
+- snippet/algolia_instant_search.hogan.liquid
+
+- assets/algolia_sort_orders.js.liquid
+- snippet/algolia_instant_search_stats.hogan.liquid
+
+- assets/algolia_facets.js.liquid
+- snippet/algolia_instant_search_facet_item.hogan.liquid
+- snippet/algolia_instant_search_current_refined_values_item.hogan.liquid
+
+- snippet/algolia_instant_search_product.hogan.liquid
+- snippet/algolia_instant_search_no_result.hogan.liquid</code></pre>
+
+<h3 id="main-files"><a class="heading-anchor" href="#main-files"><span></span></a>Main files</h3>
+<h4 id="assets-algolia_instant_search-js-liquid"><a class="heading-anchor" href="#assets-algolia_instant_search-js-liquid"><span></span></a>assets/algolia_instant_search.js.liquid</h4>
+<p>This file is the main file of the instant search: it contains most of the front-end logic.<br>To learn more about the library we&apos;re using, you can check out two important resources:</p>
+<ul>
+<li><a href="https://www.algolia.com/doc/guides/search/instant-search">Instant Search creation guide on Algolia</a></li>
+<li><a href="https://community.algolia.com/instantsearch.js/"><code>instantsearch.js</code>&apos;s website</a></li>
+</ul>
+<p>In this file, we&apos;re defining all of the <code>instantsearch.js</code> widgets needed for our search.</p>
+<h4 id="snippet-algolia_instant_search-css-hogan-liquid"><a class="heading-anchor" href="#snippet-algolia_instant_search-css-hogan-liquid"><span></span></a>snippet/algolia_instant_search.css.hogan.liquid</h4>
+<p>This file contains all the styling for the instant search page.
+If you&apos;re looking to modify the instant search dropdown, this is the probably the first file you&apos;ll want to open.
+The reason it is also a <code>.hogan</code> template is to be able to pass some configuration options from the JavaScript file to the stylesheet, like colors.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  colors: {     <span class="hljs-comment">// Theme colors (configurable in the application)</span>
+    main,
+    secondary,
+    highlight
+  },
+  helpers
+}</code></pre>
+
+<h4 id="snippet-algolia_instant_search-hogan-liquid"><a class="heading-anchor" href="#snippet-algolia_instant_search-hogan-liquid"><span></span></a>snippet/algolia_instant_search.hogan.liquid</h4>
+<p>Page layout template.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  facets,
+  helpers,
+  storeName
+}</code></pre>
+
+<h3 id="search-header"><a class="heading-anchor" href="#search-header"><span></span></a>Search header</h3>
+<p>What we call header here is the small bar under the search input.</p>
+<h4 id="assets-algolia_sort_orders-js-liquid"><a class="heading-anchor" href="#assets-algolia_sort_orders-js-liquid"><span></span></a>assets/algolia_sort_orders.js.liquid</h4>
+<p>Uses the app configuration and prepares the sort orders in a format expected by <code>instantsearch.js</code>&apos;s <a href="https://community.algolia.com/instantsearch.js/documentation/#sortbyselector">sortBySelector</a>.</p>
+<h4 id="snippet-algolia_instant_search_stats-hogan-liquid"><a class="heading-anchor" href="#snippet-algolia_instant_search_stats-hogan-liquid"><span></span></a>snippet/algolia_instant_search_stats.hogan.liquid</h4>
+<p>Template used with the <a href="https://community.algolia.com/instantsearch.js/documentation/#stats"><code>stats</code> widget</a>.</p>
+<pre><code class="hljs javascript">{
+  cssClasses,       <span class="hljs-comment">// CSS classes used with the stats widget</span>
+  hasNoResults,
+  hasOneResult,
+  hasManyResults,
+  helpers,
+  hitsPerPage,      <span class="hljs-comment">// Number of results per page</span>
+  nbHits,           <span class="hljs-comment">// Total number of results</span>
+  nbPages,          <span class="hljs-comment">// Total number of pages</span>
+  page,             <span class="hljs-comment">// Current page</span>
+  processingTimeMS,
+  processingTimeS,
+  query,            <span class="hljs-comment">// Current query</span>
+  start,            <span class="hljs-comment">// Position of the first result of the page</span>
+  end               <span class="hljs-comment">// Position of the last result of the page</span>
+}</code></pre>
+
+<h3 id="filtering"><a class="heading-anchor" href="#filtering"><span></span></a>Filtering</h3>
+<h4 id="assets-algolia_facets-js-liquid"><a class="heading-anchor" href="#assets-algolia_facets-js-liquid"><span></span></a>assets/algolia_facets.js.liquid</h4>
+<p>Uses the app configuration and prepares the sort orders in a format expected by <code>instantsearch.js</code>&apos;s <a href="https://community.algolia.com/instantsearch.js/documentation/#filters">faceting widgets</a>.</p>
+<h4 id="snippet-algolia_instant_search_facet_item-hogan-liquid"><a class="heading-anchor" href="#snippet-algolia_instant_search_facet_item-hogan-liquid"><span></span></a>snippet/algolia_instant_search_facet_item.hogan.liquid</h4>
+<p>Template used to represent each line of a <a href="https://community.algolia.com/instantsearch.js/documentation/#refinementlist">refinementList</a> widget.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  count,                  <span class="hljs-comment">// Number of results matching this facet</span>
+  cssClasses,             <span class="hljs-comment">// CSS classes used with the widget</span>
+  helpers,
+  isExcluded,             <span class="hljs-comment">// Is this facet excluded? (not used in our front-end, allows to exclude search results)</span>
+  isRefined,              <span class="hljs-comment">// Is this facet used?</span>
+  name,                   <span class="hljs-comment">// Facet value</span>
+  type: {                 <span class="hljs-comment">// Convenience object to use within the template like so `[[# type.conjunctive ]]Only if the facet is conjunctive[[/ type.conjunctive ]]`</span>
+    &lt;TYPE_NAME&gt;: <span class="hljs-literal">true</span>
+  }
+  url                     <span class="hljs-comment">// Search URL after the usage of the facet</span>
+}</code></pre>
+
+<h4 id="snippet-algolia_instant_search_current_refined_values_item-hogan-liquid"><a class="heading-anchor" href="#snippet-algolia_instant_search_current_refined_values_item-hogan-liquid"><span></span></a>snippet/algolia_instant_search_current_refined_values_item.hogan.liquid</h4>
+<p>Template used to represent each line of a <a href="https://community.algolia.com/instantsearch.js/documentation/#currentrefinedvalues">currentRefinedValues</a> widget.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  attributeName,        <span class="hljs-comment">// Facet attribute</span>
+  count,                <span class="hljs-comment">// Amount of results matching this facet</span>
+  cssClasses,           <span class="hljs-comment">// CSS classes used by the widget</span>
+  exhaustive,           <span class="hljs-comment">// Is the count exhaustive</span>
+  helpers,
+  label,                <span class="hljs-comment">// Facet name (title used in the facet header)</span>
+  name,                 <span class="hljs-comment">// Facet value</span>
+  type                  <span class="hljs-comment">// Type of facet: one of [&apos;facet&apos;, &apos;exclude&apos;, &apos;disjunctive&apos;, &apos;hierarchical&apos;, &apos;numeric&apos;, &apos;tag&apos;]</span>
+}</code></pre>
+
+<h3 id="results-templates"><a class="heading-anchor" href="#results-templates"><span></span></a>Results templates</h3>
+<h4 id="snippet-algolia_instant_search_product-hogan-liquid"><a class="heading-anchor" href="#snippet-algolia_instant_search_product-hogan-liquid"><span></span></a>snippet/algolia_instant_search_product.hogan.liquid</h4>
+<p>Product&apos;s entry template. It receives the <a href="/index-schema.html#products">Algolia response record</a>.
+It&apos;s the record with a few extra attributes.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  <span class="hljs-comment">// ... product attributes</span>
+  can_order,                  <span class="hljs-comment">// Can be added to cart</span>
+  helpers,
+  <span class="hljs-comment">// Algolia search result attributes</span>
+  <span class="hljs-comment">// See https://www.algolia.com/doc/api-client/php/search#sample</span>
+  _highlightResult,           <span class="hljs-comment">// For all attributes in the attributesToHighlight setting of the index</span>
+  _snippetResult              <span class="hljs-comment">// For all attributes in the attributesToSnippet setting of the index</span>
+}</code></pre>
+
+<h4 id="snippet-algolia_instant_search_no_result-hogan-liquid"><a class="heading-anchor" href="#snippet-algolia_instant_search_no_result-hogan-liquid"><span></span></a>snippet/algolia_instant_search_no_result.hogan.liquid</h4>
+<p>Template used in case of no result.</p>
+<p><strong>Passed object:</strong></p>
+<pre><code class="hljs javascript">{
+  helpers,
+  query         <span class="hljs-comment">// Query used for the search</span>
+}</code></pre>
                 </div>
             </div>
 
@@ -124,7 +259,7 @@
                 <!--
                   FIXME open-source
                 <li><a href="https://github.com/algolia/algoliasearch-shopify/edit/master/docs/src/instant_search.md" target="_blank"><i class="fi-pencil"></i> <span>Edit this Page</span></a></li>
-                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BSearch page%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
+                <li><a href="https://github.com/algolia/algoliasearch-shopify/issues/new?title=%5BInstant search page%5D%20ISSUE%20NAME%20HERE" target="_blank"><i class="fi-social-github"></i> <span>Report a Bug</span></a></li>
                 -->
                 <li><a href="http://stackoverflow.com/questions/tagged/algolia+shopify" target="_blank"><i class="fi-comment"></i> <span>Get Help</span></a></li>
             </ul>
@@ -147,6 +282,7 @@
           <li ><a href="template-engines.html">Template engines</a></li>
           <li ><a href="hogan-helpers.html">Helpers</a></li>
           <li ><a href="autocomplete.html">Autocomplete</a></li>
+          <li class="active"><a href="instant_search.html">Instant search page</a></li>
 
           <li class="menu-text">Other</li>
           <li ><a href="frequently-asked-questions.html">FAQ</a></li>

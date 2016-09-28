@@ -27,7 +27,7 @@
     <meta name="description" content="Customizing the auto-completion menu">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="css/app.css?v=1474650517269">
+    <link rel="stylesheet" href="css/app.css?v=1475056314479">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
 
@@ -117,17 +117,27 @@
             <div class="row">
                 <div class="large-12 columns" id="content">
                     <p>The autocomplete aims to be able to integrate itself in as much themes as possible.<br>If you have an issue with it, please contact us first at <a href="mailto:support+shopify@algolia.com">support+shopify@algolia.com</a>. so that we can check if we wouldn&apos;t be able to fix this on our end.</p>
-<p>However, if everything is working fine but you&apos;re looking to change the default behaviour, you&apos;ll probably have to dig inside the code.<br>The autocomplete has a few associated files:</p>
+<h2 id="configuration"><a class="heading-anchor" href="#configuration"><span></span></a>Configuration</h2>
+<p>You have a few configuration options specific to the autocomplete in the <em>Configuration</em> tab of the app.</p>
+<p><img src="img/customize-autocomplete/configuration.png" alt="Configuration options"></p>
+<p>The <strong>debug mode</strong> will prevent the autocomplete from closing when you try to use the <em>Inspect element</em> feature of your browser.
+This is especially useful for styling.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors"><strong>CSS selector</strong></a> is the selector used to target the inputs you&apos;ll want to have the search autocomplete on.
+By default, we&apos;re trying to find any input in a form targetting the <code>/search</code> page.<br>If you want to target a search input that this selector didn&apos;t catch, you can either change it, or add the <code>algolia-shopify-autocomplete</code> class to the input in your theme.</p>
+<h2 id="files"><a class="heading-anchor" href="#files"><span></span></a>Files</h2>
+<p>If you&apos;re looking to change the default behaviour, and the configuration options didn&apos;t match your needs, you&apos;ll probably have to dig inside the code.<br>The autocomplete has a few associated files:</p>
 <pre><code class="hljs no-highlight">- assets/algolia_autocomplete.js.liquid
 - snippets/algolia_autocomplete.css.hogan.liquid
 - snippets/algolia_autocomplete.hogan.liquid
-- snippets/algolia_autocomplete_products_empty.hogan.liquid
-- snippets/algolia_autocomplete_footer.hogan.liquid
+
 - snippets/algolia_autocomplete_product.hogan.liquid
+- snippets/algolia_autocomplete_footer.hogan.liquid
+- snippets/algolia_autocomplete_products_empty.hogan.liquid
+
 - snippets/algolia_autocomplete_collection.hogan.liquid
 - snippets/algolia_autocomplete_collections_empty.hogan.liquid</code></pre>
 
-<h2 id="main-files"><a class="heading-anchor" href="#main-files"><span></span></a>Main files</h2>
+<h3 id="main-files"><a class="heading-anchor" href="#main-files"><span></span></a>Main files</h3>
 <h4 id="assets-algolia_autocomplete-js-liquid"><a class="heading-anchor" href="#assets-algolia_autocomplete-js-liquid"><span></span></a>assets/algolia_autocomplete.js.liquid</h4>
 <p>This file is the main file of the autocomplete: it contains all the front-end logic.<br>To learn more about the library we&apos;re using, you can check out two important resources:</p>
 <ul>
@@ -158,9 +168,10 @@ The reason it is also a <code>.hogan</code> template is to be able to pass some 
   withProducts      <span class="hljs-comment">// Display the products section?</span>
 }</code></pre>
 
-<h2 id="product-templates"><a class="heading-anchor" href="#product-templates"><span></span></a>Product templates</h2>
+<h3 id="product-templates"><a class="heading-anchor" href="#product-templates"><span></span></a>Product templates</h3>
 <h4 id="snippets-algolia_autocomplete_product-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete_product-hogan-liquid"><span></span></a>snippets/algolia_autocomplete_product.hogan.liquid</h4>
-<p>Product&apos;s entry template. It receives the Algolia response record. It&apos;s the record with a few extra attributes.</p>
+<p>Product&apos;s entry template. It receives the <a href="/index-schema.html#collections">Algolia response record</a>.
+It&apos;s the record with a few extra attributes.</p>
 <p><strong>Passed object:</strong></p>
 <pre><code class="hljs javascript">{
   <span class="hljs-comment">// ... product attributes</span>
@@ -191,10 +202,11 @@ By default, it is used to display a link to redirect to the search page with the
   query
 }</code></pre>
 
-<h2 id="collection-templates"><a class="heading-anchor" href="#collection-templates"><span></span></a>Collection templates</h2>
+<h3 id="collection-templates"><a class="heading-anchor" href="#collection-templates"><span></span></a>Collection templates</h3>
 <h4 id="snippets-algolia_autocomplete_collection-hogan-liquid"><a class="heading-anchor" href="#snippets-algolia_autocomplete_collection-hogan-liquid"><span></span></a>snippets/algolia_autocomplete_collection.hogan.liquid</h4>
 <p>This is a collection entry&apos;s template.
-Collection&apos;s entry template. It receives the Algolia response record. It&apos;s the record with a few extra attributes.</p>
+Collection&apos;s entry template. It receives the <a href="/index-schema.html#collections">Algolia response record</a>.
+It&apos;s the record with a few extra attributes.</p>
 <p><strong>Passed object:</strong></p>
 <pre><code class="hljs javascript">{
   <span class="hljs-comment">// ... collection attributes</span>
@@ -245,6 +257,7 @@ Collection&apos;s entry template. It receives the Algolia response record. It&ap
           <li ><a href="template-engines.html">Template engines</a></li>
           <li ><a href="hogan-helpers.html">Helpers</a></li>
           <li class="active"><a href="autocomplete.html">Autocomplete</a></li>
+          <li ><a href="instant_search.html">Instant search page</a></li>
 
           <li class="menu-text">Other</li>
           <li ><a href="frequently-asked-questions.html">FAQ</a></li>
